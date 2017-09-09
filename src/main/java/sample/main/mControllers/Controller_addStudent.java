@@ -1,5 +1,4 @@
 package sample.main.mControllers;
 
-public class Controller {
-
+public class Controller_addStudent {
 }

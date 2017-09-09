@@ -9,8 +9,8 @@ public final class PrimaryLevelStudent extends Student{
     private SimpleStringProperty __classGrade_level;
     private SimpleStringProperty __class_name;
     /**Student registration process*/
-    public PrimaryLevelStudent(String name , String surname , String address , String dateOFBirth , String townCity,
-                               String country , String town_city , String sex ,  String AccountNumber,String grade_level, String className  ) {
+    public PrimaryLevelStudent(String name , String surname , String address , String dateOFBirth ,
+                               String country , String town_city , String sex ,  String AccountNumber , String grade_level, String className  ) {
        set__name(name);
        set__surname(surname);
        set__address(address);
