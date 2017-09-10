@@ -47,4 +47,57 @@
 	-fx-border-width: 0.0;
 	-fx-effect: null;
 }
+#class_name {
+
+-fx-background-color: #006699;
+    -fx-padding: 2 4 4 4;
+    -fx-text-base-color: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+#class_name:hover {
+    -fx-background-color: #B2E1FF;
+    -fx-padding: 2 4 4 4;
+    -fx-text-base-color: #000000;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+#grade_level{
+
+-fx-background-color: #006699;
+    -fx-padding: 2 4 4 4;
+    -fx-text-base-color: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+
+#grade_level:hover {
+    -fx-background-color: #B2E1FF;
+    -fx-padding: 2 4 4 4;
+    -fx-text-base-color: #000000;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+/*.toolbar-button .arrow {
+    -fx-background-insets: 1 0 -1 0, 0;
+    -fx-background-color: -fx-mark-color, #FFFFFF;
+    -fx-padding: 0.25em; *//* 3 *//*
+    -fx-shape: "M 0 -3.5 v 7 l 4 -3.5 z";
+}
+
+.toolbar-button:hover .arrow {
+    -fx-background-insets: 1 0 -1 0, 0;
+    -fx-background-color: -fx-mark-highlight-color, -fx-mark-color;
+    -fx-padding: 0.25em; *//* 3 *//*
+    -fx-shape: "M 0 -3.5 v 7 l 4 -3.5 z";
+}
+
+.toolbar-button:openvertically .arrow {
+    -fx-padding: 0.166667em 0.333333em 0.166667em 0.333333em; *//* 2 4 2 4 *//*
+    -fx-shape: "M 0 0 h 7 l -3.5 4 z";
+}*/
+
 

@@ -12,6 +12,7 @@ public final class DBSettings {
 private static DBSettings dbSettings=null;
     private static Connection conn = null;
     private static Statement statement =null;
+    //private static final String
     private DBSettings(){
         createconnection();
         createDatabase();

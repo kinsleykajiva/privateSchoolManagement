@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.DropdownButton?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -18,7 +17,7 @@
     <children>
         <Label layoutX="19.0" layoutY="17.0" prefHeight="30.0" prefWidth="392.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Create A New Student" />
         <Separator layoutX="3.0" layoutY="55.0" prefHeight="4.0" prefWidth="1213.0" />
-      <VBox layoutX="42.0" layoutY="87.0" prefHeight="343.0" prefWidth="424.0">
+      <VBox layoutX="42.0" layoutY="87.0" prefHeight="457.0" prefWidth="780.0">
          <children>
               <Label prefHeight="30.0" prefWidth="300.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Enter student details">
                <VBox.margin>
@@ -27,12 +26,12 @@
             </Label>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                    <JFXTextField fx:id="txtName" labelFloat="true" maxWidth="370.0" minWidth="370.0" prefHeight="31.0" prefWidth="370.0" promptText="This is textfield" text="Name">
+                    <JFXTextField fx:id="txtName" labelFloat="true" maxWidth="370.0" minWidth="370.0" prefHeight="31.0" prefWidth="370.0" promptText="Name" text="">
                      <HBox.margin>
                         <Insets right="20.0" />
                      </HBox.margin>
                   </JFXTextField>
-                  <JFXTextField fx:id="txtSurname" labelFloat="true" maxWidth="370.0" minWidth="370.0" prefHeight="31.0" prefWidth="370.0" promptText="This is textfield" text="Suname">
+                  <JFXTextField fx:id="txtSurname" labelFloat="true" maxWidth="370.0" minWidth="370.0" prefHeight="31.0" prefWidth="370.0" promptText="Surname" text="">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
@@ -54,12 +53,12 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <JFXRadioButton text="Male">
+                        <JFXRadioButton fx:id="male" text="Male">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
                         </JFXRadioButton>
-                        <JFXRadioButton text="Female">
+                        <JFXRadioButton fx:id="female" text="Female">
                            <HBox.margin>
                               <Insets left="30.0" />
                            </HBox.margin>
@@ -72,7 +71,7 @@
                         <Insets />
                      </HBox.margin>
                   </HBox>
-                  <JFXTextField labelFloat="true" maxWidth="370.0" minWidth="370.0" prefHeight="31.0" prefWidth="370.0" promptText="This is textfield" text="Date of Birth">
+                  <JFXTextField fx:id="txtDob" labelFloat="true" maxWidth="370.0" minWidth="370.0" prefHeight="31.0" prefWidth="370.0" promptText="Date of Birth" text="">
                      <HBox.margin>
                         <Insets left="18.0" />
                      </HBox.margin>
@@ -84,7 +83,7 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="64.0" prefWidth="360.0">
                      <children>
                         <Label text="Grade">
                            <HBox.margin>
@@ -94,16 +93,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <DropdownButton>
-                            <items>
-                                <MenuItem fx:id="choice1" text="1" />
-                                <MenuItem text="2" />
-                                <MenuItem text="3" />
-                            </items>
-                            <selectedItem>
-                                <fx:reference source="choice1" />
-                            </selectedItem>
-                        </DropdownButton>
+                        <ComboBox fx:id="grade_level" prefWidth="150.0" />
                      </children>
                      <padding>
                         <Insets bottom="15.0" top="15.0" />
@@ -112,7 +102,7 @@
                         <Insets right="20.0" />
                      </HBox.margin>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="64.0" prefWidth="373.0">
                      <children>
                         <Label text="Class">
                            <HBox.margin>
@@ -122,16 +112,11 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <DropdownButton>
-                           <items>
-                              <MenuItem fx:id="choice11" text="Green" />
-                              <MenuItem text="Yellow" />
-                              <MenuItem text="White" />
-                           </items>
-                           <selectedItem>
-                              <fx:reference source="choice11" />
-                           </selectedItem>
-                        </DropdownButton>
+                        <ComboBox fx:id="class_name" prefHeight="25.0" prefWidth="175.0" styleClass="toolbar-button">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </ComboBox>
                      </children>
                      <padding>
                         <Insets bottom="15.0" top="15.0" />
@@ -144,12 +129,12 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <JFXTextField labelFloat="true" maxWidth="370.0" minWidth="370.0" prefHeight="31.0" prefWidth="370.0" promptText="This is textfield" text="Town">
+                  <JFXTextField fx:id="txttown_city" labelFloat="true" maxWidth="370.0" minWidth="370.0" prefHeight="31.0" prefWidth="370.0" promptText="Town" text="">
                      <HBox.margin>
                         <Insets right="20.0" />
                      </HBox.margin>
                   </JFXTextField>
-                  <JFXTextField labelFloat="true" maxWidth="370.0" minWidth="370.0" prefHeight="31.0" prefWidth="370.0" promptText="This is textfield" text="Country">
+                  <JFXTextField fx:id="txtcountry" labelFloat="true" maxWidth="370.0" minWidth="370.0" prefHeight="31.0" prefWidth="370.0" promptText="Country" text="">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
@@ -159,16 +144,16 @@
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </HBox>
-              <JFXTextArea labelFloat="true" maxWidth="410.0" minWidth="370.0" prefHeight="64.0" prefWidth="410.0" promptText="This is text area" text="Address&#10;">
+              <JFXTextArea fx:id="txtAddress" labelFloat="true" maxWidth="410.0" minWidth="370.0" prefHeight="88.0" prefWidth="410.0" promptText="Address" text="">
                <VBox.margin>
                   <Insets bottom="15.0" top="25.0" />
                </VBox.margin>
             </JFXTextArea>
          </children>
       </VBox>
-      <HBox layoutX="487.0" layoutY="491.0" prefHeight="100.0" prefWidth="294.0">
+      <HBox layoutX="491.0" layoutY="556.0" prefHeight="100.0" prefWidth="294.0">
          <children>
-                <JFXButton buttonType="RAISED" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #F39C12;" text="Clear All" textFill="WHITE">
+                <JFXButton fx:id="btnClear" buttonType="RAISED" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #F39C12;" text="Clear All" textFill="WHITE">
                     <font>
                         <Font name="Roboto Medium" size="14.0" />
                     </font>
@@ -176,7 +161,7 @@
                   <Insets left="20.0" right="20.0" />
                </HBox.margin>
                 </JFXButton>
-                <JFXButton buttonType="RAISED" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #00A65A;" text="Save Details" textFill="WHITE">
+                <JFXButton fx:id="btnSave" buttonType="RAISED" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #00A65A;" text="Save Details" textFill="WHITE">
                     <font>
                         <Font name="Roboto Medium" size="14.0" />
                     </font>

@@ -47,7 +47,7 @@
                   <FontAwesomeIconView fill="#a1aec4" glyphName="DASHBOARD" size="17.0" wrappingWidth="22.0" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnPricing" layoutX="10.0" layoutY="67.0" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Add Student" textFill="#a1aec4">
+            <JFXButton fx:id="btnAddStudent" layoutX="10.0" layoutY="67.0" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Add Student" textFill="#a1aec4">
                <font>
                   <Font name="Roboto Bold" size="14.0" />
                </font>
