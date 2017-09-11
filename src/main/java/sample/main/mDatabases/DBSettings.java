@@ -5,8 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import static sample.main.mUtility.mLocalStrings.DATABASE;
-import static sample.main.mUtility.mLocalStrings.DATABASE_FODLER;
+import static sample.main.mUtility.mLocalStrings.DATABASE_SETTINGS;
 
 public final class DBSettings {
 private static DBSettings dbSettings=null;
@@ -27,7 +26,7 @@ private static DBSettings dbSettings=null;
     }
     private void createconnection() {
         try {
-            conn = DriverManager.getConnection(DATABASE);
+            conn = DriverManager.getConnection(DATABASE_SETTINGS);
             statement = conn.createStatement();
         } catch (SQLException e) {
             System.out.println(e.getMessage());

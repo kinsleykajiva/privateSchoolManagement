@@ -2,12 +2,18 @@ package sample.main.mPojos;
 
 import javafx.beans.property.SimpleStringProperty;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import static sample.main.mUtility.mLocalMethods.getCurrentTime;
 import static sample.main.mUtility.mLocalMethods.registrationDate;
-
+/**This is my class using hibernate for data persistence*/
+@Entity
+@DiscriminatorValue("primarylevelstudent ")
 public final class PrimaryLevelStudent extends Student{
-    private SimpleStringProperty __classGrade_level;
-    private SimpleStringProperty __class_name;
+    private SimpleStringProperty __classGrade_level = new SimpleStringProperty();
+    private SimpleStringProperty __class_name = new SimpleStringProperty();
     /**Student registration process*/
     public PrimaryLevelStudent(String name , String surname , String address , String dateOFBirth ,
                                String country , String town_city , String sex ,  String AccountNumber , String grade_level, String className  ) {

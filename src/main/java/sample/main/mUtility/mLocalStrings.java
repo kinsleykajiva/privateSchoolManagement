@@ -9,7 +9,8 @@ public class mLocalStrings {
     public static final String APPDATA_MAIN_FOLDER = System.getenv("APPDATA") + "\\"+"privateSchoolManagementSystem";
     public static final String DATABASE_FODLER = APPDATA_MAIN_FOLDER + "\\localLog";
     /**create database file for the system to use to read and make writes.<br>This is to keep the settings of the system*/
-    public static final String DATABASE = DATABASE_FODLER + "\\log_pvtSMS.db";
+    public static final String DATABASE_SETTINGS = DATABASE_FODLER + "\\log_pvtSMS.db";
+    /**database to temporary storage*/
     public static final String DATABASE_RECORDS = DATABASE_FODLER + "\\records_pvtSMS.db";
     /**create log folder for the system to use to read and make writes to the log text files */
     public static final String FILE_LOGS_FOLDER = APPDATA_MAIN_FOLDER + "\\systemlogs";

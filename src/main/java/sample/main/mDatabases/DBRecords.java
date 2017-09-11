@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import static sample.main.mUtility.mLocalStrings.DATABASE;
 import static sample.main.mUtility.mLocalStrings.DATABASE_RECORDS;
 
 public final class DBRecords {

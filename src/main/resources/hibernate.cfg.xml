@@ -8,12 +8,16 @@
         <property name="format_sql">true</property>
         <property name="dialect">org.hibernate.dialect.SQLiteDialect</property>
         <property name="connection.driver_class">org.sqlite.JDBC</property>
-        <property name="connection.url">jdbc:sqlite:mydb.db</property>
+        <!--database connection has been set programmatically as the path is found in the user's AppData folder which will differ from a machine or computer.-->
+        <!--at run time the application will get the user's AppData location and make a reference to it .-->
+        <!--This will be done programmatically becuase i could not make  a variable reference form this xml file.-->
+       <!-- <property name="connection.url"></property>
         <property name="connection.username"></property>
-        <property name="connection.password"></property>
+        <property name="connection.password"></property>-->
 
         <property name="hibernate.hbm2ddl.auto">update</property>
-
+        <mapping class="sample.main.mPojos.Student"/>
+        <mapping class="sample.main.mPojos.SecondaryLevelStudent"/>
         <mapping class="sample.main.mPojos.PrimaryLevelStudent"/>
     </session-factory>
 </hibernate-configuration>

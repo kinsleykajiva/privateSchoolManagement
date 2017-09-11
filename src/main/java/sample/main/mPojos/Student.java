@@ -2,6 +2,9 @@ package sample.main.mPojos;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.StringProperty;
+
+import javax.persistence.*;
 
 import static sample.main.mUtility.mLocalMethods.getCurrentTime;
 import static sample.main.mUtility.mLocalMethods.localIDMaker;
@@ -10,30 +13,36 @@ import static sample.main.mUtility.mLocalMethods.registrationDate;
 /**
  * This defines a student
  * */
+@Entity
+@Table(name = "student101")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type",discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorValue(value = "student")
 public abstract class Student {
-    private   SimpleStringProperty __name;
-    private SimpleStringProperty __surname;
-    private SimpleStringProperty __address;
-    private SimpleStringProperty __dateOFBirth;
-    private SimpleStringProperty __town_city;
-    private SimpleStringProperty __country;
-    private SimpleStringProperty __sex;
-    private SimpleStringProperty __registrationNumber;
+    private SimpleStringProperty  __name = new SimpleStringProperty();
+    private SimpleStringProperty __surname = new SimpleStringProperty();
+    private SimpleStringProperty __address = new SimpleStringProperty();
+    private SimpleStringProperty __dateOFBirth = new SimpleStringProperty();
+    private SimpleStringProperty __town_city = new SimpleStringProperty();
+    private SimpleStringProperty __country = new SimpleStringProperty();
+    private SimpleStringProperty __sex = new SimpleStringProperty();
+    @Id
+    private SimpleStringProperty __registrationNumber = new SimpleStringProperty();
     private int  counter=0;
     /**Accounting Account number that this student has been assigned by the school accounting system<br>This value is <b>unique</b>*/
-    private SimpleStringProperty AccountNumber;
-    private SimpleStringProperty __registrationDate;
+    private SimpleStringProperty AccountNumber = new SimpleStringProperty();
+    private SimpleStringProperty __registrationDate = new SimpleStringProperty();
 
     public String get__name() {
         return __name.get();
     }
 
-    public SimpleStringProperty __nameProperty() {
+    public SimpleStringProperty  __nameProperty() {
         return __name;
     }
 
     public void set__name(String __name) {
-        this.__name.set(__name);
+        this.__name.setValue(__name);
     }
 
     public String get__surname() {
