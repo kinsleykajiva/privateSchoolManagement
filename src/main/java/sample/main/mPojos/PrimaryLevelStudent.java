@@ -12,11 +12,14 @@ import static sample.main.mUtility.mLocalMethods.registrationDate;
 @Entity
 @DiscriminatorValue("primarylevelstudent ")
 public final class PrimaryLevelStudent extends Student{
-    private SimpleStringProperty __classGrade_level = new SimpleStringProperty();
-    private SimpleStringProperty __class_name = new SimpleStringProperty();
+
+
+    private String __classGrade_level;
+    private String __class_name;
     /**Student registration process*/
     public PrimaryLevelStudent(String name , String surname , String address , String dateOFBirth ,
                                String country , String town_city , String sex ,  String AccountNumber , String grade_level, String className  ) {
+
        set__name(name);
        set__surname(surname);
        set__address(address);
@@ -25,31 +28,21 @@ public final class PrimaryLevelStudent extends Student{
        set__country(country);
        set__sex(sex);
        setAccountNumber(AccountNumber);
-       __classGrade_level.setValue(grade_level);
-       __class_name.setValue(className);
 
-    }
-    /**Student with basic data */
-    public PrimaryLevelStudent(String name ,String surname ,String registrationID) {
-        set__name(name);
-        set__surname(surname);
-        super.__registrationNumberProperty().setValue(registrationID);
+
+       __classGrade_level = grade_level;
+       __class_name = className;
 
     }
 
-    public String get__classGrade_level() {
-        return __classGrade_level.get();
-    }
-
-    public SimpleStringProperty __classGrade_levelProperty() {
+    public String get__classGrade_level () {
         return __classGrade_level;
     }
 
-    public String get__class_name() {
-        return __class_name.get();
-    }
-
-    public SimpleStringProperty __class_nameProperty() {
+    public String get__class_name () {
         return __class_name;
     }
+
+
+
 }

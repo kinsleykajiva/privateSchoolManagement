@@ -6,7 +6,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -19,165 +18,169 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="713.0" prefWidth="1219.0" stylesheets="@../styles/mainApplication..css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.main.mControllers.ViewStudents">
+<AnchorPane id="AnchorPane" minWidth="-Infinity" prefHeight="713.0" prefWidth="1219.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../styles/mainApplication..css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.main.mControllers.ViewStudents">
     <children>
         <Label layoutX="19.0" layoutY="17.0" prefHeight="30.0" prefWidth="392.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="View All Students" />
         <Separator layoutX="3.0" layoutY="55.0" prefHeight="4.0" prefWidth="1213.0" />
-      <AnchorPane fx:id="containerStdDetaiails" layoutX="19.0" layoutY="71.0" prefHeight="477.0" prefWidth="546.0">
+      <HBox fx:id="mainSceenHolder" layoutX="21.0" layoutY="80.0">
          <children>
-            <VBox prefHeight="477.0" prefWidth="558.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="containerStdDetails" prefHeight="477.0" prefWidth="546.0">
                <children>
-                  <HBox prefHeight="46.0" prefWidth="562.0">
+                  <VBox prefHeight="477.0" prefWidth="558.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <HBox prefHeight="37.0" prefWidth="562.0">
+                        <HBox prefHeight="46.0" prefWidth="562.0">
                            <children>
-                              <Label text="Name :">
-                                 <HBox.margin>
-                                    <Insets top="7.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <TextField fx:id="stdName" prefHeight="27.0" prefWidth="200.0" promptText="Enter name...">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </TextField>
+                              <HBox prefHeight="37.0" prefWidth="562.0">
+                                 <children>
+                                    <Label text="Name :">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="stdName" prefHeight="27.0" prefWidth="200.0" promptText="Enter name...">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="37.0" prefWidth="562.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="89.0" text="Surname:">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="stdSurname" prefHeight="30.0" prefWidth="210.0" promptText="Enter surname...">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </HBox>
                            </children>
                         </HBox>
-                        <HBox prefHeight="37.0" prefWidth="562.0">
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="562.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="89.0" text="Surname:">
-                                 <HBox.margin>
-                                    <Insets top="7.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <TextField fx:id="stdSurname" prefHeight="30.0" prefWidth="210.0" promptText="Enter surname...">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </TextField>
+                              <HBox prefHeight="37.0" prefWidth="562.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="49.0" text="Sex :">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <ComboBox fx:id="stdSex" prefHeight="27.0" prefWidth="198.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="37.0" prefWidth="562.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="83.0" text="Date of Birth :">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="stdDOB" prefHeight="27.0" prefWidth="200.0" promptText="dd/mm/yyyy">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </HBox>
                            </children>
                         </HBox>
+                        <HBox layoutX="10.0" layoutY="56.0" prefHeight="46.0" prefWidth="562.0">
+                           <children>
+                              <HBox prefHeight="37.0" prefWidth="562.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="49.0" text="Grade">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <ComboBox fx:id="stdGradeLevel" prefHeight="27.0" prefWidth="198.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="37.0" prefWidth="562.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="83.0" text="Class :">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <ComboBox fx:id="stdClassName" prefHeight="27.0" prefWidth="198.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="102.0" prefHeight="46.0" prefWidth="562.0">
+                           <children>
+                              <HBox prefHeight="37.0" prefWidth="562.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="49.0" text="Town">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="stdTown" prefHeight="27.0" prefWidth="200.0" promptText="Enter Town...">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="37.0" prefWidth="562.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="83.0" text="Country">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <ComboBox fx:id="stdCountry" prefHeight="27.0" prefWidth="198.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="51.0" text="Address" />
+                              <TextArea fx:id="stdAddress" prefHeight="100.0" prefWidth="400.0" promptText="Address" />
+                           </children>
+                        </HBox>
+                        <Button fx:id="btnSaveChanges" mnemonicParsing="false" prefHeight="27.0" prefWidth="150.0" styleClass="btn" text="Save Changes">
+                           <VBox.margin>
+                              <Insets left="50.0" top="20.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="SAVE" size="13.0" wrappingWidth="13.142857551574707" />
+                           </graphic>
+                        </Button>
                      </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="562.0">
-                     <children>
-                        <HBox prefHeight="37.0" prefWidth="562.0">
-                           <children>
-                              <Label prefHeight="17.0" prefWidth="49.0" text="Sex :">
-                                 <HBox.margin>
-                                    <Insets top="7.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <ComboBox fx:id="stdSex" prefHeight="27.0" prefWidth="198.0" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="37.0" prefWidth="562.0">
-                           <children>
-                              <Label prefHeight="17.0" prefWidth="83.0" text="Date of Birth :">
-                                 <HBox.margin>
-                                    <Insets top="7.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <TextField fx:id="stdDOB" prefHeight="27.0" prefWidth="200.0" promptText="dd/mm/yyyy">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </TextField>
-                           </children>
-                        </HBox>
-                     </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="56.0" prefHeight="46.0" prefWidth="562.0">
-                     <children>
-                        <HBox prefHeight="37.0" prefWidth="562.0">
-                           <children>
-                              <Label prefHeight="17.0" prefWidth="49.0" text="Grade">
-                                 <HBox.margin>
-                                    <Insets top="7.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <ComboBox fx:id="stdGradeLevel" prefHeight="27.0" prefWidth="198.0" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="37.0" prefWidth="562.0">
-                           <children>
-                              <Label prefHeight="17.0" prefWidth="83.0" text="Class :">
-                                 <HBox.margin>
-                                    <Insets top="7.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <ComboBox fx:id="stdClassName" prefHeight="27.0" prefWidth="198.0" />
-                           </children>
-                        </HBox>
-                     </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="102.0" prefHeight="46.0" prefWidth="562.0">
-                     <children>
-                        <HBox prefHeight="37.0" prefWidth="562.0">
-                           <children>
-                              <Label prefHeight="17.0" prefWidth="49.0" text="Town">
-                                 <HBox.margin>
-                                    <Insets top="7.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <TextField fx:id="stdTown" prefHeight="27.0" prefWidth="200.0" promptText="Enter Town...">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </TextField>
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="37.0" prefWidth="562.0">
-                           <children>
-                              <Label prefHeight="17.0" prefWidth="83.0" text="Country">
-                                 <HBox.margin>
-                                    <Insets top="7.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <ComboBox fx:id="stdCountry" prefHeight="27.0" prefWidth="198.0" />
-                           </children>
-                        </HBox>
-                     </children>
-                  </HBox>
-                  <HBox>
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="51.0" text="Address" />
-                        <TextArea fx:id="stdAddress" prefHeight="100.0" prefWidth="400.0" promptText="Address" />
-                     </children>
-                  </HBox>
-                  <Button fx:id="btnSaveChanges" mnemonicParsing="false" prefHeight="27.0" prefWidth="150.0" styleClass="btn" text="Save Changes">
-                     <VBox.margin>
-                        <Insets left="50.0" top="20.0" />
-                     </VBox.margin>
-                     <graphic>
-                        <FontAwesomeIconView fill="WHITE" glyphName="SAVE" size="13.0" wrappingWidth="13.142857551574707" />
-                     </graphic>
-                  </Button>
+                  </VBox>
                </children>
-            </VBox>
-         </children>
-      </AnchorPane>
-      <Separator layoutX="578.0" layoutY="60.0" orientation="VERTICAL" prefHeight="637.0" prefWidth="7.0" />
-      <AnchorPane fx:id="containerStudentDetailsTable" layoutX="584.0" layoutY="60.0" prefHeight="637.0" prefWidth="632.0">
-         <children>
-            <ScrollPane>
-               <content>
-                  <TableView fx:id="stdDataTable" editable="false" prefHeight="400.0" prefWidth="876.0">
+            </AnchorPane>
+            <Separator orientation="VERTICAL" prefHeight="637.0" prefWidth="7.0">
+               <HBox.margin>
+                  <Insets left="10.0" right="5.0" />
+               </HBox.margin>
+            </Separator>
+            <AnchorPane fx:id="containerStudentDetailsTable" minWidth="-Infinity" prefHeight="637.0" prefWidth="618.0">
+               <children>
+                  <TableView fx:id="stdDataTable" editable="false" minHeight="-Infinity" prefHeight="637.0" prefWidth="618.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <columns>
                         <TableColumn fx:id="ColumnVendorBudget" prefWidth="30.0" text="Box">
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="28.0" opacity="0.49" pickOnBounds="true" smooth="false">
                                  <image>
-                                    <Image url="@../../../../../../Documents/gitFx/ProjectManagement-master/AsignariProiecte/src/main/resources/img/menu/tabel.png" />
+                                    <Image url="@../drawables/tabel.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -186,7 +189,7 @@
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="28.0" opacity="0.49" pickOnBounds="true" smooth="false">
                                  <image>
-                                    <Image url="@../../../../../../Documents/gitFx/ProjectManagement-master/AsignariProiecte/src/main/resources/img/menu/tabel.png" />
+                                    <Image url="@../drawables/tabel.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -199,24 +202,31 @@
                         <TableColumn fx:id="ColumnJobType" prefWidth="70.0" text="Class" />
                         <TableColumn fx:id="ColumnClient" prefWidth="132.0" text="Town" />
                         <TableColumn fx:id="ColumnCS" prefWidth="87.0" text="Country" />
-                        <TableColumn fx:id="ColumnFieldStart" prefWidth="73.0" text="Fees" />
+                        <TableColumn fx:id="ColumnFieldStart" minWidth="0.0" prefWidth="0.0" text="Fees" />
                      </columns>
                   </TableView>
-               </content>
-            </ScrollPane>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </AnchorPane>
          </children>
-      </AnchorPane>
-      <HBox layoutX="1206.0" layoutY="23.0" prefHeight="27.0" prefWidth="200.0">
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </HBox>
+      <HBox layoutX="1005.0" layoutY="19.0" prefHeight="27.0" prefWidth="200.0">
          <children>
             <Button fx:id="btnEditRecord" mnemonicParsing="false" prefHeight="17.0" prefWidth="65.0" styleClass="btn" text="Edit" />
          </children>
       </HBox>
-      <ImageView fx:id="loadinggif" fitHeight="30.0" fitWidth="111.0" layoutX="237.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+       
+      <ProgressBar fx:id="ProgressLoading" layoutX="7.0" layoutY="63.0" minHeight="-Infinity" prefHeight="17.0" prefWidth="1213.0" progress="0.0" />
+      <ImageView fx:id="ImageLoading" fitHeight="34.0" fitWidth="36.0" layoutX="214.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../drawables/loading.GIF" />
+            <Image url="@../drawables/loading_circular.GIF" />
          </image>
       </ImageView>
-      <ProgressBar fx:id="ProgressLoading" layoutX="14.0" layoutY="51.0" minHeight="-Infinity" prefHeight="9.0" prefWidth="1298.0" progress="0.0" />
 
     </children>
 

@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -28,6 +29,7 @@ public class StageManager {
             Parent  parent = FXMLLoader.load(getClass().getResource(viewController.getFxmlFile()));
             stage.setTitle(getApplicationName());
             stage.centerOnScreen();
+            stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(new Scene(parent, APPLICATION_MINIMUM_WIDTH, APPLICATION_MINIMUM_HIGHT));
             stage.resizableProperty().setValue(Boolean.TRUE);
             stage.show();
