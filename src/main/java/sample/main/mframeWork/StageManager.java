@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -13,7 +14,9 @@ import static sample.main.mUtility.mLocalStrings.APPLICATION_MINIMUM_WIDTH;
 import static sample.main.mUtility.mLocalStrings.getApplicationName;
 
 public class StageManager {
-    private final Stage stage;
+    private static  Stage stage;
+    private static AnchorPane pane;
+
 
     public StageManager (Stage stage) {
         this.stage = stage;
@@ -35,6 +38,12 @@ public class StageManager {
         }
 
     }
-
-
+    public static void setRoot(Parent root) {StageManager.stage.getScene().setRoot(root);}
+    public static void setPane(AnchorPane pane) {StageManager.pane=pane;}
+    public static void setPaneFragment(Parent root) {
+        StageManager.pane.getChildren().setAll(root);
+    }
+    public static Stage getStage () {
+        return stage;
+    }
 }

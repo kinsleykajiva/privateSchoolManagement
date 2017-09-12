@@ -55,12 +55,12 @@
                   <MaterialDesignIconView fill="#a1aec4" glyphName="PLUS" size="24.0" wrappingWidth="23.99997329711914" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnContacts" layoutX="10.0" layoutY="109.0" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Contacts" textFill="#a1aec4" visible="false">
+            <JFXButton fx:id="btnViewStudents" layoutX="10.0" layoutY="109.0" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Students" textFill="#a1aec4">
                <font>
                   <Font name="Roboto Bold" size="14.0" />
                </font>
                <graphic>
-                  <FontAwesomeIconView fill="#a1aec4" glyphName="GROUP" size="17.0" wrappingWidth="43.0" />
+                  <FontAwesomeIconView fill="#a1aec4" glyphName="GROUP" size="17.0" wrappingWidth="23.0" />
                </graphic>
             </JFXButton>
             <JFXButton fx:id="btnWidgets" layoutX="10.0" layoutY="151.0" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Widgets" textFill="#a1aec4" visible="false">

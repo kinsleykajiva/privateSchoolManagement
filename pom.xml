@@ -133,6 +133,13 @@
 
     <dependencies>
 
+        <!-- https://mvnrepository.com/artifact/org.jrebirth.af/sample -->
+        <dependency>
+            <groupId>org.jrebirth.af</groupId>
+            <artifactId>sample</artifactId>
+            <version>8.5.0</version>
+        </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-csv -->
         <dependency>
