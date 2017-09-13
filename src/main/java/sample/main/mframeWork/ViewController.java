@@ -12,7 +12,7 @@ public enum ViewController {
 
         @Override
         String getFxmlFile () {
-            return LAY_OUT + "main.fxml";
+            return LAY_OUT + "default_view.fxml";
         }
     },
     HOME_VIEW {
@@ -23,7 +23,7 @@ public enum ViewController {
 
         @Override
         String getFxmlFile () {
-            return LAY_OUT + "home.fxml";
+            return LAY_OUT + "main.fxml";
         }
     },
     ADD_STUDENT {
@@ -35,6 +35,17 @@ public enum ViewController {
         @Override
         String getFxmlFile () {
             return LAY_OUT + "add_student.fxml";
+        }
+    },
+    STUDENT_DATA{
+        @Override
+        String getTitle () {
+            return "Student Data";
+        }
+
+        @Override
+        String getFxmlFile () {
+            return LAY_OUT + "student_data.fxml";
         }
     },
     VIEW_STUDENTS {

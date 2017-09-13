@@ -14,6 +14,8 @@ import sample.main.mPojos.SecondaryLevelStudent;
 import sample.main.mPojos.Student;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import static sample.main.mframeWork.Shared.IsPrimaryStudents;
@@ -43,10 +45,10 @@ public class ViewStudents implements Initializable {
     private TextArea stdAddress;
 
     @FXML
-    private Button btnSaveChanges;
+    private Button btnSaveChanges, btnEditRecord;
 
     @FXML
-    private TableView<Student> stdDataTable;
+    private TableView stdDataTable;
 
     @FXML
     private TableColumn<Student, String> ColumnVendorBudget;
@@ -81,15 +83,14 @@ public class ViewStudents implements Initializable {
     @FXML
     private TableColumn<Student, String> ColumnFieldStart;
 
-    @FXML
-    private Button btnEditRecord;
+
 
     @FXML
     private ProgressBar ProgressLoading;
 
     @FXML
     private ImageView ImageLoading;
-    private ObservableList<Student> students_list = FXCollections.observableArrayList();
+    private ObservableList<Student> students_list;
     ;
 
     @Override
@@ -102,26 +103,45 @@ public class ViewStudents implements Initializable {
         containerStdDetails.setVisible(false);
         containerStdDetails.managedProperty().bind(containerStdDetails.visibleProperty());*/
 
-        mainSceenHolder.getChildren().remove(containerStdDetails);
-        ColumnVendorBudget.setCellValueFactory(new PropertyValueFactory<>(""));
-        ColumnStatus.setCellValueFactory(new PropertyValueFactory<>(""));
-        ColumnAssignDate.setCellValueFactory(new PropertyValueFactory<>(""));
-        ColumnClient.setCellValueFactory(new PropertyValueFactory<>(""));
-        ColumnDP_RO.setCellValueFactory(new PropertyValueFactory<>(""));
-        ColumnCS.setCellValueFactory(new PropertyValueFactory<>(""));
-        ColumnDP_NA.setCellValueFactory(new PropertyValueFactory<>(""));
-        ColumnJobNumber.setCellValueFactory(new PropertyValueFactory<>(""));
-        ColumnJobTitle.setCellValueFactory(new PropertyValueFactory<>(""));
-        ColumnJobType.setCellValueFactory(new PropertyValueFactory<>(""));
-        ColumnFieldStart.setCellValueFactory(new PropertyValueFactory<>(""));
+        //mainSceenHolder.getChildren().remove(containerStdDetails);
+        ColumnVendorBudget.setCellValueFactory(new PropertyValueFactory<>("__name"));
+        ColumnStatus.setCellValueFactory(new PropertyValueFactory<>("__name"));
+        ColumnAssignDate.setCellValueFactory(new PropertyValueFactory<>("__name"));
+        ColumnClient.setCellValueFactory(new PropertyValueFactory<>("__name"));
+        ColumnDP_RO.setCellValueFactory(new PropertyValueFactory<>("__name"));
+        ColumnCS.setCellValueFactory(new PropertyValueFactory<>("__name"));
+        ColumnDP_NA.setCellValueFactory(new PropertyValueFactory<>("__name"));
+        ColumnJobNumber.setCellValueFactory(new PropertyValueFactory<>("__name"));
+        ColumnJobTitle.setCellValueFactory(new PropertyValueFactory<>("__name"));
+        ColumnJobType.setCellValueFactory(new PropertyValueFactory<>("__name"));
+        ColumnFieldStart.setCellValueFactory(new PropertyValueFactory<>("__name"));
+        List<PrimaryLevelStudent> primaryLevelStudents = new ArrayList<>();
+
         for (int i = 0; i < 20; i++) {
-            students_list.add(IsPrimaryStudents ?
+            primaryLevelStudents.add(
                     new PrimaryLevelStudent("name " + i, "surname " + i, "addresss " + i,
                             "bob", "zw", "male", "male", "e0002",
-                            "1", "green") : new SecondaryLevelStudent());
-        }
 
+                            "1", "green"));
+        }
+        students_list = FXCollections.observableArrayList(primaryLevelStudents);
+        System.out.print(students_list.get(0).get__registrationNumber());
+        System.out.print(students_list.get(0).get__country());
         stdDataTable.setItems(students_list);
+        final boolean[] editselect = {false};
+        btnEditRecord.setOnAction(ev->{
+            if(! editselect[0]) {
+                editselect[0] =true;
+                //
+                mainSceenHolder.getChildren().get(0).setVisible(false);
+                mainSceenHolder.getChildren().remove(containerStdDetails);
+            }else{
+                editselect[0] =false;
+                mainSceenHolder.getChildren().get(0).setVisible(true);
+                mainSceenHolder.getChildren().add(containerStdDetails);
+            }
+
+        });
 
     }
 }

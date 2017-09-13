@@ -28,6 +28,12 @@ public class ScreenController {
                     viewController = ViewController.VIEW_STUDENTS;
                 } catch (IOException e) {e.printStackTrace();}
                 break;
+            case STUDENT_DATA:
+                try {
+                    StageManager.setPaneFragment(FXMLLoader.load(ScreenController.class.getResource(ViewController.STUDENT_DATA.getFxmlFile())));
+                    viewController = ViewController.STUDENT_DATA;
+                } catch (IOException e) {e.printStackTrace();}
+                break;
 
                 default:
                     break;
