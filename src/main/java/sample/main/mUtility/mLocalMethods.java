@@ -7,9 +7,9 @@ import java.io.File;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 
+import static java.lang.Thread.sleep;
 import static sample.main.mUtility.mLocalStrings.APPDATA_MAIN_FOLDER;
 import static sample.main.mUtility.mLocalStrings.DATABASE_FODLER;
 import static sample.main.mUtility.mLocalStrings.FILE_LOGS_FOLDER;
@@ -105,6 +105,10 @@ public class mLocalMethods {
                 LocalDateTime.now().getMonth()+"-"+
                 LocalDateTime.now().getDayOfMonth();
     }
+
+    /**
+     * will make the current stage to a larger screen if not yet set to full screeen
+     */
     public static void setLargeScreen() {
         Screen screen = Screen.getPrimary();
         Rectangle2D bounds = screen.getVisualBounds();
@@ -113,9 +117,50 @@ public class mLocalMethods {
         getStage().setWidth(bounds.getWidth());
         getStage().setHeight(bounds.getHeight());
     }
+
+    /**
+     * Re-suggest a list of reg numbers
+     * @return list of newer six registration number
+     */
+    public static List<String>  reSuggestRegNumbers(){
+        List<String> listOfRegNumbers = new ArrayList<>();
+        Set<String> check = new HashSet<>();
+        for (int i = 0; i < 6 ; i++) {
+            listOfRegNumbers.add(localIDMaker());
+        }
+        check.addAll(listOfRegNumbers);
+        return listOfRegNumbers;
+    }
+
+    /**
+     * Will get a list of countries in order from A - Z<br>
+     *  if passed parameter is false then a Current country is returned so you will have to get at index 0(Zero)
+     * @param isUnSelected
+     * @return List of String with country names
+     */
+    public static List<String> getCountriesList(boolean isUnSelected){
+         List<String> countriesList = new ArrayList<>();
+         if(isUnSelected) {
+             String[] locales = Locale.getISOCountries();
+             for (String countryCode : locales) {
+                 Locale obj = new Locale("", countryCode);
+                 countriesList.add(obj.getDisplayCountry(Locale.ENGLISH));
+             }
+             Collections.sort(countriesList);
+         }else{
+             countriesList.add(""+Locale.getDefault().getDisplayCountry());
+         }
+
+         return countriesList;
+
+    }
+
     public static void main(String[] sss) {
 
-        createAppDataFolder();
+       // createAppDataFolder();
+
+
+        System.out.print(reSuggestRegNumbers());
 
     }
 

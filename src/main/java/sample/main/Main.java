@@ -40,10 +40,7 @@ public class Main extends Application {
         primaryStage.show();*/
         stageManager.switchScene(ViewController.DEFAULT_VIEW);
 
-        PrimaryLevelStudent primaryStudent = new PrimaryLevelStudent(
-                "kinsley","kajiva","1989 Mainway Meadows , Watterfalls,Harare"
-                ,"93/08/07" , "Zimbabwe","Harare","Male","EI053","grade 2","green"
-        );
+
 
         /*Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();

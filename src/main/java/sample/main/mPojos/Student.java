@@ -19,6 +19,7 @@ import static sample.main.mUtility.mLocalMethods.registrationDate;
 @DiscriminatorColumn(name = "type",discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue(value = "student")
 public abstract class Student {
+    private boolean selected;
     private String  __name ;
     private String __surname;
     private String __address ;
@@ -32,6 +33,14 @@ public abstract class Student {
     /**Accounting Account number that this student has been assigned by the school accounting system<br>This value is <b>unique</b>*/
     private String AccountNumber ;
     private String __registrationDate ;
+
+    public boolean isSelected () {
+        return selected;
+    }
+
+    public void setSelected (boolean selected) {
+        this.selected = selected;
+    }
 
     public String get__name () {
         return __name;

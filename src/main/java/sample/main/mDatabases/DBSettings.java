@@ -1,21 +1,28 @@
 package sample.main.mDatabases;
 
+import org.dizitart.no2.Document;
+import org.dizitart.no2.Nitrite;
+import org.dizitart.no2.NitriteCollection;
+
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.IntStream;
 
+import static sample.main.mUtility.mLocalMethods.getCountriesList;
 import static sample.main.mUtility.mLocalStrings.DATABASE_SETTINGS;
 
 public final class DBSettings {
 private static DBSettings dbSettings=null;
-    private static Connection conn = null;
-    private static Statement statement =null;
-    //private static final String
+    private static  Nitrite db=null;
+    private static final  String DOCUMENT_CUSTOMS ="aboutSystem";
     private DBSettings(){
         createconnection();
-        createDatabase();
-        createTable();
+
     }
 
     public static DBSettings getInstance() {
@@ -25,20 +32,35 @@ private static DBSettings dbSettings=null;
         return dbSettings;
     }
     private void createconnection() {
-        try {
-            conn = DriverManager.getConnection(DATABASE_SETTINGS);
-            statement = conn.createStatement();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+        db = Nitrite.builder()
+                .compressed()
+                .filePath(DATABASE_SETTINGS)
+                .openOrCreate("user", "password");
+
+    }
+
+    public void saveDefaults(ArrayList<Integer> gradeLevels ,ArrayList<String> classNames,String countryName) {
+
+        NitriteCollection collection = db.getCollection(DOCUMENT_CUSTOMS);
+        if(gradeLevels.isEmpty()){
+            IntStream.range(1,8).forEach(gradeLevels::add); // will add from 1-7
         }
+        if(classNames.isEmpty()){
+            classNames.add("A" );
+            classNames.add("B");
+            classNames.add("C");
+            classNames.add("D");
+        }
+        if(countryName.isEmpty()){
+            countryName = getCountriesList(false).get(0);
+        }
+
+        ArrayList<Integer> grades = new ArrayList<>(Arrays.asList());
+        Document customeSchoolSettings = Document.createDocument("gradeLevels",gradeLevels)
+                .put("classNames",classNames)
+                .put("country",countryName);
+        collection.insert(customeSchoolSettings);
     }
 
-    private void createDatabase() {
-        
-    }
 
-    private void createTable() {
-        
-        
-    }
 }

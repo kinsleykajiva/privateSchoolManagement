@@ -17,10 +17,11 @@ public final class PrimaryLevelStudent extends Student{
     private String __classGrade_level;
     private String __class_name;
     /**Student registration process*/
-    public PrimaryLevelStudent(String name , String surname , String address , String dateOFBirth ,
+    public PrimaryLevelStudent(boolean selected,String name , String surname , String address , String dateOFBirth ,
                                String country , String town_city , String sex ,  String AccountNumber , String grade_level, String className  ) {
 
        set__name(name);
+       setSelected(selected);
        set__surname(surname);
        set__address(address);
        set__dateOFBirth(dateOFBirth);
