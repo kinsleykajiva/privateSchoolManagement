@@ -4,6 +4,7 @@ import javafx.beans.InvalidationListener;
 import javafx.beans.binding.ListBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
@@ -12,8 +13,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import sample.main.animation.FadeInLeftTransition;
+import sample.main.animation.FadeInUpTransition;
 import sample.main.mPojos.PrimaryLevelStudent;
 import sample.main.mPojos.Student;
+import sample.main.mUtility.Loading;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -46,6 +50,8 @@ public class ViewStudents implements Initializable {
 
     @FXML
     private Button btnSaveChanges, btnEditRecord;
+    @FXML
+    private HBox searchOptions;
 
     @FXML
     private TableView stdDataTable;
@@ -95,7 +101,26 @@ public class ViewStudents implements Initializable {
 
     @Override
     public void initialize (URL location, ResourceBundle resources) {
-        initRequiredData();
+     //   initRequiredData();
+        initResources();
+
+    }
+
+    private void initResources () {
+        ImageLoading.setVisible(true);
+        ProgressLoading.setProgress(0);
+        ProgressLoading.progressProperty().unbind();
+        Task task= Loading.load();
+        ProgressLoading.progressProperty().bind(task.progressProperty());
+        new Thread(task).start();
+        task.setOnSucceeded(ev->{
+            ImageLoading.setVisible(false);
+            stdDataTable.setVisible(true);
+            searchOptions.setVisible(true);
+            ProgressLoading.setVisible(false);
+            new FadeInLeftTransition(stdDataTable);
+            new FadeInUpTransition(searchOptions).play();
+        });
     }
 
     private void initRequiredData () {
@@ -117,12 +142,12 @@ public class ViewStudents implements Initializable {
         col_className.setCellValueFactory(new PropertyValueFactory<>("__class_name"));
         List<PrimaryLevelStudent> primaryLevelStudents = new ArrayList<>();
 
-        for (int i = 0; i < 90; i++) {
+        /*for (int i = 0; i < 90; i++) {
             primaryLevelStudents.add(
                     new PrimaryLevelStudent(false, "name " + i, "surname " + i, "addresss " + i,
                             "dob", "zw", "Harare", "male", "e0002",
                             "1", "green"));
-        }
+        }*/
         students_list = FXCollections.observableArrayList(primaryLevelStudents);
 
 

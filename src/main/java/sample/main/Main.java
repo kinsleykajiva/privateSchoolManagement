@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.hibernate.Session;
+import sample.main.mDatabases.DBRecords;
+import sample.main.mDatabases.DBSettings;
 import sample.main.mPojos.PrimaryLevelStudent;
 import sample.main.mPojos.Student;
 import sample.main.mframeWork.HibernateUtils;
@@ -28,6 +30,8 @@ public class Main extends Application {
         super.init();
         /*This will run a bit of home keeping for our app*/
         createAppDataFolder();
+        DBSettings.getInstance();
+        DBRecords.getInstance();
     }
 
     @Override

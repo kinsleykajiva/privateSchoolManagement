@@ -81,10 +81,10 @@ public class DefaultController implements Initializable {
     @FXML
     public void modeListMenu(MouseEvent event) throws IOException {
         switch(ListMenu.getSelectionModel().getSelectedIndex()){
-            case 1:
-                ScreenController.setScreen(ViewController.STUDENT_DATA);
-                break;
             case 0:
+                ScreenController.setScreen(ViewController.ADD_STUDENT);
+                break;
+            case 1:
                 ScreenController.setScreen(ViewController.VIEW_STUDENTS);
                 break;
            /* case 2:

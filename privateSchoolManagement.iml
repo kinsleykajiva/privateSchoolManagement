@@ -82,7 +82,7 @@
     <orderEntry type="library" name="Maven: de.jensd:fontawesomefx-octicons:4.3.0-5" level="project" />
     <orderEntry type="library" name="Maven: de.jensd:fontawesomefx-weathericons:2.0.10-5" level="project" />
     <orderEntry type="library" name="Maven: net.sf.proguard:proguard:4.4" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.xerial:sqlite-jdbc:3.20.0" level="project" />
+    <orderEntry type="library" name="Maven: org.xerial:sqlite-jdbc:3.20.0" level="project" />
     <orderEntry type="library" name="Maven: com.squareup.okio:okio:1.13.0" level="project" />
     <orderEntry type="library" name="Maven: com.squareup.okhttp3:okhttp:3.8.1" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:23.0" level="project" />

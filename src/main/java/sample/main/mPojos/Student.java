@@ -26,7 +26,17 @@ public abstract class Student {
     private String __dateOFBirth;
     private String __town_city ;
     private String __country ;
-    private String __sex ;
+    private String __sex;
+
+    public String get__feesPaid () {
+        return __feesPaid;
+    }
+
+    public void set__feesPaid (String __feesPaid) {
+        this.__feesPaid = __feesPaid;
+    }
+
+    private String __feesPaid;
     @Id
     private String __registrationNumber ;
     private int  counter=0;

@@ -2,6 +2,8 @@ package sample.main.mUtility;
 
 import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;
+import sample.main.mDatabases.DBRecords;
+import sample.main.mDatabases.DBSettings;
 
 import java.io.File;
 import java.time.LocalDate;
@@ -10,6 +12,7 @@ import java.time.ZoneId;
 import java.util.*;
 
 import static java.lang.Thread.sleep;
+import static sample.main.mDatabases.DBRecords.getInstance;
 import static sample.main.mUtility.mLocalStrings.APPDATA_MAIN_FOLDER;
 import static sample.main.mUtility.mLocalStrings.DATABASE_FODLER;
 import static sample.main.mUtility.mLocalStrings.FILE_LOGS_FOLDER;
@@ -159,8 +162,9 @@ public class mLocalMethods {
 
        // createAppDataFolder();
 
+        DBRecords.getInstance();
 
-        System.out.print(reSuggestRegNumbers());
+
 
     }
 
