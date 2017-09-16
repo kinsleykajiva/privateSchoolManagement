@@ -16,11 +16,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="713.0" prefWidth="1219.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../styles/mainApplication..css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.main.mControllers.Controller_addStudent">
+<AnchorPane id="AnchorPane" prefHeight="713.0" prefWidth="1219.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../styles/mainApplication..css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.main.mControllers.Controller_editStudent">
     <children>
-        <Label fx:id="txtShowAddnewStudent" layoutX="19.0" layoutY="17.0" prefHeight="30.0" prefWidth="222.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Add A New Student" visible="false" />
+        <Label layoutX="72.0" layoutY="17.0" prefHeight="30.0" prefWidth="222.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Edit Student" />
         <Separator layoutX="3.0" layoutY="55.0" prefHeight="4.0" prefWidth="1213.0" />
-        <HBox fx:id="mainSceenHolder" layoutX="21.0" layoutY="80.0" visible="false">
+        <HBox fx:id="mainSceenHolder" layoutX="131.0" layoutY="116.0">
             <children>
                 <AnchorPane fx:id="containerStdDetails" prefHeight="477.0" prefWidth="546.0">
                     <children>
@@ -119,38 +119,38 @@
                                         </HBox>
                                     </children>
                                 </HBox>
-                        <HBox layoutX="10.0" layoutY="148.0" prefHeight="46.0" prefWidth="562.0">
-                           <children>
-                              <HBox prefHeight="37.0" prefWidth="562.0">
-                                 <children>
-                                    <Label prefHeight="17.0" prefWidth="49.0" text="Accout ">
-                                       <HBox.margin>
-                                          <Insets top="7.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <TextField fx:id="stdAccount" prefHeight="27.0" prefWidth="200.0" promptText="Enter Account Number...">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="37.0" prefWidth="562.0">
-                                 <children>
-                                    <Label prefHeight="17.0" prefWidth="83.0" text="Fees">
-                                       <HBox.margin>
-                                          <Insets top="7.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <TextField fx:id="stdPaidAmounta" prefHeight="30.0" prefWidth="190.0" promptText="Enter Paid Amount...">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </HBox>
+                                <HBox layoutX="10.0" layoutY="148.0" prefHeight="46.0" prefWidth="562.0">
+                                    <children>
+                                        <HBox prefHeight="37.0" prefWidth="562.0">
+                                            <children>
+                                                <Label prefHeight="17.0" prefWidth="49.0" text="Accout ">
+                                                    <HBox.margin>
+                                                        <Insets top="7.0" />
+                                                    </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="stdAccount" prefHeight="27.0" prefWidth="200.0" promptText="Enter Account Number...">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </TextField>
+                                            </children>
+                                        </HBox>
+                                        <HBox prefHeight="37.0" prefWidth="562.0">
+                                            <children>
+                                                <Label prefHeight="17.0" prefWidth="83.0" text="Fees">
+                                                    <HBox.margin>
+                                                        <Insets top="7.0" />
+                                                    </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="stdPaidAmounta" prefHeight="30.0" prefWidth="190.0" promptText="Enter Paid Amount...">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </TextField>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </HBox>
                                 <HBox layoutX="10.0" layoutY="102.0" prefHeight="46.0" prefWidth="562.0">
                                     <children>
                                         <HBox prefHeight="37.0" prefWidth="562.0">
@@ -185,26 +185,26 @@
                                         <TextArea fx:id="stdAddress" prefHeight="100.0" prefWidth="494.0" promptText="Address" />
                                     </children>
                                 </HBox>
-                        <HBox prefHeight="100.0" prefWidth="294.0">
-                           <children>
-                                      <Button fx:id="btnClear" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" styleClass="btn" text="Clear Form">
-                                          <graphic>
-                                              <FontAwesomeIconView fill="WHITE" glyphName="TIMES_CIRCLE" size="13.0" wrappingWidth="13.142857551574707" />
-                                          </graphic>
-                                 <HBox.margin>
-                                    <Insets bottom="10.0" left="100.0" right="10.0" />
-                                 </HBox.margin>
-                                      </Button>
-                              <Button fx:id="btnSaveChanges" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" styleClass="btn" text="Save Details">
-                                 <graphic>
-                                    <FontAwesomeIconView fill="WHITE" glyphName="SAVE" size="13.0" wrappingWidth="13.142857551574707" />
-                                 </graphic>
-                              </Button>
-                           </children>
-                           <VBox.margin>
-                              <Insets left="140.0" top="40.0" />
-                           </VBox.margin>
-                        </HBox>
+                                <HBox prefHeight="100.0" prefWidth="294.0">
+                                    <children>
+                                        <Button fx:id="btnClear" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" styleClass="btn" text="Clear Form">
+                                            <graphic>
+                                                <FontAwesomeIconView fill="WHITE" glyphName="TIMES_CIRCLE" size="13.0" wrappingWidth="13.142857551574707" />
+                                            </graphic>
+                                            <HBox.margin>
+                                                <Insets bottom="10.0" left="100.0" right="10.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button fx:id="btnSaveChanges" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" styleClass="btn" text="Save Changes">
+                                            <graphic>
+                                                <FontAwesomeIconView fill="WHITE" glyphName="SAVE" size="13.0" wrappingWidth="13.142857551574707" />
+                                            </graphic>
+                                        </Button>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets left="140.0" top="40.0" />
+                                    </VBox.margin>
+                                </HBox>
                             </children>
                         </VBox>
                     </children>
@@ -214,12 +214,22 @@
                 <Insets top="10.0" />
             </padding>
         </HBox>
-      <ProgressBar fx:id="ProgressLoading" layoutX="3.0" layoutY="58.0" minHeight="-Infinity" prefHeight="17.0" prefWidth="1227.0" progress="0.0" />
-      <ImageView fx:id="ImageLoading" fitHeight="34.0" fitWidth="36.0" layoutX="240.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
-         <image>
-            <Image url="@../drawables/loading_circular.GIF" />
-         </image>
-      </ImageView>
+        <ProgressBar fx:id="ProgressLoading" layoutX="3.0" layoutY="58.0" minHeight="-Infinity" prefHeight="17.0" prefWidth="1227.0" progress="0.0" />
+        <ImageView fx:id="ImageLoading" fitHeight="34.0" fitWidth="36.0" layoutX="240.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <image>
+                <Image url="@../drawables/loading_circular.GIF" />
+            </image>
+        </ImageView>
+      <Button fx:id="btnBack" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="buttonCircleBlack">
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../drawables/arrowLeftBlack.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label fx:id="reg_numberDisplay" layoutX="178.0" layoutY="89.0" prefHeight="30.0" prefWidth="494.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" />
 
     </children>
 

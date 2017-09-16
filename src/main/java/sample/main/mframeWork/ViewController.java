@@ -58,6 +58,16 @@ public enum ViewController {
         String getFxmlFile () {
             return LAY_OUT + "view_students.fxml";
         }
+    },EDIT_STUDENTS{
+        @Override
+        String getTitle () {
+            return "Edit Student";
+        }
+
+        @Override
+        String getFxmlFile () {
+            return LAY_OUT + "editStudent.fxml";
+        }
     };
 
 

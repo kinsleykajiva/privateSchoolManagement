@@ -6,4 +6,4 @@ create a welcome page of all the data
 
 
 
-Now i have s
+add side pop messages in the app

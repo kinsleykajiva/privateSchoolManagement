@@ -17,7 +17,7 @@
     <children>
         <Label layoutX="19.0" layoutY="17.0" prefHeight="30.0" prefWidth="392.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="View All Students" />
         <Separator layoutX="3.0" layoutY="55.0" prefHeight="4.0" prefWidth="1298.0" />
-      <TableView fx:id="stdDataTable" editable="false" layoutX="9.0" layoutY="94.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="627.0" prefWidth="1276.0" visible="false">
+      <TableView fx:id="stdDataTable" editable="false" layoutX="9.0" layoutY="82.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="1276.0" visible="false">
          <columns>
             <TableColumn fx:id="col_action" text="Action">
                <graphic>
@@ -28,7 +28,7 @@
                   </ImageView>
                </graphic>
             </TableColumn>
-            <TableColumn fx:id="col_name" prefWidth="108.0" text=" Name"  />
+            <TableColumn fx:id="col_name" prefWidth="108.0" text=" Name" />
             <TableColumn fx:id="col_surname" prefWidth="74.0" text=" Surname" />
             <TableColumn fx:id="col_id" prefWidth="87.00003051757812" text=" ID" />
             <TableColumn fx:id="col_sex" prefWidth="56.0" text=" Sex" />
@@ -43,7 +43,7 @@
       </TableView>
        
       <ProgressBar fx:id="ProgressLoading" layoutX="7.0" layoutY="63.0" minHeight="-Infinity" prefHeight="17.0" prefWidth="1298.0" progress="0.0" />
-      <ImageView fx:id="ImageLoading" fitHeight="34.0" fitWidth="36.0" layoutX="214.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="ImageLoading" fitHeight="34.0" fitWidth="36.0" layoutX="214.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" visible="true">
          <image>
             <Image url="@../drawables/loading_circular.GIF" />
          </image>

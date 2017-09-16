@@ -6,6 +6,7 @@ import javafx.stage.Screen;
 import java.io.IOException;
 
 import static sample.main.mframeWork.Shared.viewController;
+import static sample.main.mframeWork.ViewController.EDIT_STUDENTS;
 
 
 public class ScreenController {
@@ -19,21 +20,26 @@ public class ScreenController {
             case ADD_STUDENT:
                 try {
                     StageManager.setPaneFragment(FXMLLoader.load(ScreenController.class.getResource(ViewController.ADD_STUDENT.getFxmlFile())));
-                    viewController = ViewController.ADD_STUDENT;
+                    viewController = screen;
                 } catch (IOException e) {e.printStackTrace();}
                 break;
             case VIEW_STUDENTS:
                 try {
                     StageManager.setPaneFragment(FXMLLoader.load(ScreenController.class.getResource(ViewController.VIEW_STUDENTS.getFxmlFile())));
-                    viewController = ViewController.VIEW_STUDENTS;
+                    viewController = screen;
                 } catch (IOException e) {e.printStackTrace();}
                 break;
             case STUDENT_DATA:
                 try {
                     StageManager.setPaneFragment(FXMLLoader.load(ScreenController.class.getResource(ViewController.STUDENT_DATA.getFxmlFile())));
-                    viewController = ViewController.STUDENT_DATA;
+                    viewController =screen;
                 } catch (IOException e) {e.printStackTrace();}
                 break;
+            case EDIT_STUDENTS:
+                try {
+                    StageManager.setPaneFragment(FXMLLoader.load(ScreenController.class.getResource(ViewController.EDIT_STUDENTS.getFxmlFile())));
+                    viewController = screen;
+                } catch (IOException e) {e.printStackTrace();}
 
                 default:
                     break;

@@ -15,6 +15,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import sample.main.animation.FadeInLeftTransition;
 import sample.main.animation.FadeInUpTransition;
+import sample.main.mDatabases.DBRecords;
+import sample.main.mDatabases.DBSettings;
 import sample.main.mPojos.PrimaryLevelStudent;
 import sample.main.mPojos.Student;
 import sample.main.mUtility.Loading;
@@ -59,6 +61,8 @@ public class ViewStudents implements Initializable {
 
     @FXML
     private TableColumn<Student, String> col_name;
+    @FXML
+    private TableColumn<PrimaryLevelStudent, HBox> col_action;
 
     @FXML
     private TableColumn<Student, String> col_surname;
@@ -89,7 +93,7 @@ public class ViewStudents implements Initializable {
 
     @FXML
     private TableColumn<Student, String> col_className;
-
+    private DBRecords dbStd;
 
     @FXML
     private ProgressBar ProgressLoading;
@@ -101,34 +105,36 @@ public class ViewStudents implements Initializable {
 
     @Override
     public void initialize (URL location, ResourceBundle resources) {
-     //   initRequiredData();
+        initRequiredData();
         initResources();
 
     }
 
     private void initResources () {
-        ImageLoading.setVisible(true);
+       // ImageLoading.setVisible(true);
         ProgressLoading.setProgress(0);
         ProgressLoading.progressProperty().unbind();
-        Task task= Loading.load();
+        Task task = Loading.load();
         ProgressLoading.progressProperty().bind(task.progressProperty());
         new Thread(task).start();
-        task.setOnSucceeded(ev->{
-            ImageLoading.setVisible(false);
+        task.setOnSucceeded(ev -> {
+
             stdDataTable.setVisible(true);
             searchOptions.setVisible(true);
             ProgressLoading.setVisible(false);
-            new FadeInLeftTransition(stdDataTable);
+            new FadeInLeftTransition(stdDataTable).play();
             new FadeInUpTransition(searchOptions).play();
         });
     }
 
     private void initRequiredData () {
-       /* containerStdDetails.setManaged(true);
+        dbStd = DBRecords.getInstance();
+       /*containerStdDetails.setManaged(true);
         containerStdDetails.setVisible(false);
-        containerStdDetails.managedProperty().bind(containerStdDetails.visibleProperty());*/
-
+        containerStdDetails.managedProperty().bind(containerStdDetails.visibleProperty());
+*/
         //mainSceenHolder.getChildren().remove(containerStdDetails);
+        col_action.setCellValueFactory(new PropertyValueFactory<>("action"));
         col_name.setCellValueFactory(new PropertyValueFactory<>("__name"));
         col_surname.setCellValueFactory(new PropertyValueFactory<>("__surname"));
         col_address.setCellValueFactory(new PropertyValueFactory<>("__address"));
@@ -142,31 +148,36 @@ public class ViewStudents implements Initializable {
         col_className.setCellValueFactory(new PropertyValueFactory<>("__class_name"));
         List<PrimaryLevelStudent> primaryLevelStudents = new ArrayList<>();
 
-        /*for (int i = 0; i < 90; i++) {
+        /*for (int i = 0; i < 140; i++) {
             primaryLevelStudents.add(
-                    new PrimaryLevelStudent(false, "name " + i, "surname " + i, "addresss " + i,
-                            "dob", "zw", "Harare", "male", "e0002",
-                            "1", "green"));
+                    new PrimaryLevelStudent(localIDMaker(),false, "name " + i, "surname " + i, "addresss " + i,
+                            "9/15/17", "Zimbabwe", "Harare", "male", "e0002",
+                            "1", "Green",""+(231*i)));
+            dbStd.savePrimaryStudent( new PrimaryLevelStudent(localIDMaker(),false, "name " + i, "surname " + i, "addresss " + i,
+                    "9/15/17", "Zimbabwe", "Harare", "male", "e0002",
+                    "1", "Green",""+(231*i)));
         }*/
-        students_list = FXCollections.observableArrayList(primaryLevelStudents);
 
-
-        //tableFactory(students_list);
-        stdDataTable.setItems(students_list);
-        final boolean[] editselect = {false};
-        btnEditRecord.setOnAction(ev -> {
-            if (! editselect[0]) {
-                editselect[0] = true;
-                //
-                mainSceenHolder.getChildren().get(0).setVisible(false);
-                mainSceenHolder.getChildren().remove(containerStdDetails);
-            } else {
-                editselect[0] = false;
-                mainSceenHolder.getChildren().get(0).setVisible(true);
-                mainSceenHolder.getChildren().add(containerStdDetails);
+        Task<List<PrimaryLevelStudent>> getstudentsTask = new Task<List<PrimaryLevelStudent>>() {
+            @Override
+            protected List<PrimaryLevelStudent> call () throws Exception {
+                return dbStd.getStudent();
             }
+        };
+        new Thread(getstudentsTask).start();
+        //ProgressLoading.visibleProperty().bind(getstudentsTask.runningProperty());
+        //ProgressLoading.progressProperty().bind(getstudentsTask.progressProperty());
+
+        getstudentsTask.setOnSucceeded(event -> {
+
+            primaryLevelStudents.addAll(getstudentsTask.getValue());
+
+            students_list = FXCollections.observableArrayList(primaryLevelStudents);
+            stdDataTable.setItems(students_list);
+            ImageLoading.setVisible(false);
 
         });
+        //tableFactory(students_list);
 
     }
 

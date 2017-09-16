@@ -6,16 +6,20 @@ import sample.main.mDatabases.DBRecords;
 import sample.main.mDatabases.DBSettings;
 
 import java.io.File;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static java.lang.Thread.sleep;
 import static sample.main.mDatabases.DBRecords.getInstance;
-import static sample.main.mUtility.mLocalStrings.APPDATA_MAIN_FOLDER;
-import static sample.main.mUtility.mLocalStrings.DATABASE_FODLER;
-import static sample.main.mUtility.mLocalStrings.FILE_LOGS_FOLDER;
+import static sample.main.mUtility.mLocalStrings.*;
 import static sample.main.mframeWork.StageManager.getStage;
 
 public class mLocalMethods {
@@ -158,12 +162,79 @@ public class mLocalMethods {
 
     }
 
+    /**
+     * Validate date format with regular expression
+     * @param dd_mm_yyyy in the format dd/mm/yyyy
+     * @return true valid date format, false invalid date format
+     */
+    public static boolean isDateValid(final String dd_mm_yyyy){
+        Pattern  pattern = Pattern.compile(DATE_PATTERN);
+        Matcher matcher = pattern.matcher(dd_mm_yyyy);
+
+        if(matcher.matches()){
+
+            matcher.reset();
+
+            if(matcher.find()){
+
+                String day = matcher.group(1);
+                String month = matcher.group(2);
+                int year = Integer.parseInt(matcher.group(3));
+
+                if (day.equals("31") &&(month.equals("4") || month .equals("6") || month.equals("9") ||
+                                month.equals("11") || month.equals("04") || month .equals("06") || month.equals("09"))) {
+                    return false; // only 1,3,5,7,8,10,12 has 31 days
+                } else if (month.equals("2") || month.equals("02")) {
+                    //leap year
+                    if(year % 4==0){
+                        if(day.equals("30") || day.equals("31")){
+                            return false;
+                        }else{
+                            return true;
+                        }
+                    }else{
+                        if(day.equals("29")||day.equals("30")||day.equals("31")){
+                            return false;
+                        }else{
+                            return true;
+                        }
+                    }
+                }else{
+                    return true;
+                }
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+
+    /**
+     * example :answer = isType("10", "float"); //will return true;<br>
+     *  answer = isType("1.0", "float"); //will return true;<br/>
+     *  answer = isType("blah", "int"); //will return false;
+     * @param testStr
+     * @param type
+     * @return boolean result
+     */
+    public static boolean isType(String testStr, String type) {
+        try {
+            if (type.equalsIgnoreCase("float")) {
+                Float.parseFloat(testStr);
+            } else if (type.equalsIgnoreCase("int")) {
+                Integer.parseInt(testStr);
+            } else if (type.equalsIgnoreCase("double")) {
+                Double.parseDouble(testStr);
+            }
+            return true;
+        } catch(Exception e) {
+            return false;
+        }
+
+    }
     public static void main(String[] sss) {
-
-       // createAppDataFolder();
-
-        DBRecords.getInstance();
-
+        System.out.print(isDateValid("16/9/2017"));
 
 
     }

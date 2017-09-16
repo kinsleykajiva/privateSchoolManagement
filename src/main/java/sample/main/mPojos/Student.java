@@ -39,6 +39,7 @@ public abstract class Student {
     private String __feesPaid;
     @Id
     private String __registrationNumber ;
+
     private int  counter=0;
     /**Accounting Account number that this student has been assigned by the school accounting system<br>This value is <b>unique</b>*/
     private String AccountNumber ;
@@ -109,12 +110,11 @@ public abstract class Student {
     }
 
     public String get__registrationNumber () {
-        set__registrationNumber ();
         return __registrationNumber;
     }
 
-    private void set__registrationNumber () {
-        this.__registrationNumber =localIDMaker() ;
+    protected void set__registrationNumber (String __registrationNumber) {
+        this.__registrationNumber =__registrationNumber ;
     }
 
     public int getCounter () {

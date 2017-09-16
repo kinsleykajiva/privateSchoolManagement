@@ -22,6 +22,7 @@ public class mLocalStrings {
 
     public static final int APPLICATION_MINIMUM_WIDTH = 1360;
     public static final int APPLICATION_MINIMUM_HIGHT = 700;
+    public static final String DATE_PATTERN = "(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((19|20)\\d\\d)";
 
 
 
