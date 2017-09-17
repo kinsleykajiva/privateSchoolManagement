@@ -4,11 +4,13 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import static sample.main.mUtility.mLocalStrings.APPLICATION_MINIMUM_HIGHT;
 import static sample.main.mUtility.mLocalStrings.APPLICATION_MINIMUM_WIDTH;
@@ -30,10 +32,12 @@ public class StageManager {
             stage.setTitle(getApplicationName());
             stage.centerOnScreen();
            // stage.initStyle(StageStyle.UNDECORATED);
+            Image img = new Image(getClass().getResource("/drawables/icon.png").toURI().toString());
+            stage.getIcons().add(img);
             stage.setScene(new Scene(parent, APPLICATION_MINIMUM_WIDTH, APPLICATION_MINIMUM_HIGHT));
             stage.resizableProperty().setValue(Boolean.TRUE);
             stage.show();
-        } catch (IOException e) {
+        } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
             /*close the platform or application as whole when the error happens*/
             Platform.exit();

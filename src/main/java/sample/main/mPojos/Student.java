@@ -113,7 +113,7 @@ public abstract class Student {
         return __registrationNumber;
     }
 
-    protected void set__registrationNumber (String __registrationNumber) {
+    public void set__registrationNumber (String __registrationNumber) {
         this.__registrationNumber =__registrationNumber ;
     }
 

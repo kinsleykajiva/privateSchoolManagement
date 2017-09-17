@@ -16,17 +16,22 @@ import javafx.scene.layout.HBox;
 import sample.main.animation.FadeInLeftTransition;
 import sample.main.animation.FadeInUpTransition;
 import sample.main.mDatabases.DBRecords;
-import sample.main.mDatabases.DBSettings;
+import sample.main.mInterfaceCallbacks.LoadInterface;
 import sample.main.mPojos.PrimaryLevelStudent;
 import sample.main.mPojos.Student;
 import sample.main.mUtility.Loading;
+import sample.main.mframeWork.Shared;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ViewStudents implements Initializable {
+import static sample.main.mMessages.mDialogs.errorSimpleOKDialg;
+import static sample.main.mframeWork.Shared.editedRecord;
+import static sample.main.mframeWork.Shared.primaryLevelStudentsCache;
+import static sample.main.mframeWork.Shared.student;
+
+public class ViewStudents implements Initializable ,LoadInterface {
     @FXML
     private AnchorPane containerStdDetails, containerStudentDetailsTable;
     @FXML
@@ -111,7 +116,7 @@ public class ViewStudents implements Initializable {
     }
 
     private void initResources () {
-       // ImageLoading.setVisible(true);
+        // ImageLoading.setVisible(true);
         ProgressLoading.setProgress(0);
         ProgressLoading.progressProperty().unbind();
         Task task = Loading.load();
@@ -146,10 +151,10 @@ public class ViewStudents implements Initializable {
         col_accountNumber.setCellValueFactory(new PropertyValueFactory<>("AccountNumber"));
         col_gradeLevel.setCellValueFactory(new PropertyValueFactory<>("__classGrade_level"));
         col_className.setCellValueFactory(new PropertyValueFactory<>("__class_name"));
-        List<PrimaryLevelStudent> primaryLevelStudents = new ArrayList<>();
+
 
         /*for (int i = 0; i < 140; i++) {
-            primaryLevelStudents.add(
+            primaryLevelStudentsCache.add(
                     new PrimaryLevelStudent(localIDMaker(),false, "name " + i, "surname " + i, "addresss " + i,
                             "9/15/17", "Zimbabwe", "Harare", "male", "e0002",
                             "1", "Green",""+(231*i)));
@@ -157,26 +162,54 @@ public class ViewStudents implements Initializable {
                     "9/15/17", "Zimbabwe", "Harare", "male", "e0002",
                     "1", "Green",""+(231*i)));
         }*/
+        if (! Shared.hasJustEditedRecorded) {
 
-        Task<List<PrimaryLevelStudent>> getstudentsTask = new Task<List<PrimaryLevelStudent>>() {
-            @Override
-            protected List<PrimaryLevelStudent> call () throws Exception {
-                return dbStd.getStudent();
-            }
-        };
-        new Thread(getstudentsTask).start();
-        //ProgressLoading.visibleProperty().bind(getstudentsTask.runningProperty());
-        //ProgressLoading.progressProperty().bind(getstudentsTask.progressProperty());
+            Task<List<PrimaryLevelStudent>> getstudentsTask = new Task<List<PrimaryLevelStudent>>() {
+                @Override
+                protected List<PrimaryLevelStudent> call () throws Exception {
+                    return dbStd.getStudent();
+                }
+            };
+            new Thread(getstudentsTask).start();
+            //ProgressLoading.visibleProperty().bind(getstudentsTask.runningProperty());
+            //ProgressLoading.progressProperty().bind(getstudentsTask.progressProperty());
 
-        getstudentsTask.setOnSucceeded(event -> {
+            getstudentsTask.setOnSucceeded(event -> {
+                primaryLevelStudentsCache.clear();
+                primaryLevelStudentsCache.addAll(getstudentsTask.getValue());
+                students_list = FXCollections.observableArrayList(primaryLevelStudentsCache);
+                stdDataTable.setItems(students_list);
+                ImageLoading.setVisible(false);
 
-            primaryLevelStudents.addAll(getstudentsTask.getValue());
-
-            students_list = FXCollections.observableArrayList(primaryLevelStudents);
-            stdDataTable.setItems(students_list);
-            ImageLoading.setVisible(false);
-
-        });
+            });
+        } else {
+            final int position = primaryLevelStudentsCache.indexOf(student);
+            primaryLevelStudentsCache.get(position).set__name(editedRecord[0]);
+            primaryLevelStudentsCache.get(position).set__surname(editedRecord[1]);
+            primaryLevelStudentsCache.get(position).set__dateOFBirth(editedRecord[3]);
+            primaryLevelStudentsCache.get(position).set__town_city(editedRecord[4]);
+            primaryLevelStudentsCache.get(position).set__sex(editedRecord[5]);
+            primaryLevelStudentsCache.get(position).set__classGrade_level(editedRecord[6]);
+            primaryLevelStudentsCache.get(position).set__class_name(editedRecord[7]);
+            primaryLevelStudentsCache.get(position).set__address(editedRecord[8]);
+            primaryLevelStudentsCache.get(position).set__feesPaid(editedRecord[9]);
+            primaryLevelStudentsCache.get(position).set__country(editedRecord[10]);
+            primaryLevelStudentsCache.get(position).set__registrationNumber(editedRecord[11]);
+            Task<ObservableList<Student>> threadTask = new Task<ObservableList<Student>>() {
+                @Override
+                protected ObservableList<Student> call () throws Exception {
+                    return FXCollections.observableArrayList(primaryLevelStudentsCache);
+                }
+            }; new Thread(threadTask).start();
+            threadTask.setOnSucceeded(event -> {
+                stdDataTable.setItems(threadTask.getValue());
+                ImageLoading.setVisible(false);
+            });
+            threadTask.setOnFailed(event -> {
+                ImageLoading.setVisible(false);
+                errorSimpleOKDialg("Error Occurred", "Something went wrong", " Please try again.");
+            });
+        }
         //tableFactory(students_list);
 
     }
@@ -348,5 +381,10 @@ public class ViewStudents implements Initializable {
             this.stdDataTable = tableView;
         }
         return stdDataTable;
+    }
+
+    @Override
+    public void reloadTable (List<PrimaryLevelStudent> levelStudentList) {
+        System.out.print("44444444");
     }
 }

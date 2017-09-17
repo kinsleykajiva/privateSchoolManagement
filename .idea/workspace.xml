@@ -7,25 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_editStudent.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/layouts/editStudent.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/drawables/icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/drawables/tick.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mInterfaceCallbacks/LoadInterface.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mMessages/mPushMessages.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReadME.md" afterPath="$PROJECT_DIR$/ReadME.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/privateSchoolManagement.iml" afterPath="$PROJECT_DIR$/privateSchoolManagement.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_addStudent.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_addStudent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_editStudent.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_editStudent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mControllers/ViewStudents.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mControllers/ViewStudents.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mDatabases/DBRecords.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mDatabases/DBRecords.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mMessages/mDialogs.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mMessages/mDialogs.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mPojos/PrimaryLevelStudent.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mPojos/PrimaryLevelStudent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mPojos/Student.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mPojos/Student.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mUtility/mLocalMethods.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mUtility/mLocalMethods.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mUtility/mLocalStrings.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mUtility/mLocalStrings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mframeWork/ScreenController.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mframeWork/ScreenController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mframeWork/Shared.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mframeWork/Shared.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mframeWork/ViewController.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mframeWork/ViewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/layouts/add_student.fxml" afterPath="$PROJECT_DIR$/src/main/resources/layouts/add_student.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/layouts/view_students.fxml" afterPath="$PROJECT_DIR$/src/main/resources/layouts/view_students.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/styles/mainApplication..css" afterPath="$PROJECT_DIR$/src/main/resources/styles/mainApplication..css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/styles/mainApplication..css" afterPath="$PROJECT_DIR$/target/classes/styles/mainApplication..css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mframeWork/StageManager.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mframeWork/StageManager.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,46 +79,50 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.8538985">
+    <splitter split-orientation="horizontal" split-proportion="0.6013616">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Controller_addStudent.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_addStudent.java">
+          <file leaf-file-name="PrimaryLevelStudent.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mPojos/PrimaryLevelStudent.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="178">
-                  <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+                <state relative-caret-position="135">
+                  <caret line="93" column="53" lean-forward="false" selection-start-line="93" selection-start-column="53" selection-end-line="93" selection-end-column="53" />
                   <folding>
-                    <element signature="method#initRequiredData#0;class#Controller_addStudent#0" expanded="false" />
-                    <element signature="method#failed#0;class#4229:5183" expanded="false" />
-                    <element signature="method#resetForm#0;class#Controller_addStudent#0" expanded="false" />
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#3253#3499#0" expanded="true" />
+                    <element signature="e#3498#3499#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="FadeInUpTransition.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/animation/FadeInUpTransition.java">
+          <file leaf-file-name="DefaultController.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/DefaultController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-144">
-                  <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+                <state relative-caret-position="239">
+                  <caret line="87" column="73" lean-forward="true" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="73" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Controller_editStudent.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_editStudent.java">
+          <file leaf-file-name="Shared.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mframeWork/Shared.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="175" column="40" lean-forward="false" selection-start-line="175" selection-start-column="40" selection-end-line="175" selection-end-column="40" />
+                <state relative-caret-position="204">
+                  <caret line="16" column="44" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="44" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="LoadInterface.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mInterfaceCallbacks/LoadInterface.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="102">
+                  <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="method#initResours#0;class#Controller_editStudent#0" expanded="false" />
-                    <element signature="method#succeeded#0;class#6745:7713" expanded="false" />
-                    <element signature="method#failed#0;class#6745:7713" expanded="false" />
-                    <element signature="method#call#0;class#6745:7713" expanded="false" />
-                    <element signature="method#initRequiredData#0;class#Controller_editStudent#0" expanded="false" />
-                    <element signature="method#resetForm#0;class#Controller_editStudent#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -132,39 +131,35 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file leaf-file-name="Controller_editStudent.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_editStudent.java">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="ViewStudents.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/ViewStudents.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="306">
-                  <caret line="184" column="20" lean-forward="false" selection-start-line="184" selection-start-column="20" selection-end-line="184" selection-end-column="20" />
+                <state relative-caret-position="348">
+                  <caret line="165" column="0" lean-forward="false" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
                   <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="method#initResours#0;class#Controller_editStudent#0" expanded="false" />
-                    <element signature="method#succeeded#0;class#6745:7713" expanded="false" />
-                    <element signature="method#failed#0;class#6745:7713" expanded="false" />
-                    <element signature="method#call#0;class#6745:7713" expanded="false" />
-                    <element signature="method#initRequiredData#0;class#Controller_editStudent#0" expanded="false" />
-                    <element signature="method#resetForm#0;class#Controller_editStudent#0" expanded="false" />
+                    <element signature="method#getStudentTable#0;class#ViewStudents#0" expanded="false" />
+                    <element signature="e#15658#15659#0" expanded="true" />
+                    <element signature="e#15702#15703#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ViewStudents.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/ViewStudents.java">
+          <file leaf-file-name="DBRecords.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mDatabases/DBRecords.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="267">
-                  <caret line="126" column="11" lean-forward="false" selection-start-line="126" selection-start-column="11" selection-end-line="126" selection-end-column="11" />
+                <state relative-caret-position="91">
+                  <caret line="87" column="37" lean-forward="false" selection-start-line="87" selection-start-column="37" selection-end-line="87" selection-end-column="37" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="mLocalMethods.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="mLocalMethods.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mUtility/mLocalMethods.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
+                <state relative-caret-position="3264">
                   <caret line="214" column="64" lean-forward="false" selection-start-line="214" selection-start-column="64" selection-end-line="214" selection-end-column="64" />
                   <folding />
                 </state>
@@ -181,8 +176,9 @@
         <option value="CS StyleSheet" />
         <option value="Singleton" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -221,9 +217,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/sample/main/Main.java" />
-        <option value="$PROJECT_DIR$/src/sample/main/mPojos/primaryLevelStudent.java" />
-        <option value="$PROJECT_DIR$/src/sample/main/mPojos/secondaryLevelStudent.java" />
         <option value="$PROJECT_DIR$/src/sample/main/mPojos/Student.java" />
         <option value="$PROJECT_DIR$/src/sample/main/mPojos/Users.java" />
         <option value="$PROJECT_DIR$/src/sample/main/mUtility/PasswordGenerator.java" />
@@ -249,7 +242,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/layouts/student_data.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/sample/main/mPojos/passMe.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/main/mControllers/StudentData.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/main/mframeWork/StageManager.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/sample/main/mDatabases/DBSettings.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/main/mControllers/DefaultController.java" />
@@ -259,19 +251,23 @@
         <option value="$PROJECT_DIR$/src/main/resources/layouts/add_student.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/sample/main/mframeWork/ViewController.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/main/mframeWork/ScreenController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/main/mframeWork/Shared.java" />
         <option value="$PROJECT_DIR$/src/main/resources/styles/mainApplication..css" />
         <option value="$PROJECT_DIR$/src/main/resources/layouts/editStudent.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/layouts/view_students.fxml" />
         <option value="$PROJECT_DIR$/ReadME.md" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/main/mPojos/PrimaryLevelStudent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/main/mPojos/Student.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/main/mUtility/mLocalStrings.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_editStudent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/main/mDatabases/DBRecords.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/main/mControllers/ViewStudents.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/main/mUtility/mLocalMethods.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/main/mMessages/mPushMessages.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_addStudent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/main/mframeWork/StageManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/main/mPojos/Student.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/main/mframeWork/Shared.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_editStudent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/main/mMessages/mDialogs.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/main/mDatabases/DBRecords.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/main/mInterfaceCallbacks/LoadInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/main/mControllers/ViewStudents.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/main/mPojos/PrimaryLevelStudent.java" />
       </list>
     </option>
   </component>
@@ -305,7 +301,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="676" />
+    <option name="x" value="-7" />
     <option name="width" value="697" />
     <option name="height" value="735" />
   </component>
@@ -330,8 +326,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -399,6 +396,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="mMessages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="privateSchoolManagement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="privateSchoolManagement" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="mUtility" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -408,27 +414,10 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="privateSchoolManagement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="privateSchoolManagement" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="privateSchoolManagement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="privateSchoolManagement" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="styles" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -470,8 +459,8 @@
       <recent name="sample.main.mUtility" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Kajiva Kinsley\IdeaProjects\privateSchoolManagement\src\main\java\sample\main" />
       <recent name="C:\Users\Kajiva Kinsley\IdeaProjects\privateSchoolManagement\src\main\resources\drawables" />
+      <recent name="C:\Users\Kajiva Kinsley\IdeaProjects\privateSchoolManagement\src\main\java\sample\main" />
       <recent name="C:\Users\Kajiva Kinsley\IdeaProjects\privateSchoolManagement\src\main\java\sample\main\mWidgets" />
       <recent name="C:\Users\Kajiva Kinsley\IdeaProjects\privateSchoolManagement\src\main\java\sample\main\mframeWork" />
       <recent name="C:\Users\Kajiva Kinsley\IdeaProjects\privateSchoolManagement\src\main\resources" />
@@ -718,7 +707,14 @@
       <option name="project" value="LOCAL" />
       <updated>1505450673219</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="design mile stone 3 database functions">
+      <created>1505566144067</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1505566144067</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -735,17 +731,17 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30786687" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45840406" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45840406" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23146747" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2397882" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24960753" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -816,48 +812,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/javafx-src.zip!/javafx/util/Callback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="51" column="13" lean-forward="false" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/default_view.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="19" column="67" lean-forward="false" selection-start-line="19" selection-start-column="67" selection-end-line="19" selection-end-column="67" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/student_data.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mPojos/passMe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mframeWork/StageManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="31" column="13" lean-forward="false" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -972,14 +926,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Sample.log" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/DefaultController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="84" column="27" lean-forward="false" selection-start-line="84" selection-start-column="27" selection-end-line="84" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/StudentData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
@@ -1060,7 +1006,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
           <caret line="61" column="17" lean-forward="true" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1068,7 +1013,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="17" column="51" lean-forward="false" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1087,7 +1031,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="300" column="28" lean-forward="true" selection-start-line="300" selection-start-column="28" selection-end-line="300" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1120,46 +1063,8 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="136">
             <caret line="8" column="32" lean-forward="false" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-            <folding />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mframeWork/Shared.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="37" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mPojos/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="115" column="13" lean-forward="false" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="13" />
-          <folding>
-            <element signature="e#2688#2689#0" expanded="false" />
-            <element signature="e#2731#2732#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mPojos/PrimaryLevelStudent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mMessages/mDialogs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="63" column="41" lean-forward="false" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1171,62 +1076,144 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mDatabases/DBRecords.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="82" column="21" lean-forward="false" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_editStudent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="175" column="40" lean-forward="false" selection-start-line="175" selection-start-column="40" selection-end-line="175" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#initResours#0;class#Controller_editStudent#0" expanded="false" />
-            <element signature="method#succeeded#0;class#6745:7713" expanded="false" />
-            <element signature="method#failed#0;class#6745:7713" expanded="false" />
-            <element signature="method#call#0;class#6745:7713" expanded="false" />
-            <element signature="method#initRequiredData#0;class#Controller_editStudent#0" expanded="false" />
-            <element signature="method#resetForm#0;class#Controller_editStudent#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/animation/FadeInUpTransition.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-144">
           <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/ViewStudents.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/drawables/tabel.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/jarlibs/controlsfx-8.40.12.jar!/org/controlsfx/control/Notifications.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="126" column="11" lean-forward="false" selection-start-line="126" selection-start-column="11" selection-end-line="126" selection-end-column="11" />
+        <state relative-caret-position="-921">
+          <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mMessages/mPushMessages.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mframeWork/StageManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="34" column="50" lean-forward="true" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_addStudent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="183" column="0" lean-forward="true" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
+          <folding>
+            <element signature="method#failed#0;class#4370:5397" expanded="false" />
+            <element signature="method#resetForm#0;class#Controller_addStudent#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mPojos/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="115" column="10" lean-forward="false" selection-start-line="115" selection-start-column="10" selection-end-line="115" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mUtility/mLocalMethods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="3264">
           <caret line="214" column="64" lean-forward="false" selection-start-line="214" selection-start-column="64" selection-end-line="214" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_addStudent.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_editStudent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+        <state relative-caret-position="-137">
+          <caret line="28" column="35" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="35" />
           <folding>
-            <element signature="method#initRequiredData#0;class#Controller_addStudent#0" expanded="false" />
-            <element signature="method#failed#0;class#4229:5183" expanded="false" />
-            <element signature="method#resetForm#0;class#Controller_addStudent#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="method#initResours#0;class#Controller_editStudent#0" expanded="false" />
+            <element signature="method#succeeded#0;class#6641:7609" expanded="false" />
+            <element signature="method#failed#0;class#6641:7609" expanded="false" />
+            <element signature="method#call#0;class#6641:7609" expanded="false" />
+            <element signature="method#initRequiredData#0;class#Controller_editStudent#0" expanded="false" />
+            <element signature="method#resetForm#0;class#Controller_editStudent#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mMessages/mDialogs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="109" column="29" lean-forward="false" selection-start-line="109" selection-start-column="29" selection-end-line="109" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mDatabases/DBRecords.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="87" column="37" lean-forward="false" selection-start-line="87" selection-start-column="37" selection-end-line="87" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mInterfaceCallbacks/LoadInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mframeWork/Shared.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="16" column="44" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/ViewStudents.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="165" column="0" lean-forward="false" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+          <folding>
+            <element signature="method#getStudentTable#0;class#ViewStudents#0" expanded="false" />
+            <element signature="e#15658#15659#0" expanded="true" />
+            <element signature="e#15702#15703#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/DefaultController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="87" column="73" lean-forward="true" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mPojos/PrimaryLevelStudent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="93" column="53" lean-forward="false" selection-start-line="93" selection-start-column="53" selection-end-line="93" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3253#3499#0" expanded="true" />
+            <element signature="e#3498#3499#0" expanded="true" />
           </folding>
         </state>
       </provider>

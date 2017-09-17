@@ -107,7 +107,7 @@ public final class mDialogs {
      */
     public static boolean yesNoDialog(String title, String header, String message, String yesButton, String noButton, int type) {
         Alert alert = new Alert(type == 1 ? Alert.AlertType.CONFIRMATION : type == 2 ? Alert.AlertType.WARNING : Alert.AlertType.ERROR);
-        alert.setTitle(title + " Confirmation Dialog ");
+        alert.setTitle(title );
         alert.setHeaderText(header);
         alert.setContentText(message);
         alert.initStyle(StageStyle.UTILITY);

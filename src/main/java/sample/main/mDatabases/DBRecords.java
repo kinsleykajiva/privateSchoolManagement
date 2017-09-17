@@ -73,11 +73,23 @@ public boolean savePrimaryStudent(PrimaryLevelStudent student){
         statement.setString(9,student.get__feesPaid());
         statement.setString(10,student.get__class_name());
         statement.setString(11,student.get__classGrade_level());
-        statement.setString(12, Shared.student.get__registrationDate());
+        statement.setString(12, student.get__registrationDate());
         statement.setString(13,student.getAccountNumber());
+
        return statement.executeUpdate() == 1;
 
 
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return false;
+    }
+}
+public boolean deleteRecord(String regNumber){
+  final   String sql  = "DELETE FROM "+TABLE_NAME + " WHERE "+COL_REGISTRATION_NUMBER +" = ?";
+    try {
+        PreparedStatement stm = conn.prepareStatement(sql);
+        stm.setString(1 , regNumber);
+        return  stm.executeUpdate() == 1;
     } catch (SQLException e) {
         e.printStackTrace();
         return false;
@@ -137,7 +149,7 @@ public boolean updateRecord(PrimaryLevelStudent student__){
         st.setString(9,student__.get__classGrade_level());
         st.setString(10,student__.get__class_name());
         st.setString(11,student__.get__feesPaid());
-        st.setString(12,student.get__registrationNumber());
+        st.setString(12,student__.get__registrationNumber());
 
         return st.executeUpdate() == 1;
 

@@ -1,9 +1,6 @@
 package sample.main.mControllers;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Task;
-import javafx.event.EventType;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
@@ -18,6 +15,7 @@ import sample.main.mDatabases.DBRecords;
 import sample.main.mDatabases.DBSettings;
 import sample.main.mPojos.PrimaryLevelStudent;
 import sample.main.mframeWork.ScreenController;
+import sample.main.mframeWork.Shared;
 import sample.main.mframeWork.ViewController;
 
 import static sample.main.mMessages.mDialogs.errorSimpleOKDialg;
@@ -25,6 +23,7 @@ import static sample.main.mMessages.mDialogs.infomationSimpleOKDialg;
 import static sample.main.mMessages.mDialogs.warnningSimpleOKDialg;
 import static sample.main.mUtility.mLocalMethods.getCountriesList;
 import static sample.main.mUtility.mLocalMethods.isDateValid;
+import static sample.main.mframeWork.Shared.editedRecord;
 import static sample.main.mframeWork.Shared.student;
 
 public class Controller_editStudent implements Initializable {
@@ -50,17 +49,14 @@ public class Controller_editStudent implements Initializable {
     @FXML
     private ImageView ImageLoading;
     private DBSettings db;
-    private DBRecords dbStd;
+    public static DBRecords dbStd;
 
     @Override
     public void initialize (URL location, ResourceBundle resources) {
         initRequiredData();
         initResours();
-        if(student==null){
-            System.out.print("nulll");
-        }else{
             settData();
-        }
+
 
         initClickListers();
 
@@ -197,6 +193,18 @@ public class Controller_editStudent implements Initializable {
                     new Thread(task).start();
                     task.setOnSucceeded(evc -> {
                         if (task.getValue()) {
+                            editedRecord[0]=name;
+                            editedRecord[1]=surname;
+                            editedRecord[3]=dob;
+                            editedRecord[4]=town;
+                            editedRecord[5]=sex;
+                            editedRecord[6]=grade;
+                            editedRecord[7]=className;
+                            editedRecord[8]=address;
+                            editedRecord[9]=feesPaid;
+                            editedRecord[10]=country;
+                            editedRecord[11]=student.get__registrationNumber();
+                            Shared.hasJustEditedRecorded =true;
                             infomationSimpleOKDialg("Record Saved", "Student Record updated Successfully");
                         } else {
                             errorSimpleOKDialg("Saving Failed", "Failed to save the update.", " Please try again.");
