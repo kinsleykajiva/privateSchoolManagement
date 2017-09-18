@@ -13,6 +13,7 @@ import sample.main.mControllers.Controller_editStudent;
 import sample.main.mDatabases.DBRecords;
 import sample.main.mInterfaceCallbacks.LoadInterface;
 import sample.main.mframeWork.ScreenController;
+import sample.main.mframeWork.Shared;
 import sample.main.mframeWork.ViewController;
 
 import javax.persistence.DiscriminatorValue;
@@ -74,7 +75,7 @@ public final class PrimaryLevelStudent extends Student{
         delete.setOnMouseClicked(ev->{
 
 
-           if(yesNoDialog("Deletion Confirmation","Database Access Action!","Are you sure you want delete this recored from the database ?","Yes,Delete!","No,Cancel",2)){
+           if(yesNoDialog("Deletion Confirmation","Database Access Action!","Are you sure you want delete this record from the database ?","Yes,Delete!","No,Cancel",2)){
 
              final  DBRecords   db= DBRecords.getInstance();
 
@@ -94,6 +95,7 @@ public final class PrimaryLevelStudent extends Student{
                            infomationSimpleOKDialg("Record Information", "Deleted Successfully");
                         //   final int position = primaryLevelStudentsCache.indexOf(student);
                            primaryLevelStudentsCache.remove(this);
+                           Shared.hasJustDeletedRecord=true;
                            ScreenController.setScreen(ViewController.VIEW_STUDENTS);
 
                        } else {

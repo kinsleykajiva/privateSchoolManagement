@@ -1,5 +1,6 @@
 package sample.main.mControllers;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
@@ -23,11 +24,11 @@ import static sample.main.mframeWork.StageManager.getStage;
 public class DefaultController implements Initializable {
 
     @FXML
-    private Button ButtonMinimize;
-    @FXML private Button ButtonClose;
+    private Button ButtonMinimize1;
+    @FXML private Button ButtonClose1;
     @FXML private Button ButtonLogout;
     @FXML private Button ButtonResize;
-    @FXML private Button ButtonMaximize;
+    @FXML private Button ButtonMaximize1;
     @FXML private ListView<String> ListMenu;
     @FXML private AnchorPane PaneFragment;
     private Rectangle2D rectangle2D;
@@ -44,11 +45,28 @@ public class DefaultController implements Initializable {
 
         mLocalMethods.setLargeScreen();
 
-        ButtonMinimize.setOnMouseEntered(e->getStage().getScene().setCursor(Cursor.HAND));
-        ButtonMinimize.setOnMouseExited(e->getStage().getScene().setCursor(Cursor.DEFAULT));
-
-        ButtonClose.setOnMouseEntered(e->getStage().getScene().setCursor(Cursor.HAND));
-        ButtonClose.setOnMouseExited(e->getStage().getScene().setCursor(Cursor.DEFAULT));
+        ButtonMinimize1.setOnMouseEntered(e->getStage().getScene().setCursor(Cursor.HAND));
+        ButtonMinimize1.setOnMouseExited(e->getStage().getScene().setCursor(Cursor.DEFAULT));
+        ButtonMinimize1.setOnAction(event -> {
+            if(StageManager.getStage().isMaximized()){
+                width = rectangle2D.getWidth();
+                height = rectangle2D.getHeight();
+                StageManager.getStage().setMaximized(false);
+                StageManager.getStage().setWidth(width);
+                StageManager.getStage().centerOnScreen();
+                Platform.runLater(()->{
+                    StageManager.getStage().setIconified(true);
+                });
+            }else {
+                StageManager.getStage().setIconified(true);
+            }
+        });
+        ButtonClose1.setOnMouseEntered(e->getStage().getScene().setCursor(Cursor.HAND));
+        ButtonClose1.setOnMouseExited(e->getStage().getScene().setCursor(Cursor.DEFAULT));
+        ButtonClose1.setOnAction(ev->{
+            Platform.exit();
+            System.exit(0);
+        });
 
         ButtonLogout.setOnMouseEntered(e->getStage().getScene().setCursor(Cursor.HAND));
         ButtonLogout.setOnMouseExited(e->getStage().getScene().setCursor(Cursor.DEFAULT));
@@ -56,8 +74,24 @@ public class DefaultController implements Initializable {
         ButtonResize.setOnMouseEntered(e->getStage().getScene().setCursor(Cursor.HAND));
         ButtonResize.setOnMouseExited(e->getStage().getScene().setCursor(Cursor.DEFAULT));
 
-        ButtonMaximize.setOnMouseEntered(e->getStage().getScene().setCursor(Cursor.HAND));
-        ButtonMaximize.setOnMouseExited(e->getStage().getScene().setCursor(Cursor.DEFAULT));
+        ButtonMaximize1.setOnMouseEntered(e->getStage().getScene().setCursor(Cursor.HAND));
+        ButtonMaximize1.setOnMouseExited(e->getStage().getScene().setCursor(Cursor.DEFAULT));
+        ButtonMaximize1.setOnAction(event -> {
+            if (StageManager.getStage().isMaximized()) {
+                if (width == rectangle2D.getWidth() && height == rectangle2D.getHeight()) {
+                    StageManager.getStage().setMaximized(false);
+                    StageManager.getStage().setHeight(600);
+                    StageManager.getStage().setWidth(800);
+                    StageManager.getStage().centerOnScreen();
+                    ButtonMaximize1.getStyleClass().remove("decoration-button-restore");
+                    ButtonResize.setVisible(true);
+                } else {
+                    StageManager.getStage().setMaximized(false);
+                    ButtonMaximize1.getStyleClass().remove("decoration-button-restore");
+                    ButtonResize.setVisible(true);
+                }
+            }
+        });
 
         rectangle2D = Screen.getPrimary().getVisualBounds();
         width=0.1;
@@ -67,7 +101,7 @@ public class DefaultController implements Initializable {
         ListMenu.setOnMouseEntered(e->getStage().getScene().setCursor(Cursor.HAND));
         ListMenu.setOnMouseExited(e->getStage().getScene().setCursor(Cursor.DEFAULT));
 
-        ButtonMaximize.getStyleClass().add("decoration-button-restore");
+        ButtonMaximize1.getStyleClass().add("decoration-button-restore");
         ButtonResize.setVisible(false);
         ListMenu.getSelectionModel().select(0);
         ListMenu.requestFocus();

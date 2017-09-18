@@ -19,5 +19,10 @@ public class Shared {
      * will help keep track that if a recored has just been edited so that <br/>
      * we do not have to reload reading from the database directly to improve on perfomance .
      */
-    public static boolean hasJustEditedRecorded =false;
+    public static boolean hasJustEditedRecord =false;
+    /**
+     * This will help me to know theres been a record that has been removed from the table</br>
+     * so that we dont have to fetch a whole new set of data from the database
+     */
+    public static boolean hasJustDeletedRecord =false;
 }

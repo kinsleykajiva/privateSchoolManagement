@@ -204,7 +204,7 @@ public class Controller_editStudent implements Initializable {
                             editedRecord[9]=feesPaid;
                             editedRecord[10]=country;
                             editedRecord[11]=student.get__registrationNumber();
-                            Shared.hasJustEditedRecorded =true;
+                            Shared.hasJustEditedRecord =true;
                             infomationSimpleOKDialg("Record Saved", "Student Record updated Successfully");
                         } else {
                             errorSimpleOKDialg("Saving Failed", "Failed to save the update.", " Please try again.");

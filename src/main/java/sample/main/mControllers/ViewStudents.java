@@ -110,7 +110,7 @@ public class ViewStudents implements Initializable ,LoadInterface {
 
     @Override
     public void initialize (URL location, ResourceBundle resources) {
-        initRequiredData();
+       initRequiredData();
         initResources();
 
     }
@@ -124,22 +124,18 @@ public class ViewStudents implements Initializable ,LoadInterface {
         new Thread(task).start();
         task.setOnSucceeded(ev -> {
 
-            stdDataTable.setVisible(true);
+
             searchOptions.setVisible(true);
             ProgressLoading.setVisible(false);
             new FadeInLeftTransition(stdDataTable).play();
             new FadeInUpTransition(searchOptions).play();
+            stdDataTable.setVisible(true);
         });
     }
 
     private void initRequiredData () {
         dbStd = DBRecords.getInstance();
-       /*containerStdDetails.setManaged(true);
-        containerStdDetails.setVisible(false);
-        containerStdDetails.managedProperty().bind(containerStdDetails.visibleProperty());
-*/
-        //mainSceenHolder.getChildren().remove(containerStdDetails);
-        col_action.setCellValueFactory(new PropertyValueFactory<>("action"));
+         col_action.setCellValueFactory(new PropertyValueFactory<>("action"));
         col_name.setCellValueFactory(new PropertyValueFactory<>("__name"));
         col_surname.setCellValueFactory(new PropertyValueFactory<>("__surname"));
         col_address.setCellValueFactory(new PropertyValueFactory<>("__address"));
@@ -162,7 +158,7 @@ public class ViewStudents implements Initializable ,LoadInterface {
                     "9/15/17", "Zimbabwe", "Harare", "male", "e0002",
                     "1", "Green",""+(231*i)));
         }*/
-        if (! Shared.hasJustEditedRecorded) {
+        if (! Shared.hasJustEditedRecord) {
 
             Task<List<PrimaryLevelStudent>> getstudentsTask = new Task<List<PrimaryLevelStudent>>() {
                 @Override
@@ -183,32 +179,42 @@ public class ViewStudents implements Initializable ,LoadInterface {
 
             });
         } else {
-            final int position = primaryLevelStudentsCache.indexOf(student);
-            primaryLevelStudentsCache.get(position).set__name(editedRecord[0]);
-            primaryLevelStudentsCache.get(position).set__surname(editedRecord[1]);
-            primaryLevelStudentsCache.get(position).set__dateOFBirth(editedRecord[3]);
-            primaryLevelStudentsCache.get(position).set__town_city(editedRecord[4]);
-            primaryLevelStudentsCache.get(position).set__sex(editedRecord[5]);
-            primaryLevelStudentsCache.get(position).set__classGrade_level(editedRecord[6]);
-            primaryLevelStudentsCache.get(position).set__class_name(editedRecord[7]);
-            primaryLevelStudentsCache.get(position).set__address(editedRecord[8]);
-            primaryLevelStudentsCache.get(position).set__feesPaid(editedRecord[9]);
-            primaryLevelStudentsCache.get(position).set__country(editedRecord[10]);
-            primaryLevelStudentsCache.get(position).set__registrationNumber(editedRecord[11]);
-            Task<ObservableList<Student>> threadTask = new Task<ObservableList<Student>>() {
-                @Override
-                protected ObservableList<Student> call () throws Exception {
-                    return FXCollections.observableArrayList(primaryLevelStudentsCache);
-                }
-            }; new Thread(threadTask).start();
-            threadTask.setOnSucceeded(event -> {
-                stdDataTable.setItems(threadTask.getValue());
+            if(Shared.hasJustDeletedRecord){
+                students_list = FXCollections.observableArrayList(primaryLevelStudentsCache);
+                stdDataTable.setItems(students_list);
                 ImageLoading.setVisible(false);
-            });
-            threadTask.setOnFailed(event -> {
-                ImageLoading.setVisible(false);
-                errorSimpleOKDialg("Error Occurred", "Something went wrong", " Please try again.");
-            });
+                Shared.hasJustDeletedRecord=false;
+            }else {
+                final int position = primaryLevelStudentsCache.indexOf(student);
+                primaryLevelStudentsCache.get(position).set__name(editedRecord[0]);
+                primaryLevelStudentsCache.get(position).set__surname(editedRecord[1]);
+                primaryLevelStudentsCache.get(position).set__dateOFBirth(editedRecord[3]);
+                primaryLevelStudentsCache.get(position).set__town_city(editedRecord[4]);
+                primaryLevelStudentsCache.get(position).set__sex(editedRecord[5]);
+                primaryLevelStudentsCache.get(position).set__classGrade_level(editedRecord[6]);
+                primaryLevelStudentsCache.get(position).set__class_name(editedRecord[7]);
+                primaryLevelStudentsCache.get(position).set__address(editedRecord[8]);
+                primaryLevelStudentsCache.get(position).set__feesPaid(editedRecord[9]);
+                primaryLevelStudentsCache.get(position).set__country(editedRecord[10]);
+                primaryLevelStudentsCache.get(position).set__registrationNumber(editedRecord[11]);
+                Task<ObservableList<Student>> threadTask = new Task<ObservableList<Student>>() {
+                    @Override
+                    protected ObservableList<Student> call () throws Exception {
+                        return FXCollections.observableArrayList(primaryLevelStudentsCache);
+                    }
+                };
+                new Thread(threadTask).start();
+                threadTask.setOnSucceeded(event -> {
+                    stdDataTable.setItems(threadTask.getValue());
+                    ImageLoading.setVisible(false);
+                    Shared.hasJustEditedRecord=false;
+                });
+                threadTask.setOnFailed(event -> {
+                    ImageLoading.setVisible(false);
+                    Shared.hasJustEditedRecord=false;
+                    errorSimpleOKDialg("Error Occurred", "Something went wrong", " Please try again.");
+                });
+            }
         }
         //tableFactory(students_list);
 
