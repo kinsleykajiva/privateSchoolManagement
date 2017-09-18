@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="615.0" prefWidth="1031.0" stylesheets="@../styles/menu.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.main.mControllers.DefaultController">
+    <children>
+        <AnchorPane id="AnchorPane" maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" minWidth="-1.0" pickOnBounds="false" prefHeight="506.0" prefWidth="738.0" snapToPixel="true" style="-fx-border-color: #2b579a; -fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+
+                <Button fx:id="ButtonResize" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" mouseTransparent="true" pickOnBounds="true" prefHeight="10.0" prefWidth="10.0" styleClass="decoration-button-resize" text="" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="2.0" />
+                <AnchorPane layoutX="2.0" layoutY="2.0" prefHeight="613.0" prefWidth="136.0" style="-fx-background-color: #2b579a;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <ListView fx:id="ListMenu" layoutX="-3.0" layoutY="87.0" onMouseClicked="#modeListMenu" prefHeight="526.0" prefWidth="136.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="87.0" />
+                        <Button fx:id="ButtonLogout" layoutX="22.0" layoutY="39.0" mnemonicParsing="false" onAction="#modeLogout" prefHeight="40.0" prefWidth="40.0" styleClass="button-logout">
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="NAVICON" size="23.0" />
+                     </graphic>
+                        </Button>
+                    </children>
+                </AnchorPane>
+                <AnchorPane layoutX="140.0" layoutY="37.0" prefHeight="578.0" prefWidth="890.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="36.0">
+                    <children>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="40.0" layoutY="72.0" prefHeight="543.0" prefWidth="892.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <content>
+                                <AnchorPane fx:id="PaneFragment" minHeight="0.0" minWidth="0.0" prefHeight="749.0" prefWidth="1298.0" style="-fx-background-color: white;" />
+                            </content>
+                        </ScrollPane>
+                    </children>
+                </AnchorPane>
+                <JFXToolbar layoutX="2.0" layoutY="-3.0" style="-fx-background-color: #2b579a;" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0">
+                    <center>
+                        <Label alignment="CENTER" mouseTransparent="true" prefHeight="38.0" prefWidth="738.0" style="-fx-font-size: 20; -fx-text-fill: #FFFFFF; -fx-font-weight: bold;" text="Private School Management System ®" textFill="#a1a1a1">
+                            <font>
+                                <Font name="Segoe UI Semibold" size="14.0" style="bold" />
+                            </font>
+                        </Label>
+                    </center>
+               <left>
+                        <HBox BorderPane.alignment="CENTER">
+                            <children>
+                                <Button fx:id="ButtonMinimize1" mnemonicParsing="false" pickOnBounds="true" prefHeight="30.0" prefWidth="34.0" styleClass="decoration-button-minimize" text="" AnchorPane.rightAnchor="68.0" AnchorPane.topAnchor="0.0" />
+                                <Button fx:id="ButtonMaximize1" mnemonicParsing="false" pickOnBounds="true" prefHeight="30.0" prefWidth="34.0" styleClass="decoration-button-maximize" text="" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="0.0">
+                           <HBox.margin>
+                              <Insets top="3.0" />
+                           </HBox.margin></Button>
+                                <Button fx:id="ButtonClose1" mnemonicParsing="false" pickOnBounds="true" prefHeight="30.0" prefWidth="34.0" styleClass="decoration-button-close" text="" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <rotationAxis>
+                                        <Point3D />
+                                    </rotationAxis>
+                           <HBox.margin>
+                              <Insets top="3.0" />
+                           </HBox.margin>
+                                </Button>
+                            </children>
+                        </HBox>
+               </left>
+                </JFXToolbar>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
