@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" minWidth="-Infinity" prefHeight="713.0" prefWidth="1235.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../styles/mainApplication..css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.main.mControllers.Controller_tabFeesPayment">
+<AnchorPane id="AnchorPane" minWidth="-Infinity" prefHeight="713.0" prefWidth="1235.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #757575; -fx-border-width: .5; -fx-border-radius: 3px, 3px, 2px, 1px;" stylesheets="@../styles/mainApplication..css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.main.mControllers.Controller_tabFeesPayment">
     <children>
         <Label fx:id="txtShowAddnewStudent" layoutX="19.0" layoutY="17.0" prefHeight="30.0" prefWidth="326.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Creat New Fees or Type of Fees" />
         <Separator layoutX="3.0" layoutY="55.0" prefHeight="4.0" prefWidth="1213.0" />

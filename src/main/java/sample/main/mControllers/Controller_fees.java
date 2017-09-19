@@ -1,5 +1,6 @@
 package sample.main.mControllers;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -10,7 +11,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
-import javafx.scene.control.*;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.WindowEvent;
 import sample.main.mInterfaceCallbacks.TabContent;
@@ -29,7 +33,7 @@ public class Controller_fees /*implements Initializable*/ {
     @FXML
     private TabPane tabePane;
     @FXML
-    private Button btnCreateFees, btnFeesPayment;
+    private JFXButton  btnCreateFees, btnFeesPayment;
     @FXML
     private HBox tabOptions;
 
@@ -120,6 +124,7 @@ public class Controller_fees /*implements Initializable*/ {
 
     private void addTab (ViewController tab) {
         final String KEY = "fxml";
+        tabePane.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
     /*Lets ensure that there is only one instance of one tab or class or object*/
         ObservableList<Tab> tabs = tabePane.getTabs();
         for (Tab tabinstance : tabs) {
@@ -147,11 +152,19 @@ public class Controller_fees /*implements Initializable*/ {
 
            // return;
         }
+        final String cssDefault =
+                "       -fx-shadow-highlight-color, \n" +
+                "       -fx-outer-border, \n" +
+                "       -fx-inner-border, \n" +
+
+                "  -fx-background-insets: 0 0 -1 0, 0, 1, 2;\n" +
+                "  -fx-background-radius: 3px, 3px, 2px, 1px;";
         Tab tab_ = new Tab();
         tab_.getProperties().put("controller", content);
         tab_.getProperties().put(KEY, tab.getFxmlFile());
         tab_.setContent(rootPane);
         tab_.setText(tab.getTitle());
+        tab_.setStyle(cssDefault);
         setContextMenu(tab_);
         tab_.setOnCloseRequest((Event event1) -> {
             if (!content.shouldClose()) {
@@ -180,6 +193,7 @@ public class Controller_fees /*implements Initializable*/ {
         tab.setContextMenu(contextMenu);
     }
     private void initFrameWork () {
+
         tabePane.getSelectionModel().selectedItemProperty().addListener((ObservableValue<? extends Tab> observable, Tab old, Tab newVal) -> {
             if (newVal != null) {
                 Platform.runLater(() -> {

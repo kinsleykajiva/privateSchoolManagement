@@ -120,19 +120,19 @@ public final class DBSettings {
 
     }
     public List<String> getGradeLevelClass (boolean isGettingGradeLevel){
-        List<String> __ = null;
+        List<String> o = null;
         try {
             ResultSet resultSet = statement.executeQuery(isGettingGradeLevel?
                     "SELECT * FROM "+TABLE_NAME+ " WHERE "+COL_SETTING_NAME + " = '"+SETTING_GRADElEVEL+"'"
                     :
                     "SELECT * FROM "+TABLE_NAME+ " WHERE "+COL_SETTING_NAME + " = '"+SETTING_CLASSNAME+"'"
             );
-           String _= resultSet.getString(COL_SETTINGS_SETING);
-            __=  new ArrayList<>(Arrays.asList(_.split(DELIMITOR)));
+           String y_= resultSet.getString(COL_SETTINGS_SETING);
+            o=  new ArrayList<>(Arrays.asList(y_.split(DELIMITOR)));
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return __==null? Collections.emptyList():__;
+        return o==null? Collections.emptyList():o;
 
     }
 
