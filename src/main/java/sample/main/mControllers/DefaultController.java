@@ -7,6 +7,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
@@ -31,6 +32,7 @@ public class DefaultController implements Initializable {
     @FXML private Button ButtonMaximize1;
     @FXML private ListView<String> ListMenu;
     @FXML private AnchorPane PaneFragment;
+    @FXML private ScrollPane fragmentScrollPane;
     private Rectangle2D rectangle2D;
     private double width;
     private double height;
@@ -44,6 +46,8 @@ public class DefaultController implements Initializable {
         StageManager.setPane(PaneFragment);
 
         mLocalMethods.setLargeScreen();
+        fragmentScrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        fragmentScrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
 
         ButtonMinimize1.setOnMouseEntered(e->getStage().getScene().setCursor(Cursor.HAND));
         ButtonMinimize1.setOnMouseExited(e->getStage().getScene().setCursor(Cursor.DEFAULT));

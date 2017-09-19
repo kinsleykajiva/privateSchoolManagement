@@ -7,3 +7,6 @@ create a welcome page of all the data
 
 
 add side pop messages in the app
+
+pagination
+search functionality

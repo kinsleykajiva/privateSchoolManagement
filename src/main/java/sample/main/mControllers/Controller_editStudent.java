@@ -4,6 +4,7 @@ import javafx.concurrent.Task;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -68,6 +69,7 @@ public class Controller_editStudent implements Initializable {
         stdGradeLevel.getItems().setAll(db.getGradeLevelClass(true));
         stdClassName.getItems().setAll(db.getGradeLevelClass(false));
         stdSex.getItems().setAll("Male", "Female");
+
         stdCountry.getItems().setAll(getCountriesList(true));
     }
 
@@ -221,6 +223,7 @@ public class Controller_editStudent implements Initializable {
     private void initRequiredData () {
         db = DBSettings.getInstance();
         dbStd = DBRecords.getInstance();
+
 
     }
     void resetForm () {

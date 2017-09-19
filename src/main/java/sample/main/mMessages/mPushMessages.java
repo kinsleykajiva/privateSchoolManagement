@@ -6,13 +6,13 @@ import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
-import org.controlsfx.control.Notifications;
+//import org.controlsfx.control.Notifications;
 
 import java.net.URISyntaxException;
 
 public class mPushMessages {
 
-    public void generalMessages (String title, String message){
+   /* public void generalMessages (String title, String message){
         try{
         Image image  = new Image(getClass().getResource("/drawables/tick.png").toURI().toString());
 
@@ -33,5 +33,5 @@ public class mPushMessages {
     }
 
 
-    }
+    }*/
 }

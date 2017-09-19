@@ -1,21 +1,34 @@
 package sample.main.mControllers;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.animation.*;
 import javafx.beans.InvalidationListener;
 import javafx.beans.binding.ListBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.concurrent.Task;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.util.Callback;
+import javafx.util.Duration;
 import sample.main.animation.FadeInLeftTransition;
+import sample.main.animation.FadeInRightTransition;
 import sample.main.animation.FadeInUpTransition;
+import sample.main.animation.FadeOutUpTransition;
 import sample.main.mDatabases.DBRecords;
+import sample.main.mDatabases.DBSettings;
 import sample.main.mInterfaceCallbacks.LoadInterface;
 import sample.main.mPojos.PrimaryLevelStudent;
 import sample.main.mPojos.Student;
@@ -23,15 +36,19 @@ import sample.main.mUtility.Loading;
 import sample.main.mframeWork.Shared;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 
 import static sample.main.mMessages.mDialogs.errorSimpleOKDialg;
 import static sample.main.mframeWork.Shared.editedRecord;
 import static sample.main.mframeWork.Shared.primaryLevelStudentsCache;
 import static sample.main.mframeWork.Shared.student;
+import static sample.main.mframeWork.StageManager.getStage;
 
-public class ViewStudents implements Initializable ,LoadInterface {
+public class ViewStudents implements Initializable, LoadInterface {
     @FXML
     private AnchorPane containerStdDetails, containerStudentDetailsTable;
     @FXML
@@ -56,9 +73,9 @@ public class ViewStudents implements Initializable ,LoadInterface {
     private TextArea stdAddress;
 
     @FXML
-    private Button btnSaveChanges, btnEditRecord;
+    private Button btnSaveChanges, btnEditRecord, btnSearchDatabase;
     @FXML
-    private HBox searchOptions;
+    private HBox searchOptions, searchDataGroup;
 
     @FXML
     private TableView stdDataTable;
@@ -67,8 +84,11 @@ public class ViewStudents implements Initializable ,LoadInterface {
     @FXML
     private TableColumn<Student, String> col_name;
     @FXML
+    private ComboBox<String> gradelevel, className;
+    @FXML
     private TableColumn<PrimaryLevelStudent, HBox> col_action;
-
+    @FXML
+    private TextField txtSearchOthers;
     @FXML
     private TableColumn<Student, String> col_surname;
 
@@ -99,6 +119,7 @@ public class ViewStudents implements Initializable ,LoadInterface {
     @FXML
     private TableColumn<Student, String> col_className;
     private DBRecords dbStd;
+    private DBSettings db;
 
     @FXML
     private ProgressBar ProgressLoading;
@@ -106,13 +127,71 @@ public class ViewStudents implements Initializable ,LoadInterface {
     @FXML
     private ImageView ImageLoading;
     private ObservableList<Student> students_list;
-    ;
+    private boolean isUsingSearch = false;
+
 
     @Override
     public void initialize (URL location, ResourceBundle resources) {
-       initRequiredData();
+        initRequiredData();
         initResources();
+        initClickListners();
 
+    }
+
+    private void initClickListners () {
+        btnSearchDatabase.setOnMouseEntered(e -> getStage().getScene().setCursor(Cursor.HAND));
+        btnSearchDatabase.setOnMouseExited(e -> getStage().getScene().setCursor(Cursor.DEFAULT));
+        //  HBox started at x: 900    y:13
+        // HBox target  translation location : x:260    y:13  decrease x to move to left
+        // grow
+
+        btnSearchDatabase.setOnAction(event -> {
+            // 1 move button to new position
+            if (isUsingSearch) {
+                isUsingSearch = false;
+                SequentialTransition sequentialTransition;
+                FadeTransition fadeTransition
+                        = new FadeTransition(Duration.millis(500), searchDataGroup);
+                fadeTransition.setFromValue(1.0);
+                fadeTransition.setToValue(0.0);
+                //fadeTransition.play();
+                // move the button back
+                final Timeline moveButton = new Timeline();
+                moveButton.setCycleCount(1);
+                moveButton.setAutoReverse(true);
+                final KeyValue kv = new KeyValue(searchOptions.layoutXProperty(), 760);
+                final KeyFrame kf = new KeyFrame(Duration.millis(500), kv);
+                moveButton.getKeyFrames().add(kf);
+                sequentialTransition = new SequentialTransition(fadeTransition, moveButton);
+                sequentialTransition.play();
+            } else {
+                SequentialTransition sequentialTransition;
+                final Timeline moveButton = new Timeline();
+                moveButton.setCycleCount(1);
+                moveButton.setAutoReverse(true);
+                final KeyValue kv = new KeyValue(searchOptions.layoutXProperty(), 260);
+                final KeyFrame kf = new KeyFrame(Duration.millis(500), kv);
+                moveButton.getKeyFrames().add(kf);
+                //moveButton.play();
+                // 2 grow the size of the HBox Note site size of HBox at width :48
+                // target width 724
+                searchOptions.setMinWidth(724);
+                // 3 show other Hbox Childern
+                FadeTransition transition = new FadeTransition(Duration.millis(3500));
+                transition.setNode(searchDataGroup);
+                transition.setFromValue(.1);
+                transition.setToValue(1);
+                transition.setCycleCount(1);
+                transition.setAutoReverse(false);
+                //transition.play();
+                sequentialTransition = new SequentialTransition(moveButton, transition);
+                sequentialTransition.play();
+                searchDataGroup.setVisible(true);
+                isUsingSearch = true;
+            }
+
+
+        });
     }
 
     private void initResources () {
@@ -124,18 +203,51 @@ public class ViewStudents implements Initializable ,LoadInterface {
         new Thread(task).start();
         task.setOnSucceeded(ev -> {
 
-
-            searchOptions.setVisible(true);
             ProgressLoading.setVisible(false);
             new FadeInLeftTransition(stdDataTable).play();
+
             new FadeInUpTransition(searchOptions).play();
             stdDataTable.setVisible(true);
+            searchOptions.setVisible(true);
+        });
+    }
+
+    private void searchForRecord () {
+        FilteredList<Student> filter = new FilteredList<>(students_list, e -> true);
+        txtSearchOthers.setOnKeyReleased((observ) -> {
+            System.out.print("999");
+            txtSearchOthers.textProperty().addListener((observable, oldValue, newValue) -> {
+                filter.setPredicate((Predicate<? super Student>) std -> {
+                    if (newValue == null || newValue.isEmpty()) {
+                        return true;
+                    }
+                    if (students_list.isEmpty()) {
+                        return true;
+                    }
+                    String i = newValue.toLowerCase();
+
+                        if (std.get__name().toLowerCase().contains(i)) {
+                            return true;
+                        } else if (std.get__registrationNumber().toLowerCase().contains(i)) {
+
+                            return true;
+                        }
+
+                    return false;
+
+
+                });
+            });
+            SortedList<Student> sortedList = new SortedList<Student>(filter);
+            sortedList.comparatorProperty().bind(stdDataTable.comparatorProperty());
+            stdDataTable.setItems(sortedList);
         });
     }
 
     private void initRequiredData () {
         dbStd = DBRecords.getInstance();
-         col_action.setCellValueFactory(new PropertyValueFactory<>("action"));
+        db = DBSettings.getInstance();
+        col_action.setCellValueFactory(new PropertyValueFactory<>("action"));
         col_name.setCellValueFactory(new PropertyValueFactory<>("__name"));
         col_surname.setCellValueFactory(new PropertyValueFactory<>("__surname"));
         col_address.setCellValueFactory(new PropertyValueFactory<>("__address"));
@@ -148,16 +260,19 @@ public class ViewStudents implements Initializable ,LoadInterface {
         col_gradeLevel.setCellValueFactory(new PropertyValueFactory<>("__classGrade_level"));
         col_className.setCellValueFactory(new PropertyValueFactory<>("__class_name"));
 
+        stdDataTable.setColumnResizePolicy(TableView.UNCONSTRAINED_RESIZE_POLICY);
+        List<String> gradeLevel__ = new ArrayList<>(Arrays.asList("Select"));
+        gradeLevel__.addAll(db.getGradeLevelClass(true));
+        gradelevel.getItems().setAll(gradeLevel__);
+        gradelevel.getSelectionModel().selectFirst();
 
-        /*for (int i = 0; i < 140; i++) {
-            primaryLevelStudentsCache.add(
-                    new PrimaryLevelStudent(localIDMaker(),false, "name " + i, "surname " + i, "addresss " + i,
-                            "9/15/17", "Zimbabwe", "Harare", "male", "e0002",
-                            "1", "Green",""+(231*i)));
-            dbStd.savePrimaryStudent( new PrimaryLevelStudent(localIDMaker(),false, "name " + i, "surname " + i, "addresss " + i,
-                    "9/15/17", "Zimbabwe", "Harare", "male", "e0002",
-                    "1", "Green",""+(231*i)));
-        }*/
+
+        List<String> class__names = new ArrayList<>(Arrays.asList("Select"));
+        class__names.addAll(db.getGradeLevelClass(false));
+        className.getItems().setAll(class__names);
+        className.getSelectionModel().selectFirst();
+
+
         if (! Shared.hasJustEditedRecord) {
 
             Task<List<PrimaryLevelStudent>> getstudentsTask = new Task<List<PrimaryLevelStudent>>() {
@@ -176,15 +291,16 @@ public class ViewStudents implements Initializable ,LoadInterface {
                 students_list = FXCollections.observableArrayList(primaryLevelStudentsCache);
                 stdDataTable.setItems(students_list);
                 ImageLoading.setVisible(false);
+                searchForRecord();
 
             });
         } else {
-            if(Shared.hasJustDeletedRecord){
+            if (Shared.hasJustDeletedRecord) {
                 students_list = FXCollections.observableArrayList(primaryLevelStudentsCache);
                 stdDataTable.setItems(students_list);
                 ImageLoading.setVisible(false);
-                Shared.hasJustDeletedRecord=false;
-            }else {
+                Shared.hasJustDeletedRecord = false;
+            } else {
                 final int position = primaryLevelStudentsCache.indexOf(student);
                 primaryLevelStudentsCache.get(position).set__name(editedRecord[0]);
                 primaryLevelStudentsCache.get(position).set__surname(editedRecord[1]);
@@ -207,11 +323,12 @@ public class ViewStudents implements Initializable ,LoadInterface {
                 threadTask.setOnSucceeded(event -> {
                     stdDataTable.setItems(threadTask.getValue());
                     ImageLoading.setVisible(false);
-                    Shared.hasJustEditedRecord=false;
+                    Shared.hasJustEditedRecord = false;
+
                 });
                 threadTask.setOnFailed(event -> {
                     ImageLoading.setVisible(false);
-                    Shared.hasJustEditedRecord=false;
+                    Shared.hasJustEditedRecord = false;
                     errorSimpleOKDialg("Error Occurred", "Something went wrong", " Please try again.");
                 });
             }

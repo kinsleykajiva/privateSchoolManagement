@@ -95,6 +95,7 @@ public boolean deleteRecord(String regNumber){
         return false;
     }
 }
+
 public List<PrimaryLevelStudent> getStudent(){
     List<PrimaryLevelStudent> list = new ArrayList<>();
     String sql = "SELECT * FROM "+TABLE_NAME;

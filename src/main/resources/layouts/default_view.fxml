@@ -21,17 +21,17 @@
                 <Button fx:id="ButtonResize" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" mouseTransparent="true" pickOnBounds="true" prefHeight="10.0" prefWidth="10.0" styleClass="decoration-button-resize" text="" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="2.0" />
                 <AnchorPane layoutX="2.0" layoutY="2.0" prefHeight="613.0" prefWidth="136.0" style="-fx-background-color: #2b579a;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
-                        <ListView fx:id="ListMenu" layoutX="-3.0" layoutY="87.0" onMouseClicked="#modeListMenu" prefHeight="526.0" prefWidth="136.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="87.0" />
-                        <Button fx:id="ButtonLogout" layoutX="22.0" layoutY="39.0" mnemonicParsing="false" onAction="#modeLogout" prefHeight="40.0" prefWidth="40.0" styleClass="button-logout">
+                        <ListView fx:id="ListMenu" layoutX="3.0" layoutY="104.0" onMouseClicked="#modeListMenu" prefHeight="509.0" prefWidth="136.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="104.0" />
+                        <Button fx:id="ButtonLogout" layoutX="42.0" layoutY="49.0" mnemonicParsing="false" onAction="#modeLogout" prefHeight="40.0" prefWidth="40.0" styleClass="button-logout">
                      <graphic>
                         <FontAwesomeIconView fill="WHITE" glyphName="NAVICON" size="23.0" />
                      </graphic>
                         </Button>
                     </children>
                 </AnchorPane>
-                <AnchorPane layoutX="140.0" layoutY="37.0" prefHeight="578.0" prefWidth="890.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="36.0">
+                <AnchorPane layoutX="143.0" layoutY="40.0" prefHeight="574.0" prefWidth="884.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="39.0">
                     <children>
-                        <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="40.0" layoutY="72.0" prefHeight="543.0" prefWidth="892.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <ScrollPane fx:id="fragmentScrollPane" fitToWidth="true" layoutX="40.0" layoutY="72.0" prefHeight="543.0" prefWidth="892.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <content>
                                 <AnchorPane fx:id="PaneFragment" minHeight="0.0" minWidth="0.0" prefHeight="749.0" prefWidth="1298.0" style="-fx-background-color: white;" />
                             </content>
@@ -49,11 +49,6 @@
                <left>
                         <HBox BorderPane.alignment="CENTER">
                             <children>
-                                <Button fx:id="ButtonMinimize1" mnemonicParsing="false" pickOnBounds="true" prefHeight="30.0" prefWidth="34.0" styleClass="decoration-button-minimize" text="" AnchorPane.rightAnchor="68.0" AnchorPane.topAnchor="0.0" />
-                                <Button fx:id="ButtonMaximize1" mnemonicParsing="false" pickOnBounds="true" prefHeight="30.0" prefWidth="34.0" styleClass="decoration-button-maximize" text="" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="0.0">
-                           <HBox.margin>
-                              <Insets top="3.0" />
-                           </HBox.margin></Button>
                                 <Button fx:id="ButtonClose1" mnemonicParsing="false" pickOnBounds="true" prefHeight="30.0" prefWidth="34.0" styleClass="decoration-button-close" text="" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <rotationAxis>
                                         <Point3D />
@@ -62,9 +57,24 @@
                               <Insets top="3.0" />
                            </HBox.margin>
                                 </Button>
+                                <Button fx:id="ButtonMaximize1" mnemonicParsing="false" pickOnBounds="true" prefHeight="30.0" prefWidth="34.0" styleClass="decoration-button-maximize" text="" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="0.0">
+                           <HBox.margin>
+                              <Insets top="3.0" />
+                           </HBox.margin></Button>
+                                <Button fx:id="ButtonMinimize1" mnemonicParsing="false" pickOnBounds="true" prefHeight="30.0" prefWidth="34.0" styleClass="decoration-button-minimize" text="" AnchorPane.rightAnchor="68.0" AnchorPane.topAnchor="0.0" />
                             </children>
                         </HBox>
                </left>
+               <right>
+                  <Button mnemonicParsing="false" style="-fx-background-color: #2b579a;" textFill="TRANSPARENT" BorderPane.alignment="CENTER">
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="ELLIPSIS_V" size="20.0" />
+                     </graphic>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </Button>
+               </right>
                 </JFXToolbar>
             </children>
         </AnchorPane>
