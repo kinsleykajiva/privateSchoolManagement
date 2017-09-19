@@ -7,14 +7,11 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import static sample.main.mUtility.mLocalStrings.APPLICATION_MINIMUM_HIGHT;
-import static sample.main.mUtility.mLocalStrings.APPLICATION_MINIMUM_WIDTH;
-import static sample.main.mUtility.mLocalStrings.getApplicationName;
+import static sample.main.mUtility.mLocalStrings.*;
 
 public class StageManager {
     private static  Stage stage;

@@ -40,7 +40,7 @@
                 </AnchorPane>
                 <JFXToolbar layoutX="2.0" layoutY="-3.0" style="-fx-background-color: #2b579a;" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0">
                     <center>
-                        <Label alignment="CENTER" mouseTransparent="true" prefHeight="38.0" prefWidth="738.0" style="-fx-font-size: 20; -fx-text-fill: #FFFFFF; -fx-font-weight: bold;" text="Private School Management System ®" textFill="#a1a1a1">
+                        <Label fx:id="mainLabel" alignment="CENTER" mouseTransparent="true" prefHeight="38.0" prefWidth="738.0" style="-fx-font-size: 20; -fx-text-fill: #FFFFFF; -fx-font-weight: bold;" text="Private School Management System ®" textFill="#a1a1a1">
                             <font>
                                 <Font name="Segoe UI Semibold" size="14.0" style="bold" />
                             </font>

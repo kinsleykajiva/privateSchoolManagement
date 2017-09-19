@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane id="AnchorPane" minWidth="-Infinity" prefHeight="713.0" prefWidth="1235.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../styles/mainApplication..css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.main.mControllers.Controller_fees">
+    <children>
+      <TabPane fx:id="tabePane" layoutX="3.0" layoutY="73.0" prefHeight="594.0" prefWidth="1210.0" tabClosingPolicy="UNAVAILABLE" />
+        <Label fx:id="txtShowAddnewStudent" layoutX="19.0" layoutY="17.0" prefHeight="30.0" prefWidth="222.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Fees" />
+        <Separator layoutX="3.0" layoutY="55.0" prefHeight="4.0" prefWidth="1213.0" />
+      <ProgressBar fx:id="ProgressLoading" layoutX="3.0" layoutY="58.0" minHeight="-Infinity" prefHeight="17.0" prefWidth="1227.0" progress="0.0" />
+      <ImageView fx:id="ImageLoading" fitHeight="34.0" fitWidth="36.0" layoutX="80.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../drawables/loading_circular.GIF" />
+         </image>
+      </ImageView>
+      <HBox fx:id="tabOptions" layoutX="160.0" layoutY="14.0" minWidth="-Infinity" prefHeight="34.0" prefWidth="500.0">
+         <children>
+            <Button fx:id="btnCreateFees" mnemonicParsing="false" style="-fx-background-color: #4226D1;" text="Create Fees" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="PLUS_SQUARE" size="15.0" />
+               </graphic>
+               <HBox.margin>
+                  <Insets left="5.0" top="4.0" />
+               </HBox.margin>
+            </Button>
+            <Separator maxWidth="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="200.0">
+               <HBox.margin>
+                  <Insets left="3.0" right="3.0" />
+               </HBox.margin>
+            </Separator>
+            <Button fx:id="btnFeesPayment" layoutX="15.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #4226D1;" text="Fees Payments" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="DOLLAR" size="15.0" wrappingWidth="14.571428298950195" />
+               </graphic>
+               <HBox.margin>
+                  <Insets top="4.0" />
+               </HBox.margin>
+            </Button>
+            <Separator layoutX="112.0" layoutY="10.0" maxWidth="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="200.0">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Separator>
+         </children>
+      </HBox>
+
+    </children>
+
+</AnchorPane>

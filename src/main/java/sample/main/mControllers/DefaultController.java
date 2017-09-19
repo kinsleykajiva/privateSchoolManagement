@@ -101,7 +101,7 @@ public class DefaultController implements Initializable {
         width=0.1;
         height=0.1;
 
-        ListMenu.getItems().addAll("Add Student","View Students","About");
+        ListMenu.getItems().addAll("Add Student","View Students","Fees","About");
         ListMenu.setOnMouseEntered(e->getStage().getScene().setCursor(Cursor.HAND));
         ListMenu.setOnMouseExited(e->getStage().getScene().setCursor(Cursor.DEFAULT));
 
@@ -120,10 +120,13 @@ public class DefaultController implements Initializable {
     public void modeListMenu(MouseEvent event) throws IOException {
         switch(ListMenu.getSelectionModel().getSelectedIndex()){
             case 0:
-                ScreenController.setScreen(ViewController.ADD_STUDENT);
+                ScreenController.setScreen(ViewController.FEES_VIEW);
                 break;
             case 1:
                 ScreenController.setScreen(ViewController.VIEW_STUDENTS);
+                break;
+            case 2:
+                ScreenController.setScreen(ViewController.ADD_STUDENT);
                 break;
            /* case 2:
                 ScreenController.setScreen(ScreenController.Screen.TEAM_PROJECTS);

@@ -2,14 +2,9 @@ package sample.main.mUtility;
 
 import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;
-import sample.main.mDatabases.DBRecords;
-import sample.main.mDatabases.DBSettings;
 
 import java.io.File;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.DateTimeException;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -17,8 +12,6 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static java.lang.Thread.sleep;
-import static sample.main.mDatabases.DBRecords.getInstance;
 import static sample.main.mUtility.mLocalStrings.*;
 import static sample.main.mframeWork.StageManager.getStage;
 
@@ -233,8 +226,24 @@ public class mLocalMethods {
         }
 
     }
+    /*
+    get the system users honme directory <br/>
+    for example  C:\Users\Kajiva Kinsley
+     */
+    public static String getUserHomeDirectory() {
+        String homePath = null;
+
+        try {
+            homePath = System.getProperty("user.home", "/");
+        } catch (Exception e) {
+
+            homePath = "/";
+        }
+
+        return Paths.get(homePath).toAbsolutePath().toString();
+    }
     public static void main(String[] sss) {
-        System.out.print(isDateValid("16/9/2017"));
+        System.out.print(LocalDate.now().getYear());
 
 
     }

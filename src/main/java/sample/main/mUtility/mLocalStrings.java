@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class mLocalStrings {
     /**The application name */
-    private static final String APPLICATION_NAME = "private-School Management System";
+    private static final String APPLICATION_NAME = "Private School Management System ® ";
 
     public static final String APPDATA_MAIN_FOLDER = System.getenv("APPDATA") + "\\"+"privateSchoolManagementSystem";
     public static final String DATABASE_FODLER = APPDATA_MAIN_FOLDER + "\\localLog";

@@ -1,12 +1,10 @@
 package sample.main.mframeWork;
 
 import javafx.fxml.FXMLLoader;
-import javafx.stage.Screen;
 
 import java.io.IOException;
 
 import static sample.main.mframeWork.Shared.viewController;
-import static sample.main.mframeWork.ViewController.EDIT_STUDENTS;
 
 
 public class ScreenController {
@@ -39,7 +37,13 @@ public class ScreenController {
                 try {
                     StageManager.setPaneFragment(FXMLLoader.load(ScreenController.class.getResource(ViewController.EDIT_STUDENTS.getFxmlFile())));
                     viewController = screen;
-                } catch (IOException e) {e.printStackTrace();}
+                } catch (IOException e) {e.printStackTrace();} break;
+            case FEES_VIEW:
+                try {
+                    StageManager.setPaneFragment(FXMLLoader.load(ScreenController.class.getResource(ViewController.FEES_VIEW.getFxmlFile())));
+                    viewController = screen;
+                } catch (IOException e) {e.printStackTrace();} break;
+
 
                 default:
                     break;
