@@ -5,7 +5,6 @@ import javafx.stage.Screen;
 
 import java.io.File;
 import java.nio.file.Paths;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.*;
@@ -242,8 +241,38 @@ public class mLocalMethods {
 
         return Paths.get(homePath).toAbsolutePath().toString();
     }
+
+    /**
+     * Create a list of all student
+     * @param studentList
+     * @return [All Students, 1, 2, 3, 4, 5, 6, 7, 1-2, 1-3, 1-4, 1-5, 1-6, 2-3, 2-4, 2-5, 2-6, 2-7, 3-4, 3-5, 3-6, 3-7, 4-5, 4-6, 4-7, 5-6, 5-7, 6-7]
+     */
+    public static List<String> studentRange(List<String> studentList){
+
+        for (int i = 0; i < studentList.size(); i++) {
+            studentList.set(i,"Grade "+studentList.get(i));
+        }
+
+        java.util.List<String> v =new ArrayList<>(studentList);
+        for (int i = 0; i < studentList.size(); i++) {
+
+            for (int j = (i+1); j < studentList.size(); j++) {
+                String stage = studentList.get(i)+ "-" + (j+1);
+                stage = stage.equals("1-7")?"All Students":stage;
+                v.add(stage) ;
+            }
+        }
+        v.remove("All Students");
+        v.add(0,"All Students");
+        return v;
+    }
+
     public static void main(String[] sss) {
-        System.out.print(LocalDate.now().getYear());
+        java.util.List<String> test = new ArrayList<>(Arrays.asList("1","2","3","4","5","6","7"));
+
+
+
+        System.out.print(studentRange(test));
 
 
     }

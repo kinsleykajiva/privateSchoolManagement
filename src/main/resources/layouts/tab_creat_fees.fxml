@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -15,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" minWidth="-Infinity" prefHeight="713.0" prefWidth="1235.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #757575; -fx-border-width: .5; -fx-border-radius: 3px, 3px, 2px, 1px;"  stylesheets="@../styles/mainApplication..css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.main.mControllers.Controller_tabCreateFees">
+<AnchorPane id="AnchorPane" minWidth="-Infinity" prefHeight="713.0" prefWidth="1235.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #757575; -fx-border-width: .5; -fx-border-radius: 3px, 3px, 2px, 1px;" stylesheets="@../styles/mainApplication..css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.main.mControllers.Controller_tabCreateFees">
     <children>
         <Label fx:id="txtShowAddnewStudent" layoutX="19.0" layoutY="17.0" prefHeight="30.0" prefWidth="326.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Creat New Fees or Type of Fees" />
         <Separator layoutX="3.0" layoutY="55.0" prefHeight="4.0" prefWidth="1213.0" />
@@ -150,7 +151,7 @@
                         <HBox>
                            <children>
                               <Label prefHeight="17.0" prefWidth="92.0" text="Description" />
-                              <TextArea fx:id="stdAddress" prefHeight="100.0" prefWidth="505.0" promptText="This Fee will be for ...." />
+                              <TextArea fx:id="stdDescription" prefHeight="100.0" prefWidth="505.0" promptText="This Fee will be for ...." />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="294.0">
@@ -182,6 +183,14 @@
             <Insets top="10.0" />
          </padding>
       </HBox>
+      <JFXButton fx:id="btnCloseTab" buttonType="RAISED" layoutX="610.0" layoutY="421.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #DD4B39;" text="Close" textFill="WHITE">
+         <font>
+            <Font name="Roboto Medium" size="14.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="TIMES_CIRCLE_ALT" size="18.0" />
+         </graphic>
+      </JFXButton>
 
     </children>
 

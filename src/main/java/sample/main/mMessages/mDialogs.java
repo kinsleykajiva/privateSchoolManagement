@@ -4,13 +4,15 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXSnackbar;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.FileNotFoundException;
@@ -69,6 +71,13 @@ public final class mDialogs {
         alert.initStyle(StageStyle.UTILITY);
         alert.showAndWait();
     }
+    public static void errorSimpleOKDialg(String title,  String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setContentText(message);
+        alert.initStyle(StageStyle.UTILITY);
+        alert.showAndWait();
+    }
 
     public static void warnningSimpleOKDialg(String title, String header, String message) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -78,7 +87,13 @@ public final class mDialogs {
         alert.initStyle(StageStyle.UTILITY);
         alert.showAndWait();
     }
-
+    public static void warnningSimpleOKDialg(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setContentText(message);
+        alert.initStyle(StageStyle.UTILITY);
+        alert.showAndWait();
+    }
     public static void infomationSimpleOKDialg(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);

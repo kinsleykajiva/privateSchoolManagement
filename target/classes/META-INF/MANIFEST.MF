@@ -3,5 +3,6 @@ Main-Class: sample.main.Main
 Permissions: all-permissions
 JavaFX-Version: 2.0
 Created-By: Kinsley Kajiva
+Class-Path: sqlite-jdbc-3.19.3.jar
 
 

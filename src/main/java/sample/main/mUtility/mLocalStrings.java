@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 public class mLocalStrings {
     /**The application name */
     private static final String APPLICATION_NAME = "Private School Management System ® ";
+    public static final String THEME = "Simple Efficient Management";
 
     public static final String APPDATA_MAIN_FOLDER = System.getenv("APPDATA") + "\\"+"privateSchoolManagementSystem";
     public static final String DATABASE_FODLER = APPDATA_MAIN_FOLDER + "\\localLog";
@@ -31,4 +32,16 @@ public class mLocalStrings {
     public static final String getApplicationName() {
         return APPLICATION_NAME + " (" + LocalDateTime.now().getYear() + ")";
     }
+
+    public static final String [] SUGGETION_SCHOOL_FEES_TYPES={"Enrollment Deposit","Orientation Fee","Graduation Fee",
+        "Residence Hall Reservation Fee","Double Major","Late Payment Charge","Late Pre-Registration/Registration Fee",
+            "Health Services Fee","Health Insurance","Transcript Fee (per copy)","Meals",
+            "emergency fund","Student emergency fund","Early childhood education services","School Bus Faire","Accommodation",
+            "Developement Fee","Food","Stationary"
+
+    };
+
+
+
+
 }
