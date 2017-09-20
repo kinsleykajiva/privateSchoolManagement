@@ -14,8 +14,11 @@ import sample.main.mDatabases.DBFees;
 import sample.main.mDatabases.DBSettings;
 import sample.main.mInterfaceCallbacks.TabContent;
 
+import java.util.List;
+
 import static sample.main.mMessages.mDialogs.*;
 import static sample.main.mUtility.mLocalMethods.studentRange;
+import static sample.main.mUtility.mLocalStrings.SETUP_ERROR;
 import static sample.main.mUtility.mLocalStrings.SUGGETION_SCHOOL_FEES_TYPES;
 
 public class Controller_tabCreateFees implements TabContent {
@@ -99,22 +102,29 @@ public class Controller_tabCreateFees implements TabContent {
     }
 
     private void initDataRequired () {
-        dbSettings = DBSettings.getInstance();
+
         TextFields.bindAutoCompletion(txtfeeName,SUGGETION_SCHOOL_FEES_TYPES);
-        Task<DBFees> dbFeesTask = new Task<DBFees>() {
+        Task<List<String>> dbFeesTask = new Task<List<String>>() {
             @Override
-            protected DBFees call () throws Exception {
-                return DBFees.getInstance();
+            protected List<String> call () throws Exception {
+                DBSettings db=new DBSettings();
+                return db.getGradeLevelClass(true);
             }
         };
         new Thread(dbFeesTask).start();
         dbFeesTask.setOnSucceeded(ev->{
-            dbFees = dbFeesTask.getValue();
-            if(dbFeesTask == null){
-                errorSimpleOKDialg("Database Connnection Error","Failed to connect !","Try again Later");
+
+            if(dbFeesTask.getValue().isEmpty()){
+                txtwhoPays.getItems().setAll(SETUP_ERROR);
+
+                txtwhoPays.getSelectionModel().selectFirst();
+                errorSimpleOKDialg("SetUp Error","It Seems like you had not configured the system Correctly !","Go To settings to fix this");
+            }else{
+                txtwhoPays.getItems().setAll(studentRange(dbFeesTask.getValue()));
+
+                txtwhoPays.getSelectionModel().selectFirst();
             }
-            txtwhoPays.getItems().setAll(studentRange(dbSettings.getGradeLevelClass((true))));
-            txtwhoPays.getSelectionModel().selectFirst();
+
         });
         dbFeesTask.setOnFailed(ev->{
             errorSimpleOKDialg("Database Connnection Error","Failed to connect !","Try again Later");

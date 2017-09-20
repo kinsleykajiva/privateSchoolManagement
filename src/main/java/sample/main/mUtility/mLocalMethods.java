@@ -270,10 +270,12 @@ public class mLocalMethods {
     public static void main(String[] sss) {
         java.util.List<String> test = new ArrayList<>(Arrays.asList("1","2","3","4","5","6","7"));
 
+       /* DBManager.getInstance();
 
-
-        System.out.print(studentRange(test));
-
+        DBSettings db=new DBSettings();
+        db.saveDefaults(new ArrayList<>(),new ArrayList<>(),"Zimbabw");
+        System.out.print(db.getGradeLevelClass(true));
+*/
 
     }
 

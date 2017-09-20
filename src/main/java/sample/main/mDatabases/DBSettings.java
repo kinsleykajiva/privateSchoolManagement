@@ -1,7 +1,6 @@
 package sample.main.mDatabases;
 
 
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,20 +10,33 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static sample.main.mUtility.mLocalMethods.getCountriesList;
-import static sample.main.mUtility.mLocalStrings.DATABASE_SETTINGS;
 
 public final class DBSettings {
-    private static DBSettings dbSettings=null;
-    private static Connection conn = null;
-    private static Statement statement =null;
+    private DBManager db=null;
+    private Connection conn = null;
+    private Statement statement =null;
 
     private static final  String DOCUMENT_CUSTOMS ="aboutSystem";
     public static final String TABLE_NAME = "aboutSystem", COL_SETTING_NAME = "settings_name" , COL_SETTINGS_SETING = "setting_seting";
     public static final String SETTING_CLASSNAME = "className", SETTING_GRADElEVEL = "gradeLevel",SETTING_COUNTRY = "country";
     public static final String DELIMITOR =";";
-    private DBSettings(){
-        createconnection();
-         createTables();
+    public DBSettings(){
+
+       /* try {*/
+            db = DBManager.getInstance();
+            conn = db.getConnection();
+
+        try {
+            statement = conn.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+       /* } catch (SQLException e) {
+            e.printStackTrace();
+        }*/
+        createTables();
 
     }
 
@@ -42,28 +54,8 @@ public final class DBSettings {
         }
     }
 
-    /**
-     * Create the database single instance once
-     * @return the class object
-     */
-    public static DBSettings getInstance() {
-        if (dbSettings == null) {
-            dbSettings = new DBSettings();
-        }
-        return dbSettings;
-    }
-    private void createconnection() {
-        try {
-            String pp="jdbc:sqlite:"+DATABASE_SETTINGS;
-
-            conn = DriverManager.getConnection(pp);
-            statement = conn.createStatement();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
 
 
-    }
     public void closeDb() {
         try {
             conn.close();
@@ -121,14 +113,22 @@ public final class DBSettings {
     }
     public List<String> getGradeLevelClass (boolean isGettingGradeLevel){
         List<String> o = null;
-        try {
+
+        try{
             ResultSet resultSet = statement.executeQuery(isGettingGradeLevel?
                     "SELECT * FROM "+TABLE_NAME+ " WHERE "+COL_SETTING_NAME + " = '"+SETTING_GRADElEVEL+"'"
                     :
                     "SELECT * FROM "+TABLE_NAME+ " WHERE "+COL_SETTING_NAME + " = '"+SETTING_CLASSNAME+"'"
             );
-           String y_= resultSet.getString(COL_SETTINGS_SETING);
-            o=  new ArrayList<>(Arrays.asList(y_.split(DELIMITOR)));
+            if (resultSet.next() ) {
+                String y_= resultSet.getString(COL_SETTINGS_SETING);
+                o=  new ArrayList<>(Arrays.asList(y_.split(DELIMITOR)));
+            }
+
+
+
+
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

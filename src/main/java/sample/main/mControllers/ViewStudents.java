@@ -1,6 +1,5 @@
 package sample.main.mControllers;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.animation.*;
 import javafx.beans.InvalidationListener;
 import javafx.beans.binding.ListBinding;
@@ -9,11 +8,8 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
@@ -21,12 +17,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.util.Callback;
 import javafx.util.Duration;
 import sample.main.animation.FadeInLeftTransition;
-import sample.main.animation.FadeInRightTransition;
 import sample.main.animation.FadeInUpTransition;
-import sample.main.animation.FadeOutUpTransition;
 import sample.main.mDatabases.DBRecords;
 import sample.main.mDatabases.DBSettings;
 import sample.main.mInterfaceCallbacks.LoadInterface;
@@ -43,9 +36,7 @@ import java.util.ResourceBundle;
 import java.util.function.Predicate;
 
 import static sample.main.mMessages.mDialogs.errorSimpleOKDialg;
-import static sample.main.mframeWork.Shared.editedRecord;
-import static sample.main.mframeWork.Shared.primaryLevelStudentsCache;
-import static sample.main.mframeWork.Shared.student;
+import static sample.main.mframeWork.Shared.*;
 import static sample.main.mframeWork.StageManager.getStage;
 
 public class ViewStudents implements Initializable, LoadInterface {
@@ -245,8 +236,8 @@ public class ViewStudents implements Initializable, LoadInterface {
     }
 
     private void initRequiredData () {
-        dbStd = DBRecords.getInstance();
-        db = DBSettings.getInstance();
+        dbStd = new DBRecords();
+        db = new DBSettings();
         col_action.setCellValueFactory(new PropertyValueFactory<>("action"));
         col_name.setCellValueFactory(new PropertyValueFactory<>("__name"));
         col_surname.setCellValueFactory(new PropertyValueFactory<>("__surname"));

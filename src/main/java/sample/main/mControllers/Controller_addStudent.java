@@ -60,8 +60,8 @@ public class Controller_addStudent implements Initializable {
     }
 
     private void initRequiredData () {
-        db = DBSettings.getInstance();
-        dbStd = DBRecords.getInstance();
+        db =new  DBSettings();
+        dbStd =new  DBRecords();
         stdGradeLevel.getItems().setAll(db.getGradeLevelClass(true));
         stdGradeLevel.getSelectionModel().select(0);
         stdClassName.getItems().setAll(db.getGradeLevelClass(false));

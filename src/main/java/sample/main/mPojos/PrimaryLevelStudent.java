@@ -1,6 +1,5 @@
 package sample.main.mPojos;
 
-import javafx.beans.property.SimpleStringProperty;
 import javafx.concurrent.Task;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
@@ -9,7 +8,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import sample.main.mControllers.Controller_editStudent;
 import sample.main.mDatabases.DBRecords;
 import sample.main.mInterfaceCallbacks.LoadInterface;
 import sample.main.mframeWork.ScreenController;
@@ -18,16 +16,10 @@ import sample.main.mframeWork.ViewController;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Table;
-
-import java.util.List;
 
 import static sample.main.mMessages.mDialogs.*;
-import static sample.main.mUtility.mLocalMethods.getCurrentTime;
-import static sample.main.mUtility.mLocalMethods.registrationDate;
 import static sample.main.mframeWork.Shared.primaryLevelStudentsCache;
 import static sample.main.mframeWork.Shared.student;
-import static sample.main.mframeWork.Shared.viewController;
 import static sample.main.mframeWork.StageManager.getStage;
 
 /**This is my class using hibernate for data persistence*/
@@ -77,7 +69,7 @@ public final class PrimaryLevelStudent extends Student{
 
            if(yesNoDialog("Deletion Confirmation","Database Access Action!","Are you sure you want delete this record from the database ?","Yes,Delete!","No,Cancel",2)){
 
-             final  DBRecords   db= DBRecords.getInstance();
+             final  DBRecords   db=new DBRecords();
 
                if(db == null){
                    warnningSimpleOKDialg("Database Connection","Failed to connect to the Database","Please reload the Application !");

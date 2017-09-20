@@ -1,12 +1,8 @@
 package sample.main.mControllers;
 
 import javafx.concurrent.Task;
-import javafx.fxml.Initializable;
-
-import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -19,9 +15,13 @@ import sample.main.mframeWork.ScreenController;
 import sample.main.mframeWork.Shared;
 import sample.main.mframeWork.ViewController;
 
-import static sample.main.mMessages.mDialogs.errorSimpleOKDialg;
-import static sample.main.mMessages.mDialogs.infomationSimpleOKDialg;
-import static sample.main.mMessages.mDialogs.warnningSimpleOKDialg;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.ResourceBundle;
+
+import static sample.main.mMessages.mDialogs.*;
 import static sample.main.mUtility.mLocalMethods.getCountriesList;
 import static sample.main.mUtility.mLocalMethods.isDateValid;
 import static sample.main.mframeWork.Shared.editedRecord;
@@ -30,35 +30,31 @@ import static sample.main.mframeWork.Shared.student;
 public class Controller_editStudent implements Initializable {
     @FXML
     private HBox mainSceenHolder;
-
     @FXML
     private AnchorPane containerStdDetails;
     @FXML
     private VBox formData;
     @FXML
-    private ComboBox<String> stdSex, stdClassName ,stdCountry,stdGradeLevel;
+    private ComboBox<String> stdSex, stdClassName, stdCountry, stdGradeLevel;
     @FXML
-    private TextField stdName,stdSurname,stdPaidAmounta,stdTown ,stdAccount,stdDOB;
+    private TextField stdName, stdSurname, stdPaidAmounta, stdTown, stdAccount, stdDOB;
     @FXML
     private TextArea stdAddress;
     @FXML
     private Label reg_numberDisplay;
     @FXML
-    private Button btnClear,btnSaveChanges,btnBack;
+    private Button btnClear, btnSaveChanges, btnBack;
     @FXML
     private ProgressBar ProgressLoading;
     @FXML
     private ImageView ImageLoading;
-    private DBSettings db;
-    public static DBRecords dbStd;
+
 
     @Override
     public void initialize (URL location, ResourceBundle resources) {
         initRequiredData();
         initResours();
-            settData();
-
-
+        settData();
         initClickListers();
 
     }
@@ -66,8 +62,24 @@ public class Controller_editStudent implements Initializable {
     private void initResours () {
         btnClear.setDisable(true);
         btnSaveChanges.setDisable(true);
-        stdGradeLevel.getItems().setAll(db.getGradeLevelClass(true));
-        stdClassName.getItems().setAll(db.getGradeLevelClass(false));
+        Task<Map<String, List<String>>> gradeLevel = new Task<Map<String, List<String>>>() {
+            @Override
+            protected Map<String, List<String>> call () throws Exception {
+                Map<String, List<String>> datasets = new HashMap<>();
+                DBSettings dbSettings = new DBSettings();
+                datasets.put("gradelevel", dbSettings.getGradeLevelClass(true));
+                datasets.put("className", dbSettings.getGradeLevelClass(false));
+
+                return datasets;
+            }
+        };
+        new Thread(gradeLevel).start();
+        gradeLevel.setOnSucceeded(ev -> {
+            stdGradeLevel.getItems().setAll(gradeLevel.getValue().get("gradelevel"));
+            stdClassName.getItems().setAll(gradeLevel.getValue().get("className"));
+        });
+
+
         stdSex.getItems().setAll("Male", "Female");
 
         stdCountry.getItems().setAll(getCountriesList(true));
@@ -85,7 +97,7 @@ public class Controller_editStudent implements Initializable {
         stdGradeLevel.getSelectionModel().select(student.get__classGrade_level());
         stdPaidAmounta.setText(student.get__feesPaid());
         stdTown.setText(student.get__town_city());
-        reg_numberDisplay.setText("Student ID Number : "+student.get__registrationNumber());
+        reg_numberDisplay.setText("Student ID Number : " + student.get__registrationNumber());
 
     }
 
@@ -145,10 +157,10 @@ public class Controller_editStudent implements Initializable {
             btnSaveChanges.setDisable(false);
 
         });
-        btnBack.setOnAction(ev->{
+        btnBack.setOnAction(ev -> {
             ScreenController.setScreen(ViewController.VIEW_STUDENTS);
         });
-        btnSaveChanges.setOnAction(ev->{
+        btnSaveChanges.setOnAction(ev -> {
             //validation
             String name = stdName.getText().trim();
             String surname = stdSurname.getText().trim();
@@ -165,10 +177,10 @@ public class Controller_editStudent implements Initializable {
                     className.isEmpty() || address.isEmpty() || feesPaid.isEmpty()) {
                 errorSimpleOKDialg("Faild to save", "One of the fiels is empty", "Put required data in all fields to save");
 
-            }else{
-                if(!isDateValid(dob)){
+            } else {
+                if (! isDateValid(dob)) {
                     warnningSimpleOKDialg("Date format Error", "Please put a valid date format", "Required format is dd/mm/yyyy.");
-                }else {
+                } else {
                     ImageLoading.setVisible(true);
                     formData.setDisable(true);
                     Task<Boolean> task = new Task<Boolean>() {
@@ -188,25 +200,26 @@ public class Controller_editStudent implements Initializable {
 
                         @Override
                         protected Boolean call () throws Exception {
-                            return dbStd.updateRecord(new PrimaryLevelStudent(student.get__registrationNumber(), false, name, surname, address, dob, country, town, sex,
+
+                            return new DBRecords().updateRecord(new PrimaryLevelStudent(student.get__registrationNumber(), false, name, surname, address, dob, country, town, sex,
                                     accountNumber, grade, className, feesPaid));
                         }
                     };
                     new Thread(task).start();
                     task.setOnSucceeded(evc -> {
                         if (task.getValue()) {
-                            editedRecord[0]=name;
-                            editedRecord[1]=surname;
-                            editedRecord[3]=dob;
-                            editedRecord[4]=town;
-                            editedRecord[5]=sex;
-                            editedRecord[6]=grade;
-                            editedRecord[7]=className;
-                            editedRecord[8]=address;
-                            editedRecord[9]=feesPaid;
-                            editedRecord[10]=country;
-                            editedRecord[11]=student.get__registrationNumber();
-                            Shared.hasJustEditedRecord =true;
+                            editedRecord[0] = name;
+                            editedRecord[1] = surname;
+                            editedRecord[3] = dob;
+                            editedRecord[4] = town;
+                            editedRecord[5] = sex;
+                            editedRecord[6] = grade;
+                            editedRecord[7] = className;
+                            editedRecord[8] = address;
+                            editedRecord[9] = feesPaid;
+                            editedRecord[10] = country;
+                            editedRecord[11] = student.get__registrationNumber();
+                            Shared.hasJustEditedRecord = true;
                             infomationSimpleOKDialg("Record Saved", "Student Record updated Successfully");
                         } else {
                             errorSimpleOKDialg("Saving Failed", "Failed to save the update.", " Please try again.");
@@ -215,17 +228,16 @@ public class Controller_editStudent implements Initializable {
                 }
             }
         });
-        btnClear.setOnAction(ev->{
+        btnClear.setOnAction(ev -> {
             resetForm();
         });
     }
 
     private void initRequiredData () {
-        db = DBSettings.getInstance();
-        dbStd = DBRecords.getInstance();
 
 
     }
+
     void resetForm () {
         stdSurname.setText("");
         stdDOB.setText("");
