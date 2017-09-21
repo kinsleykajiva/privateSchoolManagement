@@ -26,6 +26,7 @@ public class mLocalStrings {
     public static final String DATE_PATTERN = "(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((19|20)\\d\\d)";
 
     public static final  String SETUP_ERROR = "SetUp Error";
+    public static final String SETTINGS_SETUP = "It Seems like you had not configured the system Correctly !";
 
 
     /**gets the application name with the year
@@ -34,14 +35,15 @@ public class mLocalStrings {
         return APPLICATION_NAME + " (" + LocalDateTime.now().getYear() + ")";
     }
 
-    public static final String [] SUGGETION_SCHOOL_FEES_TYPES={"Enrollment Deposit","Orientation Fee","Graduation Fee",
+    public static final String [] SUGGESTION_SCHOOL_FEES_TYPES ={"Enrollment Deposit","Orientation Fee","Graduation Fee",
         "Residence Hall Reservation Fee","Double Major","Late Payment Charge","Late Pre-Registration/Registration Fee",
             "Health Services Fee","Health Insurance","Transcript Fee (per copy)","Meals",
             "emergency fund","Student emergency fund","Early childhood education services","School Bus Faire","Accommodation",
             "Developement Fee","Food","Stationary"
 
     };
-
+    public static final String [] TERMS = {"Term 1","Term 2","Term 3","Term 4","Term 5"};
+    public static final String [] FEES_PERIOD= {"6 months","1 year","1.5 years","2 years","2.5 years","3 years","3.5 years","4 years","4.5 years","6 years","6.5 years"};
 
 
 

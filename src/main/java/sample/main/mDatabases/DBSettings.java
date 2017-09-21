@@ -21,23 +21,14 @@ public final class DBSettings {
     public static final String SETTING_CLASSNAME = "className", SETTING_GRADElEVEL = "gradeLevel",SETTING_COUNTRY = "country";
     public static final String DELIMITOR =";";
     public DBSettings(){
-
-       /* try {*/
             db = DBManager.getInstance();
             conn = db.getConnection();
-
         try {
             statement = conn.createStatement();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
-       /* } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
         createTables();
-
     }
 
     private void createTables () {
@@ -113,7 +104,6 @@ public final class DBSettings {
     }
     public List<String> getGradeLevelClass (boolean isGettingGradeLevel){
         List<String> o = null;
-
         try{
             ResultSet resultSet = statement.executeQuery(isGettingGradeLevel?
                     "SELECT * FROM "+TABLE_NAME+ " WHERE "+COL_SETTING_NAME + " = '"+SETTING_GRADElEVEL+"'"
@@ -124,16 +114,10 @@ public final class DBSettings {
                 String y_= resultSet.getString(COL_SETTINGS_SETING);
                 o=  new ArrayList<>(Arrays.asList(y_.split(DELIMITOR)));
             }
-
-
-
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return o==null? Collections.emptyList():o;
-
     }
 
 }

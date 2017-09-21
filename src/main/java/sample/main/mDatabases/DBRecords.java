@@ -98,9 +98,9 @@ public final class DBRecords {
 
     public List<PrimaryLevelStudent> getStudent () {
         List<PrimaryLevelStudent> list = new ArrayList<>();
-        String sql = "SELECT * FROM " + TABLE_NAME;
-        try {
-            ResultSet rs = statement.executeQuery(sql);
+        final String sql = "SELECT * FROM " + TABLE_NAME;
+        try(ResultSet rs = statement.executeQuery(sql)) {
+
             while (rs.next()) {
                 list.add(new PrimaryLevelStudent(
                         rs.getString(COL_REGISTRATION_NUMBER),

@@ -33,7 +33,7 @@ public class Controller_fees /*implements Initializable*/ {
     @FXML
     private TabPane tabePane;
     @FXML
-    private JFXButton  btnCreateFees, btnFeesPayment;
+    private JFXButton  btnCreateFees, btnFeesPayment,btnFeesList;
     @FXML
     private HBox tabOptions;
 
@@ -70,6 +70,9 @@ public class Controller_fees /*implements Initializable*/ {
         });
         btnFeesPayment.setOnAction(ev -> {
             addTab((ViewController.TAB_FEES_PAYMENT));
+        });
+        btnFeesList.setOnAction(ev->{
+            addTab((ViewController.TAB_VIEW_FES_LIST));
         });
     }
 
@@ -142,7 +145,7 @@ public class Controller_fees /*implements Initializable*/ {
             rootPane = loader.load();
         } catch (IOException e) {
             e.printStackTrace();
-            new mPushMessages().generalMessages("Error ", "Error in opening Tab " + tab.getTitle() + "Please try again !");
+            new mPushMessages().generalErrorMessages("Error ", "Error in opening Tab " + tab.getTitle() + "Please try again !");
             return;
         }
         final TabContent content = loader.getController();

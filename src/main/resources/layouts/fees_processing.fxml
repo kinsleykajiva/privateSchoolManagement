@@ -62,6 +62,25 @@
                   <Insets left="3.0" top="3.0" />
                </HBox.margin>
             </JFXButton>
+            <Separator layoutX="150.0" layoutY="10.0" maxWidth="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="200.0">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets left="4.0" right="4.0" />
+               </HBox.margin>
+            </Separator>
+            <JFXButton fx:id="btnFeesList" buttonType="RAISED" layoutX="167.0" layoutY="13.0" prefHeight="30.0" prefWidth="137.0" style="-fx-background-color: #1976D2;" text="View Fees List" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Medium" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="LIST_OL" size="15.0" wrappingWidth="14.571428298950195" />
+               </graphic>
+               <HBox.margin>
+                  <Insets top="3.0" />
+               </HBox.margin>
+            </JFXButton>
          </children>
       </HBox>
 

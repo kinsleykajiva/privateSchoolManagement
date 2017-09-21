@@ -12,25 +12,41 @@ import java.net.URISyntaxException;
 
 public class mPushMessages {
 
-    public void generalMessages (String title, String message){
-        try{
-        Image image  = new Image(getClass().getResource("/drawables/tick.png").toURI().toString());
+    public void generalMessages (String title, String message) {
+        try {
+            Image image = new Image(getClass().getResource("/drawables/tick.png").toURI().toString());
 
-        Notifications notificationBuilder = Notifications.create()
-                .title(title)
-                .text(message)
-                .graphic(new ImageView(image))
-                .hideAfter(Duration.seconds(8))
-                .position(Pos.TOP_RIGHT)
-                .onAction(new EventHandler<ActionEvent>() {
-                    @Override public void handle(ActionEvent arg0) {
-                        System.out.println("Notification clicked on!");
-                    }
-                });
-        notificationBuilder.show();
-    } catch (URISyntaxException e) {
-        e.printStackTrace();
+            Notifications notificationBuilder = Notifications.create()
+                    .title(title)
+                    .text(message)
+                    .graphic(new ImageView(image))
+                    .hideAfter(Duration.seconds(8))
+                    .position(Pos.TOP_RIGHT)
+                    .onAction(arg0 -> System.out.println("Notification clicked on!"));
+            notificationBuilder.show();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
     }
+    public void generalErrorMessages (String title, String message){
+        try{
+            Image image  = new Image(getClass().getResource("/drawables/error.png").toURI().toString());
+
+            Notifications notificationBuilder = Notifications.create()
+                    .title(title)
+                    .text(message)
+                    .graphic(new ImageView(image))
+                    .hideAfter(Duration.seconds(8))
+                    .position(Pos.TOP_RIGHT)
+                    .onAction(new EventHandler<ActionEvent>() {
+                        @Override public void handle(ActionEvent arg0) {
+                            System.out.println("Notification clicked on!");
+                        }
+                    });
+            notificationBuilder.show();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
 
 
     }

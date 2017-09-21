@@ -1,8 +1,11 @@
 package sample.main.mDatabases;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
+import sample.main.mPojos.SchoolFees;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class DBFees {
     private DBManager db = null;
@@ -21,6 +24,67 @@ public class DBFees {
             e.printStackTrace();
         }
         creatTables();
+    }
+
+    public List<SchoolFees> getFeesLists () {
+        List<SchoolFees> list = new ArrayList<>();
+        final String sql = "SELECT * FROM " + TABLE;
+        try (ResultSet rs = statement.executeQuery(sql)){
+            while (rs.next()) {
+                list.add(
+                        new SchoolFees(
+                                rs.getString(COL_NAME),
+                                rs.getString(COL_AMOUNT), rs.getString(COL_BANK), rs.getString(COL_WHO_PAYS),
+                                rs.getString(COL_FEESDATE_PERIOD)
+                                , rs.getString(COL_PERIOD_NAME), rs.getString(COL_ACCOUNTNUMBER), rs.getString(COL_DESCRIPTION),
+                                rs.getString(COL_DATE_OF_CREATION)
+                                , false
+                        )
+                );
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        list.forEach(x->{
+            System.out.println(x.getFeeAmoount());
+            System.out.println(x.getDateCreated());
+        });
+
+        return list.isEmpty()? Collections.emptyList():list;
+
+    }
+
+    public boolean saveNewFees (SchoolFees fees) {
+        final String sql = "INSERT INTO " + TABLE + " ( "
+                + COL_NAME + " , "
+                + COL_AMOUNT + " , "
+                + COL_WHO_PAYS + " , "
+                + COL_ACCOUNTNUMBER + " , "
+                + COL_BANK + " , "
+                + COL_DESCRIPTION + " , "
+                + COL_DATE_OF_CREATION + " , "
+                + COL_FEESDATE_PERIOD + " , "
+                + COL_PERIOD_NAME + " ) VALUES ( ?,?,?,?,?,?,?,?,? "
+                + " ) ";
+        try {
+            PreparedStatement stm = conn.prepareStatement(sql);
+            stm.setString(1, fees.getFeeName());
+            stm.setString(2, fees.getFeeAmoount());
+            stm.setString(3, fees.getWhoPays());
+            stm.setString(4, fees.getFeesAccountNoumber());
+            stm.setString(5, fees.getBank());
+            stm.setString(6, fees.getFeesDescription());
+            stm.setString(7, fees.getDateCreated());
+            stm.setString(8, fees.getFeesDatePeriod());
+            stm.setString(9, fees.getFeesPeriodName());
+
+            return stm.executeUpdate() == 1;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
 
     }
 

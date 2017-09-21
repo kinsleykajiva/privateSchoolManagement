@@ -7,6 +7,8 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -16,9 +18,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" minWidth="-Infinity" prefHeight="713.0" prefWidth="1235.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #757575; -fx-border-width: .5; -fx-border-radius: 3px, 3px, 2px, 1px;" stylesheets="@../styles/mainApplication..css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.main.mControllers.Controller_tabCreateFees">
+<AnchorPane id="AnchorPane" minWidth="-Infinity" prefHeight="713.0" prefWidth="1235.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #757575; -fx-border-width: .5; -fx-border-radius: 3px, 3px, 2px, 1px;" stylesheets="@../styles/mainApplication..css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.main.mControllers.Control_tabFeesList">
     <children>
-        <Label fx:id="txtShowAddnewStudent" layoutX="19.0" layoutY="17.0" prefHeight="30.0" prefWidth="326.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Creat New Fees or Type of Fees" />
+        <Label fx:id="txtShowAddnewStudent" layoutX="19.0" layoutY="17.0" prefHeight="30.0" prefWidth="198.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="List of Fees Saved" />
         <Separator layoutX="3.0" layoutY="55.0" prefHeight="4.0" prefWidth="1213.0" />
       <ImageView fx:id="ImageLoading" fitHeight="34.0" fitWidth="36.0" layoutX="340.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
@@ -164,7 +166,7 @@
                                     <Insets bottom="10.0" right="10.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button fx:id="btnSaveChanges" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" styleClass="btn" text="Save Details">
+                              <Button fx:id="btnSaveChanges" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" styleClass="btn" text="Save Changes">
                                  <graphic>
                                     <FontAwesomeIconView fill="WHITE" glyphName="SAVE" size="13.0" wrappingWidth="13.142857551574707" />
                                  </graphic>
@@ -194,6 +196,16 @@
             <Insets top="10.0" />
          </padding>
       </HBox>
+      <TableView fx:id="tableFees" layoutX="650.0" layoutY="82.0" prefHeight="502.0" prefWidth="512.0" style="-fx-border-color: #897474;" tableMenuButtonVisible="true">
+        <columns>
+          <TableColumn fx:id="col_name" prefWidth="96.33331298828125" text="Fee" />
+          <TableColumn fx:id="col_amount" prefWidth="53.66668701171875" text="Amount" />
+            <TableColumn fx:id="col_whosePaying" prefWidth="107.0" text="Whose Paying" />
+            <TableColumn fx:id="col_date_created" prefWidth="65.0" text="Date" />
+            <TableColumn fx:id="col_account" prefWidth="79.0" text="Account" />
+            <TableColumn fx:id="col_bank" prefWidth="95.0" text="Bank" />
+        </columns>
+      </TableView>
 
     </children>
 

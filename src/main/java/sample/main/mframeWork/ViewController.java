@@ -71,6 +71,17 @@ public enum ViewController {
             return LAY_OUT + "tab_fees_paymentfxml.fxml";
         }
     },
+    TAB_VIEW_FES_LIST{
+        @Override
+        public String getTitle () {
+            return "List of Fees Saved";
+        }
+
+        @Override
+        public String getFxmlFile () {
+            return LAY_OUT + "tab_view_fees.fxml";
+        }
+    },
     STUDENT_DATA{
         @Override
         public String getTitle () {
