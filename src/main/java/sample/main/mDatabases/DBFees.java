@@ -29,7 +29,7 @@ public class DBFees {
     public List<SchoolFees> getFeesLists () {
         List<SchoolFees> list = new ArrayList<>();
         final String sql = "SELECT * FROM " + TABLE;
-        try (ResultSet rs = statement.executeQuery(sql)){
+        try (ResultSet rs = statement.executeQuery(sql)) {
             while (rs.next()) {
                 list.add(
                         new SchoolFees(
@@ -46,29 +46,39 @@ public class DBFees {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        list.forEach(x->{
-            System.out.println(x.getFeeAmoount());
-            System.out.println(x.getDateCreated());
-        });
 
-        return list.isEmpty()? Collections.emptyList():list;
+
+        return list.isEmpty() ? Collections.emptyList() : list;
 
     }
 
-    public boolean saveNewFees (SchoolFees fees) {
-        final String sql = "INSERT INTO " + TABLE + " ( "
-                + COL_NAME + " , "
-                + COL_AMOUNT + " , "
-                + COL_WHO_PAYS + " , "
-                + COL_ACCOUNTNUMBER + " , "
-                + COL_BANK + " , "
-                + COL_DESCRIPTION + " , "
-                + COL_DATE_OF_CREATION + " , "
-                + COL_FEESDATE_PERIOD + " , "
-                + COL_PERIOD_NAME + " ) VALUES ( ?,?,?,?,?,?,?,?,? "
-                + " ) ";
-        try {
-            PreparedStatement stm = conn.prepareStatement(sql);
+    public String deletRecord (String key) {
+        String response;
+        final String sql = "DELETE FROM " + TABLE + " WHERE " + COL_NAME + " = ?";
+        try (PreparedStatement stm = conn.prepareStatement(sql)) {
+            stm.setString(1, key);
+            response = stm.executeUpdate() == 1 ? "success" : "failed";
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            response = "dbFailure";
+        }
+        return response;
+    }
+
+    public String updateRecord (String[] oldReferences, SchoolFees fees) {
+        String response;
+        final String sql = "UPDATE " + TABLE + " SET "
+                + COL_NAME + " = ? , "
+                + COL_AMOUNT + " = ? , "
+                + COL_WHO_PAYS + " = ? , "
+                + COL_ACCOUNTNUMBER + " = ? , "
+                + COL_BANK + " = ? , "
+                + COL_DESCRIPTION + " = ? , "
+                + COL_DATE_OF_CREATION + " = ? , "
+                + COL_FEESDATE_PERIOD + " = ? , "
+                + COL_PERIOD_NAME + " = ? WHERE " + COL_NAME + " = ? ";
+        try (PreparedStatement stm = conn.prepareStatement(sql)) {
             stm.setString(1, fees.getFeeName());
             stm.setString(2, fees.getFeeAmoount());
             stm.setString(3, fees.getWhoPays());
@@ -78,14 +88,66 @@ public class DBFees {
             stm.setString(7, fees.getDateCreated());
             stm.setString(8, fees.getFeesDatePeriod());
             stm.setString(9, fees.getFeesPeriodName());
+            stm.setString(10, oldReferences[0]);
+            response = stm.executeUpdate() == 1 ? "success" : "failed";
+        } catch (SQLException e) {
+            e.printStackTrace();
+            response = "dbFailure";
+        }
+        return response;
+    }
 
-            return stm.executeUpdate() == 1;
+    public String saveNewFees (SchoolFees fees) {
+        String response = "exists";
+        final String check = "SELECT " + COL_NAME + " FROM  " + TABLE + " WHERE " + COL_NAME + " = ? ";
+
+        boolean recordAdded = false;
+        try  {
+            PreparedStatement pstmt  = conn.prepareStatement(check);
+            pstmt.setString(1, fees.getFeeName());
+            ResultSet rs = pstmt.executeQuery();
+            if (! rs.next()) {
+                final String sql = "INSERT INTO " + TABLE + " ( "
+                        + COL_NAME + " , "
+                        + COL_AMOUNT + " , "
+                        + COL_WHO_PAYS + " , "
+                        + COL_ACCOUNTNUMBER + " , "
+                        + COL_BANK + " , "
+                        + COL_DESCRIPTION + " , "
+                        + COL_DATE_OF_CREATION + " , "
+                        + COL_FEESDATE_PERIOD + " , "
+                        + COL_PERIOD_NAME + " ) VALUES ( ?,?,?,?,?,?,?,?,? "
+                        + " ) ";
+
+                try (PreparedStatement stm = conn.prepareStatement(sql)) {
+                    stm.setString(1, fees.getFeeName());
+                    stm.setString(2, fees.getFeeAmoount());
+                    stm.setString(3, fees.getWhoPays());
+                    stm.setString(4, fees.getFeesAccountNoumber());
+                    stm.setString(5, fees.getBank());
+                    stm.setString(6, fees.getFeesDescription());
+                    stm.setString(7, fees.getDateCreated());
+                    stm.setString(8, fees.getFeesDatePeriod());
+                    stm.setString(9, fees.getFeesPeriodName());
+
+                    recordAdded =  stm.executeUpdate()==1;
+                    response = recordAdded ? "success" :"failed";
+
+
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    response = "dbFail";
+                }
+
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
+            response = "dbFail";
         }
 
+        return response;
     }
 
     private void creatTables () {

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -17,7 +17,7 @@
 
 <AnchorPane id="AnchorPane" minWidth="-Infinity" prefHeight="713.0" prefWidth="1235.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #757575; -fx-border-width: .5; -fx-border-radius: 3px, 3px, 2px, 1px;" stylesheets="@../styles/mainApplication..css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.main.mControllers.Controller_tabFeesPayment">
     <children>
-        <Label fx:id="txtShowAddnewStudent" layoutX="19.0" layoutY="17.0" prefHeight="30.0" prefWidth="326.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Creat New Fees or Type of Fees" />
+        <Label fx:id="txtShowAddnewStudent" layoutX="19.0" layoutY="17.0" prefHeight="30.0" prefWidth="326.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Make a Fees Payment" />
         <Separator layoutX="3.0" layoutY="55.0" prefHeight="4.0" prefWidth="1213.0" />
       <ImageView fx:id="ImageLoading" fitHeight="34.0" fitWidth="36.0" layoutX="340.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
@@ -28,18 +28,18 @@
          <children>
             <AnchorPane fx:id="containerStdDetails" prefHeight="477.0" prefWidth="546.0">
                <children>
-                  <VBox fx:id="formData" prefHeight="477.0" prefWidth="603.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-57.0" AnchorPane.topAnchor="0.0">
+                  <VBox fx:id="formData" prefHeight="477.0" prefWidth="695.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-149.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <HBox prefHeight="46.0" prefWidth="562.0">
                            <children>
-                              <HBox prefHeight="37.0" prefWidth="562.0">
+                              <HBox prefHeight="46.0" prefWidth="349.0">
                                  <children>
-                                    <Label prefHeight="17.0" prefWidth="86.0" text="Name :">
+                                    <Label prefHeight="17.0" prefWidth="233.0" text="Student Registration Number">
                                        <HBox.margin>
                                           <Insets top="7.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <TextField fx:id="txtfeeName" prefHeight="30.0" prefWidth="195.0" promptText="Enter name...">
+                                    <TextField fx:id="txtfeeRegNumber" prefHeight="30.0" prefWidth="258.0" promptText="Reg Number ......">
                                        <HBox.margin>
                                           <Insets left="10.0" />
                                        </HBox.margin>
@@ -49,14 +49,14 @@
                                     </TextField>
                                  </children>
                               </HBox>
-                              <HBox prefHeight="37.0" prefWidth="562.0">
+                              <HBox prefHeight="46.0" prefWidth="311.0">
                                  <children>
-                                    <Label prefHeight="17.0" prefWidth="68.0" text="Amount:">
+                                    <Label prefHeight="17.0" prefWidth="85.0" text="Amount:">
                                        <HBox.margin>
                                           <Insets top="7.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <TextField fx:id="txtfeeAmoount" prefHeight="30.0" prefWidth="217.0" promptText="00.00">
+                                    <TextField fx:id="txtfeeAmoount" prefHeight="30.0" prefWidth="202.0" promptText="00.00">
                                        <HBox.margin>
                                           <Insets left="10.0" />
                                        </HBox.margin>
@@ -65,6 +65,9 @@
                                        </font>
                                     </TextField>
                                  </children>
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
                               </HBox>
                            </children>
                         </HBox>
@@ -72,21 +75,22 @@
                            <children>
                               <HBox prefHeight="37.0" prefWidth="562.0">
                                  <children>
-                                    <Label prefHeight="17.0" prefWidth="96.0" text="Who Pays">
+                                    <Label prefHeight="17.0" prefWidth="211.0" text="Who Pays">
                                        <HBox.margin>
                                           <Insets top="7.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <ComboBox fx:id="txtwhoPays" prefHeight="27.0" prefWidth="198.0" />
+                                    <TextField fx:id="txtPaidBy" prefHeight="30.0" prefWidth="221.0" />
                                  </children>
                               </HBox>
                               <HBox prefHeight="37.0" prefWidth="562.0">
                                  <children>
-                                    <Label prefHeight="17.0" prefWidth="98.0" text="##">
+                                    <Label prefHeight="17.0" prefWidth="98.0" text="Paying Account:">
                                        <HBox.margin>
                                           <Insets left="5.0" top="7.0" />
                                        </HBox.margin>
                                     </Label>
+                                    <TextField prefHeight="30.0" prefWidth="204.0" promptText="Account Number" />
                                  </children>
                               </HBox>
                            </children>
@@ -95,22 +99,22 @@
                            <children>
                               <HBox prefHeight="37.0" prefWidth="562.0">
                                  <children>
-                                    <Label prefHeight="17.0" prefWidth="97.0" text="Period">
+                                    <Label prefHeight="17.0" prefWidth="174.0" text="Payment Method">
                                        <HBox.margin>
                                           <Insets top="7.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <ComboBox fx:id="txtfeesDatePeriod" prefHeight="27.0" prefWidth="198.0" />
+                                    <ComboBox fx:id="txtfeesDatePeriod" prefHeight="27.0" prefWidth="189.0" />
                                  </children>
                               </HBox>
                               <HBox prefHeight="37.0" prefWidth="562.0">
                                  <children>
-                                    <Label prefHeight="17.0" prefWidth="77.0" text="Period/Terms">
+                                    <Label prefHeight="17.0" prefWidth="100.0" text="Period/Terms">
                                        <HBox.margin>
                                           <Insets left="4.0" top="7.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <ComboBox fx:id="txtfeesPeriodName" prefHeight="27.0" prefWidth="214.0" />
+                                    <ComboBox fx:id="txtfeesPeriodName" prefHeight="27.0" prefWidth="204.0" />
                                  </children>
                               </HBox>
                            </children>
@@ -119,12 +123,12 @@
                            <children>
                               <HBox prefHeight="37.0" prefWidth="562.0">
                                  <children>
-                                    <Label prefHeight="17.0" prefWidth="95.0" text="Account Number">
+                                    <Label prefHeight="17.0" prefWidth="180.0" text="Account Number">
                                        <HBox.margin>
                                           <Insets top="7.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <TextField fx:id="txtfeesAccountNoumber" prefHeight="27.0" prefWidth="200.0" promptText="Enter Account Number...">
+                                    <TextField fx:id="txtfeesAccountNoumber" prefHeight="30.0" prefWidth="197.0" promptText="Enter Account Number...">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -133,7 +137,7 @@
                               </HBox>
                               <HBox prefHeight="37.0" prefWidth="562.0">
                                  <children>
-                                    <Label prefHeight="17.0" prefWidth="76.0" text="Bank Name">
+                                    <Label prefHeight="17.0" prefWidth="100.0" text="Bank Name">
                                        <HBox.margin>
                                           <Insets left="5.0" top="7.0" />
                                        </HBox.margin>
@@ -147,12 +151,6 @@
                               </HBox>
                            </children>
                         </HBox>
-                        <HBox>
-                           <children>
-                              <Label prefHeight="17.0" prefWidth="92.0" text="Description" />
-                              <TextArea fx:id="stdAddress" prefHeight="100.0" prefWidth="505.0" promptText="This Fee will be for ...." />
-                           </children>
-                        </HBox>
                         <HBox prefHeight="100.0" prefWidth="294.0">
                            <children>
                               <Button fx:id="btnClear" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" styleClass="btn" text="Clear Form">
@@ -160,7 +158,7 @@
                                     <FontAwesomeIconView fill="WHITE" glyphName="TIMES_CIRCLE" size="13.0" wrappingWidth="13.142857551574707" />
                                  </graphic>
                                  <HBox.margin>
-                                    <Insets bottom="10.0" left="100.0" right="10.0" />
+                                    <Insets bottom="10.0" left="90.0" right="10.0" />
                                  </HBox.margin>
                               </Button>
                               <Button fx:id="btnSaveChanges" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" styleClass="btn" text="Save Details">
@@ -168,6 +166,17 @@
                                     <FontAwesomeIconView fill="WHITE" glyphName="SAVE" size="13.0" wrappingWidth="13.142857551574707" />
                                  </graphic>
                               </Button>
+                              <JFXButton fx:id="btnCloseTab" buttonType="RAISED" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #DD4B39;" text="Close" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Medium" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="TIMES_CIRCLE_ALT" size="18.0" />
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </JFXButton>
                            </children>
                            <VBox.margin>
                               <Insets left="140.0" top="40.0" />

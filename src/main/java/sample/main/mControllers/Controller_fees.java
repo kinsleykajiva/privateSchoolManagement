@@ -62,6 +62,13 @@ public class Controller_fees /*implements Initializable*/ {
             getStage().getScene().setCursor(Cursor.DEFAULT);
         });
 
+        btnFeesList.setOnMouseEntered(ev -> {
+            getStage().getScene().setCursor(Cursor.HAND);
+        });
+        btnFeesList.setOnMouseExited(e -> {
+            getStage().getScene().setCursor(Cursor.DEFAULT);
+        });
+
     }
 
     private void initClickListeners () {
@@ -89,14 +96,12 @@ public class Controller_fees /*implements Initializable*/ {
         final EventHandler<ActionEvent> eventHandler = (ActionEvent event) -> {
             closeAllTabs();
         };
-
         menuItem.setOnAction(eventHandler);
     }
 
     public boolean closeAllTabs () {
         final ObservableList<Tab> tabs = tabePane.getTabs();
         final List<Tab> tabsToRemove = new ArrayList<>(tabs.size());
-
         for (Tab tabControl : tabs) {
             tabePane.getSelectionModel().select(tabControl);
             TabContent controller = (TabContent) tabControl.getProperties().get("controller");
@@ -196,7 +201,6 @@ public class Controller_fees /*implements Initializable*/ {
         tab.setContextMenu(contextMenu);
     }
     private void initFrameWork () {
-
         tabePane.getSelectionModel().selectedItemProperty().addListener((ObservableValue<? extends Tab> observable, Tab old, Tab newVal) -> {
             if (newVal != null) {
                 Platform.runLater(() -> {
@@ -210,7 +214,6 @@ public class Controller_fees /*implements Initializable*/ {
             }
         });
         tabOptions.managedProperty().bind(tabOptions.visibleProperty());
-
 
     }
     private void closeCommand(){

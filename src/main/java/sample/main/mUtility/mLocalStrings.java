@@ -26,6 +26,8 @@ public class mLocalStrings {
     public static final String DATE_PATTERN = "(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((19|20)\\d\\d)";
 
     public static final  String SETUP_ERROR = "SetUp Error";
+    public static final  String DATABASE_ACTION = "Database Action Confirmation";
+    public static final  String DATABASE_ACTION_FAILED = "Database Action Failed";
     public static final String SETTINGS_SETUP = "It Seems like you had not configured the system Correctly !";
 
 

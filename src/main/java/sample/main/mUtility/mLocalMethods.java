@@ -268,7 +268,7 @@ public class mLocalMethods {
     }
 
     public static void main(String[] sss) {
-        java.util.List<String> test = new ArrayList<>(Arrays.asList("1","2","3","4","5","6","7"));
+      System.out.print(isType("21.00".replace(",","."), "int"));
 
        /* DBManager.getInstance();
 

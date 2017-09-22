@@ -27,6 +27,11 @@
       </ImageView>
       <HBox fx:id="tabOptions" layoutX="160.0" layoutY="14.0" minWidth="-Infinity" prefHeight="34.0" prefWidth="500.0">
          <children>
+            <FontAwesomeIconView fill="#1976d2" glyphName="TH_LARGE" size="24">
+               <HBox.margin>
+                  <Insets right="10.0" top="4.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
             <Separator maxWidth="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="200.0">
                <HBox.margin>
                   <Insets left="3.0" right="5.0" />

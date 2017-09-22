@@ -206,6 +206,14 @@
             <TableColumn fx:id="col_bank" prefWidth="95.0" text="Bank" />
         </columns>
       </TableView>
+      <JFXButton fx:id="btnRefresh" buttonType="RAISED" layoutX="1030.0" layoutY="10.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #DD4B39;" text="Refresh" textFill="WHITE">
+         <font>
+            <Font name="Roboto Medium" size="14.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="REPEAT" size="18.0" />
+         </graphic>
+      </JFXButton>
 
     </children>
 

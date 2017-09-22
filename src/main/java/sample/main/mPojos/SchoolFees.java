@@ -57,7 +57,7 @@ public final  class SchoolFees {
      * @param bank          Bank name this fees payment is to be done on or into
      * @param feespaidBy    Who paid the Fees maybe its a parent, Company ,or Donar
      * @param feesPayedOnDate   Date of payment
-     * @param fromWhoseAccount  Paying Acccount if cash then will default to a cash account
+     * @param fromWhoseAccount  Paying Account if cash then will default to a cash account
      * @param paidAmount    Amount paid
      * @param studentPaying Which student is making this payment
      * @param paymentMethod Type of payment if its cash or mobile transfer

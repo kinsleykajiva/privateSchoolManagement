@@ -150,13 +150,18 @@
     -fx-background-color: -fx-box-border, white;
     -fx-background-insets: 0, 1, 2;
 }
+.table-row-cell:selected {
+    -fx-background-color: #1565C0;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}
 .table-view:focused .table-row-cell:filled:focused:selected {
     -fx-background-color: -fx-box-border, rgb(205,205,205);
 }
-.table-view:focused .table-row-cell:filled:selected, .table-view:row-selection .table-row-cell:filled:hover:selected {
+/*.table-view:focused .table-row-cell:filled:selected, .table-view:row-selection .table-row-cell:filled:hover:selected {
     -fx-background-color: #f4f3f3;
     -fx-background-insets: 0,1 1 1 1 0;
-}
+}*/
 .table-view:focused .table-row-cell:filled:focused:selected:hover {
     -fx-background-color: -fx-box-border, rgb(205,205,205);
     -fx-background-insets: 0,1 1 1 1 0;

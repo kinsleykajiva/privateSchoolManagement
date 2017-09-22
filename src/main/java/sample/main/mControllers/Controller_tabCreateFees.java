@@ -36,7 +36,7 @@ public class Controller_tabCreateFees implements TabContent {
     private HBox mainSceenHolder;
 
     @FXML
-    private AnchorPane containerStdDetails;
+    private AnchorPane containerStdDetails , rootView;
 
     @FXML
     private VBox formData;
@@ -66,12 +66,27 @@ public class Controller_tabCreateFees implements TabContent {
                 closeTab();
             }
         });
+        btnClear.setOnAction(ev -> {
+           clearForm();
 
+        });
+        txtBankName.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if(!txtBankName.getText().trim().isEmpty()){
+                txtBankName.getText().trim().toUpperCase();
+            }
+
+        });
+        txtfeesAccountNoumber.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if(!txtfeesAccountNoumber.getText().trim().isEmpty()){
+                txtfeesAccountNoumber.getText().trim().toUpperCase();
+            }
+
+        });
         btnSaveChanges.setOnAction(ev -> {
             String feeName = txtfeeName.getText().trim();
             String feeAmount = txtfeeAmoount.getText().trim();
             String feesAccountNumber = txtfeesAccountNoumber.getText().trim();
-            String feebank = txtBankName.getText().trim();
+            String feebank = txtBankName.getText().trim().toUpperCase();
             String description = stdDescription.getText().trim();
             String whoPays = txtwhoPays.getValue();
             String feesDatePeriod = txtfeesDatePeriod.getValue();
@@ -83,15 +98,18 @@ public class Controller_tabCreateFees implements TabContent {
                 warnningSimpleOKDialg("Input Error", "One of the fields needs your input!");
             } else {
                 feeAmount = feeAmount.replace(",",".");
-                if (! isType(feeAmount, "float") || !isType(feeAmount, "int") || !isType(feeAmount, "double")) {
-                    warnningSimpleOKDialg("Amount Error", "Put Valid numeric Values!");
+
+                if (! isType(feeAmount, "float") || !isType(feeAmount, "double")) {
+                    warnningSimpleOKDialg("Amount Error", "Put Valid numeric Values!\n"+feeAmount);
                 } else {
+                    mainSceenHolder.setDisable(true);
+                    ImageLoading.setVisible(true);
                     feesAccountNumber = feesAccountNumber.toUpperCase();
                     String finalFeesAccountNumber = feesAccountNumber;
                     String finalFeeAmount = feeAmount;
-                    Task<Boolean> task = new Task<Boolean>() {
+                    Task<String> task = new Task<String>() {
                         @Override
-                        protected Boolean call () throws Exception {
+                        protected String call () throws Exception {
                             return new DBFees().saveNewFees(new SchoolFees(
                                     feeName, finalFeeAmount, feebank, whoPays, feesDatePeriod, feesPeriodName
                                     , finalFeesAccountNumber, description, LocalDate.now()+"", false
@@ -100,15 +118,40 @@ public class Controller_tabCreateFees implements TabContent {
                     };
                     new Thread(task).start();
                     task.setOnSucceeded(event -> {
-                        if (task.getValue()) {
-                            infomationSimpleOKDialg("Information", "Saved Successfully");
-                        } else {
-                            infomationSimpleOKDialg("Processing Error", "Failed to save.", "Please try again");
+                        mainSceenHolder.setDisable(false);
+                        ImageLoading.setVisible(false);
+                        if(task.getValue().equals("failed")){
+                            warnningSimpleOKDialg(DATABASE_ACTION_FAILED,"Failed to save please try again");
                         }
+                        if(task.getValue().equals("dbFail")){
+                            warnningSimpleOKDialg(DATABASE_ACTION_FAILED,"Failed to save please try again");
+                        }
+                        if(task.getValue().equals("exists")){
+                            warnningSimpleOKDialg(DATABASE_ACTION_FAILED,"Will not Save ","This record already exists.\n Find another Name to use !");
+                        }
+                        if (task.getValue().equals("success")) {
+                            infomationSimpleOKDialg("Information", "Saved Successfully");
+                            clearForm();
+                        }
+                    });
+                    task.setOnFailed(evc->{
+                        mainSceenHolder.setDisable(false);
+                        ImageLoading.setVisible(false);
                     });
                 }
             }
         });
+    }
+
+    private void clearForm () {
+        txtfeeName.setText("");
+        txtfeeAmoount.setText("");
+        txtfeesAccountNoumber.setText("");
+        txtBankName.setText("");
+        txtwhoPays.getSelectionModel().selectFirst();
+        txtfeesDatePeriod.getSelectionModel().selectFirst();
+        txtfeesPeriodName.getSelectionModel().selectFirst();
+        stdDescription.setText("");
     }
 
     private void initDataRequired () {
@@ -161,7 +204,6 @@ public class Controller_tabCreateFees implements TabContent {
 
     @Override
     public void setMainWindow (Stage stage) {
-
     }
 
 
@@ -177,4 +219,5 @@ public class Controller_tabCreateFees implements TabContent {
     public void setTabPane (TabPane pane) {
         this.tabPane = pane;
     }
+
 }
