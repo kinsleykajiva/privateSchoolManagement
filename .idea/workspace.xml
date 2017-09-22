@@ -7,24 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/drawables/db_error.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/drawables/db_success.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mDatabases/DBListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mPojos/FeesPayment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mControllers/Control_tabFeesList.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mControllers/Control_tabFeesList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_fees.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_fees.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_tabCreateFees.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_tabCreateFees.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mDatabases/DBFees.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mDatabases/DBFees.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mMessages/mPushMessages.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mMessages/mPushMessages.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mPojos/SchoolFees.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mPojos/SchoolFees.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mUtility/mLocalMethods.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mUtility/mLocalMethods.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mUtility/mLocalStrings.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mUtility/mLocalStrings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/layouts/fees_processing.fxml" afterPath="$PROJECT_DIR$/src/main/resources/layouts/fees_processing.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/layouts/tab_creat_fees.fxml" afterPath="$PROJECT_DIR$/src/main/resources/layouts/tab_creat_fees.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/layouts/tab_fees_paymentfxml.fxml" afterPath="$PROJECT_DIR$/src/main/resources/layouts/tab_fees_paymentfxml.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/layouts/tab_view_fees.fxml" afterPath="$PROJECT_DIR$/src/main/resources/layouts/tab_view_fees.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/styles/mainApplication..css" afterPath="$PROJECT_DIR$/src/main/resources/styles/mainApplication..css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/styles/mainApplication..css" afterPath="$PROJECT_DIR$/target/classes/styles/mainApplication..css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_tabFeesPayment.java" afterPath="$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_tabFeesPayment.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -86,45 +71,64 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Controller_tabCreateFees.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_tabCreateFees.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1853">
-              <caret line="130" column="25" lean-forward="false" selection-start-line="130" selection-start-column="25" selection-end-line="130" selection-end-column="25" />
-              <folding>
-                <element signature="method#clearForm#0;class#Controller_tabCreateFees#0" expanded="false" />
-                <element signature="method#initDataRequired#0;class#Controller_tabCreateFees#0" expanded="false" />
-                <element signature="method#closeTab#0;class#Controller_tabCreateFees#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Controller_tabFeesPayment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_tabFeesPayment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="10" column="21" lean-forward="false" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-              <folding>
-                <element signature="e#263#264#0" expanded="true" />
-                <element signature="e#291#292#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SchoolFees.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mPojos/SchoolFees.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
-              <caret line="54" column="18" lean-forward="false" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="Controller_tabCreateFees.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_tabCreateFees.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-248">
+                  <caret line="75" column="13" lean-forward="true" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
+                  <folding>
+                    <element signature="method#clearForm#0;class#Controller_tabCreateFees#0" expanded="false" />
+                    <element signature="method#initDataRequired#0;class#Controller_tabCreateFees#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Controller_tabFeesPayment.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_tabFeesPayment.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-6">
+                  <caret line="36" column="4" lean-forward="false" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#1441#1442#0" expanded="true" />
+                    <element signature="e#1468#1469#0" expanded="true" />
+                    <marker date="1506075214557" expanded="true" signature="1963:1969" ph="{}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="SchoolFees.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mPojos/SchoolFees.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="101">
+                  <caret line="54" column="18" lean-forward="false" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="FeesPayment.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mPojos/FeesPayment.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="68">
+                  <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -192,7 +196,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/sample/main/mPojos/SecondaryLevelStudent.java" />
         <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/java/sample/main/mframeWork/HibernateUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/main/mWidgets/MetroPasswordFieldSkin.java" />
@@ -215,7 +218,6 @@
         <option value="$PROJECT_DIR$/src/main/java/sample/main/mInterfaceCallbacks/TabContent.java" />
         <option value="$PROJECT_DIR$/src/main/resources/layouts/fees_processing.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/sample/main/mControllers/DefaultController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_tabFeesPayment.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/main/mframeWork/StageManager.java" />
         <option value="$PROJECT_DIR$/src/main/resources/styles/tabePane..css" />
         <option value="$PROJECT_DIR$/src/main/resources/layouts/tab_creat_fees.fxml" />
@@ -243,6 +245,8 @@
         <option value="$PROJECT_DIR$/src/main/java/sample/main/mDatabases/DBFees.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_tabCreateFees.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/main/mPojos/SchoolFees.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_tabFeesPayment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/main/mPojos/FeesPayment.java" />
       </list>
     </option>
   </component>
@@ -302,7 +306,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -395,6 +398,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -755,7 +759,14 @@
       <option name="project" value="LOCAL" />
       <updated>1505969567000</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="major update on database functions">
+      <created>1506074863654</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1506074863654</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -849,7 +860,8 @@
     <MESSAGE value="fees functions" />
     <MESSAGE value="made database connections more efficient via a threads" />
     <MESSAGE value="created the view fees structures" />
-    <option name="LAST_COMMIT_MESSAGE" value="created the view fees structures" />
+    <MESSAGE value="major update on database functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="major update on database functions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -862,13 +874,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/jarlibs/controlsfx-8.40.12.jar!/org/controlsfx/control/Notifications.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-921">
-          <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mPojos/Student.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1176,9 +1181,9 @@
         <state relative-caret-position="145">
           <caret line="277" column="47" lean-forward="false" selection-start-line="277" selection-start-column="47" selection-end-line="277" selection-end-column="47" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2928#3158#0" expanded="true" />
-            <element signature="e#3157#3158#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2928#3158#0" expanded="false" />
+            <element signature="e#3157#3158#0" expanded="false" />
             <element signature="e#4160#4890#0" expanded="false" />
             <element signature="e#7094#7186#0" expanded="false" />
             <element signature="e#7218#7261#0" expanded="false" />
@@ -1189,8 +1194,8 @@
             <element signature="e#9552#9686#0" expanded="false" />
             <element signature="e#10118#10252#0" expanded="false" />
             <element signature="method#clearForm#0;class#Control_tabFeesList#0" expanded="false" />
-            <element signature="e#14916#14917#0" expanded="true" />
-            <element signature="e#14944#14945#0" expanded="true" />
+            <element signature="e#14916#14917#0" expanded="false" />
+            <element signature="e#14944#14945#0" expanded="false" />
             <element signature="method#closeTab#0;class#Control_tabFeesList#0" expanded="false" />
             <element signature="method#setMainWindow#0;class#Control_tabFeesList#0" expanded="false" />
           </folding>
@@ -1208,6 +1213,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="87">
           <caret line="29" column="54" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1225,6 +1231,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6">
           <caret line="6" column="37" lean-forward="true" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1235,33 +1242,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mPojos/SchoolFees.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="54" column="18" lean-forward="false" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_tabCreateFees.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1853">
-          <caret line="130" column="25" lean-forward="false" selection-start-line="130" selection-start-column="25" selection-end-line="130" selection-end-column="25" />
+        <state relative-caret-position="-248">
+          <caret line="75" column="13" lean-forward="true" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
           <folding>
             <element signature="method#clearForm#0;class#Controller_tabCreateFees#0" expanded="false" />
             <element signature="method#initDataRequired#0;class#Controller_tabCreateFees#0" expanded="false" />
-            <element signature="method#closeTab#0;class#Controller_tabCreateFees#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mControllers/Controller_tabFeesPayment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="21" lean-forward="false" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        <state relative-caret-position="-6">
+          <caret line="36" column="4" lean-forward="false" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
           <folding>
-            <element signature="e#263#264#0" expanded="true" />
-            <element signature="e#291#292#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1441#1442#0" expanded="true" />
+            <element signature="e#1468#1469#0" expanded="true" />
+            <marker date="1506075214557" expanded="true" signature="1963:1969" ph="{}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mPojos/SchoolFees.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/main/mPojos/FeesPayment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="54" column="18" lean-forward="false" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
+        <state relative-caret-position="68">
+          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
           <folding />
         </state>
       </provider>
