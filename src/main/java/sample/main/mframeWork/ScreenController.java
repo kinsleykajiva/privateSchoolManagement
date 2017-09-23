@@ -48,6 +48,11 @@ public class ScreenController {
                     StageManager.setPaneFragment(FXMLLoader.load(ScreenController.class.getResource(ViewController.TAB_VIEW_FES_LIST.getFxmlFile())));
                     viewController = screen;
                 } catch (IOException e) {e.printStackTrace();} break;
+            case TAB_FEES_PAYMENT:
+                try {
+                    StageManager.setPaneFragment(FXMLLoader.load(ScreenController.class.getResource(ViewController.TAB_FEES_PAYMENT.getFxmlFile())));
+                    viewController = screen;
+                } catch (IOException e) {e.printStackTrace();} break;
 
 
                 default:

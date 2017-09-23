@@ -11,7 +11,7 @@ public final class DBRecords {
     private DBManager db=null;
     private static Connection conn = null;
     private static Statement statement = null;
-    private static final String TABLE_NAME = "students_data", COL_NAME = "name", COL_SURNAME = "surname", COL_SEX = "sex",
+    public static final String TABLE_NAME = "students_data", COL_NAME = "name", COL_SURNAME = "surname", COL_SEX = "sex",
             COL_GRADE = "grade", COL_CLASSNAME = "classname", COL_ADDRESS = "address", COL_TOWN = "town", COL_COUNTRY = "country",
             COL_FEES_PAID = "paid_fees", COL_ACCOUNT_NUMBER = "account_number", COL_REGISTRATION_NUMBER = "reg_number", COL_DOB = "dob", COL_REGISTRATION_DATE = "registration_date";
 

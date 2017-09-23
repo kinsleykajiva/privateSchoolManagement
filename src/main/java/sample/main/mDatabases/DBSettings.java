@@ -2,10 +2,7 @@ package sample.main.mDatabases;
 
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -113,10 +110,16 @@ public final class DBSettings {
             if (resultSet.next() ) {
                 String y_= resultSet.getString(COL_SETTINGS_SETING);
                 o=  new ArrayList<>(Arrays.asList(y_.split(DELIMITOR)));
+                Collections.sort(o, (s1, s2) -> {
+                    Integer val1 = Integer.parseInt(s1);
+                    Integer val2 = Integer.parseInt(s2);
+                    return val1.compareTo(val2);
+                });
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return o==null? Collections.emptyList():o;
     }
 

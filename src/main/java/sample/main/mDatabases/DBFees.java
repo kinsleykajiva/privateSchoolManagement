@@ -3,9 +3,10 @@ package sample.main.mDatabases;
 import sample.main.mPojos.SchoolFees;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+
+import static sample.main.mUtility.mLocalMethods.rangeMaker;
+import static sample.main.mUtility.mLocalStrings.DB_FAILURE;
 
 public class DBFees {
     private DBManager db = null;
@@ -24,6 +25,59 @@ public class DBFees {
             e.printStackTrace();
         }
         creatTables();
+    }
+
+
+    public Map<String, String> getStudentFeesExpected (String gradeLevel) {
+        // All Students , Grade 1 , Grade 1-2
+        int ogGradeLevel = Integer.parseInt(gradeLevel);
+        List<String> grads__ = new DBSettings().getGradeLevelClass(true);
+        final int[] ranges = rangeMaker(gradeLevel, grads__);
+        gradeLevel = "Grade " + gradeLevel;
+        Map<String, String> data = new HashMap<>();
+        final String sqlAll = "SELECT " + COL_AMOUNT + " ," + COL_WHO_PAYS + " ,  SUM(" + COL_AMOUNT + ") FROM " + TABLE
+                + " WHERE " + COL_WHO_PAYS + " = ?";
+        final String sqlGrade = "SELECT * FROM " + TABLE + " ";
+        final String Col_sum_response = "sum(" + COL_AMOUNT + ")";
+        double feeAdder = 0.0;
+        try (PreparedStatement pstmtAll = conn.prepareStatement(sqlAll)) {
+
+            pstmtAll.setString(1, "All Students");
+            ResultSet rs = pstmtAll.executeQuery();
+            if (rs.next()) {
+                feeAdder += Double.parseDouble(rs.getString(Col_sum_response));
+            }
+            ResultSet rs2 = conn.prepareStatement(sqlGrade).executeQuery();
+            while (rs2.next()) {
+                String whopays__ = rs2.getString(COL_WHO_PAYS);
+                int[] r = rangeMaker(whopays__, grads__);
+
+
+                System.out.println("xxxxxxx:  "+r[0] + r[1]);
+                if(r[0] == ogGradeLevel && r[1] == ogGradeLevel){
+                    feeAdder += Double.parseDouble(rs2.getString(COL_AMOUNT));
+                }
+                if(r[0]> ogGradeLevel && ogGradeLevel<=r[1]){
+                     System.out.println("add" + rs2.getString(COL_AMOUNT));
+                    feeAdder += Double.parseDouble(rs2.getString(COL_AMOUNT));
+                }
+                //System.out.println(ranges[0] != ranges[1] ? "Grade " + ranges[0] + "-" + ranges[1] : "Grade " + ranges[0]);
+                if (whopays__.equals(ranges[0] != ranges[1] ? "Grade " + ranges[0] + "-" + ranges[1] : "Grade " + ranges[0])) {
+
+                    feeAdder += Double.parseDouble(rs2.getString(COL_AMOUNT));
+
+                }
+            }
+            System.out.println(feeAdder + "::::");
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return data;
+
     }
 
     public List<SchoolFees> getFeesLists () {
@@ -61,7 +115,7 @@ public class DBFees {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            response = "dbFailure";
+            response = DB_FAILURE;
         }
         return response;
     }
@@ -92,7 +146,7 @@ public class DBFees {
             response = stm.executeUpdate() == 1 ? "success" : "failed";
         } catch (SQLException e) {
             e.printStackTrace();
-            response = "dbFailure";
+            response = DB_FAILURE;
         }
         return response;
     }
@@ -102,8 +156,8 @@ public class DBFees {
         final String check = "SELECT " + COL_NAME + " FROM  " + TABLE + " WHERE " + COL_NAME + " = ? ";
 
         boolean recordAdded = false;
-        try  {
-            PreparedStatement pstmt  = conn.prepareStatement(check);
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(check);
             pstmt.setString(1, fees.getFeeName());
             ResultSet rs = pstmt.executeQuery();
             if (! rs.next()) {
@@ -130,21 +184,20 @@ public class DBFees {
                     stm.setString(8, fees.getFeesDatePeriod());
                     stm.setString(9, fees.getFeesPeriodName());
 
-                    recordAdded =  stm.executeUpdate()==1;
-                    response = recordAdded ? "success" :"failed";
-
+                    recordAdded = stm.executeUpdate() == 1;
+                    response = recordAdded ? "success" : "failed";
 
 
                 } catch (SQLException e) {
                     e.printStackTrace();
-                    response = "dbFail";
+                    response = DB_FAILURE;
                 }
 
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
-            response = "dbFail";
+            response = DB_FAILURE;
         }
 
         return response;

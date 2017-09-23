@@ -49,14 +49,31 @@
                                     </TextField>
                                  </children>
                               </HBox>
-                              <HBox prefHeight="46.0" prefWidth="311.0">
+                              <JFXButton fx:id="btnFindStudent" buttonType="RAISED" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: #DD4B39;" text="Find Student" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Medium" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="55.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <Label text="Grade Level XXX">
+                                 <HBox.margin>
+                                    <Insets left="30.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="46.0" prefWidth="695.0">
+                           <children>
+                              <HBox prefHeight="71.0" prefWidth="690.0">
                                  <children>
-                                    <Label prefHeight="17.0" prefWidth="85.0" text="Amount:">
+                                    <Label prefHeight="17.0" prefWidth="154.0" text="Amount:">
                                        <HBox.margin>
                                           <Insets top="7.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <TextField fx:id="txtfeeAmoount" prefHeight="30.0" prefWidth="202.0" promptText="00.00">
+                                    <TextField fx:id="txtfeeAmoount" prefHeight="30.0" prefWidth="181.0" promptText="00.00">
                                        <HBox.margin>
                                           <Insets left="10.0" />
                                        </HBox.margin>
@@ -68,6 +85,30 @@
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="56.0" prefHeight="46.0" prefWidth="562.0">
+                           <children>
+                              <HBox prefHeight="37.0" prefWidth="562.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="174.0" text="Payment Method">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <ComboBox fx:id="txtpaymentMethod" prefHeight="27.0" prefWidth="189.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="37.0" prefWidth="562.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="100.0" text="Period/Terms">
+                                       <HBox.margin>
+                                          <Insets left="4.0" top="7.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <ComboBox fx:id="txtfeesPeriodName" prefHeight="27.0" prefWidth="204.0" />
+                                 </children>
                               </HBox>
                            </children>
                         </HBox>
@@ -91,30 +132,6 @@
                                        </HBox.margin>
                                     </Label>
                                     <TextField prefHeight="30.0" prefWidth="204.0" promptText="Account Number" />
-                                 </children>
-                              </HBox>
-                           </children>
-                        </HBox>
-                        <HBox layoutX="10.0" layoutY="56.0" prefHeight="46.0" prefWidth="562.0">
-                           <children>
-                              <HBox prefHeight="37.0" prefWidth="562.0">
-                                 <children>
-                                    <Label prefHeight="17.0" prefWidth="174.0" text="Payment Method">
-                                       <HBox.margin>
-                                          <Insets top="7.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <ComboBox fx:id="txtfeesDatePeriod" prefHeight="27.0" prefWidth="189.0" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="37.0" prefWidth="562.0">
-                                 <children>
-                                    <Label prefHeight="17.0" prefWidth="100.0" text="Period/Terms">
-                                       <HBox.margin>
-                                          <Insets left="4.0" top="7.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <ComboBox fx:id="txtfeesPeriodName" prefHeight="27.0" prefWidth="204.0" />
                                  </children>
                               </HBox>
                            </children>
@@ -161,7 +178,7 @@
                                     <Insets bottom="10.0" left="90.0" right="10.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button fx:id="btnSaveChanges" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" styleClass="btn" text="Save Details">
+                              <Button fx:id="btnSaveChanges" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" styleClass="btn" text="Pay">
                                  <graphic>
                                     <FontAwesomeIconView fill="WHITE" glyphName="SAVE" size="13.0" wrappingWidth="13.142857551574707" />
                                  </graphic>

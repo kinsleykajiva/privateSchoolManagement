@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -28,7 +29,7 @@ public class StageManager {
             Parent  parent = FXMLLoader.load(getClass().getResource(viewController.getFxmlFile()));
             stage.setTitle(getApplicationName());
             stage.centerOnScreen();
-            //initStyle(StageStyle.TRANSPARENT);
+            stage.initStyle(StageStyle.TRANSPARENT);
             Image img = new Image(getClass().getResource("/drawables/icon.png").toURI().toString());
             stage.getIcons().add(img);
             stage.setScene(new Scene(parent, APPLICATION_MINIMUM_WIDTH, APPLICATION_MINIMUM_HIGHT));

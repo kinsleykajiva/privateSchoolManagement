@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
@@ -20,10 +21,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static sample.main.mUtility.mLocalStrings.getApplicationName;
 import static sample.main.mframeWork.StageManager.getStage;
 
 public class DefaultController implements Initializable {
 
+    @FXML
+    private Label mainLabel;
     @FXML
     private Button ButtonMinimize1;
     @FXML private Button ButtonClose1;
@@ -71,6 +75,7 @@ public class DefaultController implements Initializable {
             Platform.exit();
             System.exit(0);
         });
+        mainLabel.setText(getApplicationName());
 
         ButtonLogout.setOnMouseEntered(e->getStage().getScene().setCursor(Cursor.HAND));
         ButtonLogout.setOnMouseExited(e->getStage().getScene().setCursor(Cursor.DEFAULT));
