@@ -1,13 +1,8 @@
 package sample.main.mPojos;
 
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.StringProperty;
-
 import javax.persistence.*;
 
-import static sample.main.mUtility.mLocalMethods.getCurrentTime;
-import static sample.main.mUtility.mLocalMethods.localIDMaker;
 import static sample.main.mUtility.mLocalMethods.registrationDate;
 
 /**
@@ -27,6 +22,8 @@ public abstract class Student {
     private String __town_city ;
     private String __country ;
     private String __sex;
+    private String __classGrade_level;
+    private String __class_name;
 
     public String get__feesPaid () {
         return __feesPaid;
@@ -44,7 +41,21 @@ public abstract class Student {
     /**Accounting Account number that this student has been assigned by the school accounting system<br>This value is <b>unique</b>*/
     private String AccountNumber ;
     private String __registrationDate ;
+    public String get__classGrade_level () {
+        return __classGrade_level;
+    }
 
+    public String get__class_name () {
+        return __class_name;
+    }
+
+    public void set__classGrade_level (String __classGrade_level) {
+        this.__classGrade_level = __classGrade_level;
+    }
+
+    public void set__class_name (String __class_name) {
+        this.__class_name = __class_name;
+    }
     public boolean isSelected () {
         return selected;
     }

@@ -46,6 +46,7 @@ public class Controller_fees /*implements Initializable*/ {
         initResorces();
         initClickListeners();
 
+
     }
 
     private void initResorces () {

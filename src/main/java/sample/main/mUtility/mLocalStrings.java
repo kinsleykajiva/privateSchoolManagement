@@ -27,6 +27,7 @@ public class mLocalStrings {
 
     public static final  String SETUP_ERROR = "SetUp Error";
     public static final  String DB_FAILURE = "dbFail";
+
     public static final  String DATABASE_ACTION = "Database Action Confirmation";
     public static final  String DATABASE_ACTION_FAILED = "Database Action Failed";
     public static final String SETTINGS_SETUP = "It Seems like you had not configured the system Correctly !";
@@ -47,7 +48,7 @@ public class mLocalStrings {
     };
     public static final String [] TERMS = {"Term 1","Term 2","Term 3","Term 4","Term 5"};
     public static final String [] FEES_PERIOD= {"6 months","1 year","1.5 years","2 years","2.5 years","3 years","3.5 years","4 years","4.5 years","6 years","6.5 years"};
-
+    public static final String []  PAYMENT_METHOD ={"Bank","Cash","Mobile"};
 
 
 }

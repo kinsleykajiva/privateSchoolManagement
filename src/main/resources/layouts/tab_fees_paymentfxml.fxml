@@ -57,9 +57,9 @@
                                     <Insets left="55.0" />
                                  </HBox.margin>
                               </JFXButton>
-                              <Label text="Grade Level XXX">
+                              <Label fx:id="lblFoundStatus" prefHeight="34.0" prefWidth="159.0">
                                  <HBox.margin>
-                                    <Insets left="30.0" top="5.0" />
+                                    <Insets left="30.0" />
                                  </HBox.margin>
                               </Label>
                            </children>
@@ -81,6 +81,19 @@
                                           <Font size="14.0" />
                                        </font>
                                     </TextField>
+                                    <Label layoutX="10.0" layoutY="17.0" prefHeight="17.0" prefWidth="56.0" text="Balance:">
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label id="lblBalance" layoutX="360.0" layoutY="10.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="22.0" prefWidth="277.0">
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
                                  </children>
                                  <HBox.margin>
                                     <Insets left="5.0" />

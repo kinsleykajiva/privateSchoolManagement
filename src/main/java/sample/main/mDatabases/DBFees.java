@@ -37,7 +37,7 @@ public class DBFees {
         Map<String, String> data = new HashMap<>();
         final String sqlAll = "SELECT " + COL_AMOUNT + " ," + COL_WHO_PAYS + " ,  SUM(" + COL_AMOUNT + ") FROM " + TABLE
                 + " WHERE " + COL_WHO_PAYS + " = ?";
-        final String sqlGrade = "SELECT * FROM " + TABLE + " ";
+
         final String Col_sum_response = "sum(" + COL_AMOUNT + ")";
         double feeAdder = 0.0;
         try (PreparedStatement pstmtAll = conn.prepareStatement(sqlAll)) {
@@ -46,29 +46,40 @@ public class DBFees {
             ResultSet rs = pstmtAll.executeQuery();
             if (rs.next()) {
                 feeAdder += Double.parseDouble(rs.getString(Col_sum_response));
+               // System.out.println(" 1 xxxxxxx: "+feeAdder);
+
             }
-            ResultSet rs2 = conn.prepareStatement(sqlGrade).executeQuery();
-            while (rs2.next()) {
+            rs.close();
+            final String sqlGrade = "SELECT * FROM " + TABLE + " WHERE "+COL_WHO_PAYS  +"!= ?";
+            PreparedStatement pstmtgrade = conn.prepareStatement(sqlGrade);
+
+            pstmtgrade.setString(1, "All Students");
+            ResultSet rs2 = pstmtgrade.executeQuery();
+            while (rs2.next() ) {
                 String whopays__ = rs2.getString(COL_WHO_PAYS);
+
                 int[] r = rangeMaker(whopays__, grads__);
+                //System.out.println("  xxxxxxx: "+ r[0] +"    "+  r[1]);
 
 
-                System.out.println("xxxxxxx:  "+r[0] + r[1]);
-                if(r[0] == ogGradeLevel && r[1] == ogGradeLevel){
+ //  grdae 1 N1795090855   total  711.2
+                //grade 4 F1795090855 // tatal 1731.89
+                // all stdents 687.22
+
+                //System.out.println(" kk : "+ r[0]);
+                if(ogGradeLevel >= r[0] && ogGradeLevel <=r[1]){
+
+                    //System.out.println("3  :oggrade "+ogGradeLevel +" >= min :" +r[0] + " AND "+ogGradeLevel+" <=max  "+r[1] );
+
                     feeAdder += Double.parseDouble(rs2.getString(COL_AMOUNT));
-                }
-                if(r[0]> ogGradeLevel && ogGradeLevel<=r[1]){
-                     System.out.println("add" + rs2.getString(COL_AMOUNT));
-                    feeAdder += Double.parseDouble(rs2.getString(COL_AMOUNT));
-                }
-                //System.out.println(ranges[0] != ranges[1] ? "Grade " + ranges[0] + "-" + ranges[1] : "Grade " + ranges[0]);
-                if (whopays__.equals(ranges[0] != ranges[1] ? "Grade " + ranges[0] + "-" + ranges[1] : "Grade " + ranges[0])) {
-
-                    feeAdder += Double.parseDouble(rs2.getString(COL_AMOUNT));
 
                 }
+
             }
-            System.out.println(feeAdder + "::::");
+
+            data.put("balance",feeAdder+"");
+            data.put("grade",ogGradeLevel+"");
+
 
 
         } catch (SQLException e) {

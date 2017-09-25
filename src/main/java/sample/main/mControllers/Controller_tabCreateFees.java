@@ -135,6 +135,7 @@ public class Controller_tabCreateFees implements TabContent {
                         }
                     });
                     task.setOnFailed(evc->{
+                        errorSimpleOKDialg("Access Error","Something went wrong!\nTry again (Later)");
                         mainSceenHolder.setDisable(false);
                         ImageLoading.setVisible(false);
                     });

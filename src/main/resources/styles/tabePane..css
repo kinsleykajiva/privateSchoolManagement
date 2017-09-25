@@ -22,6 +22,7 @@
 .tab-pane .tab
 {
     -fx-background-color: white;
+    /*-fx-background-image:url('../drawables/icon_big.png');*/
 }
 
 .tab-pane .tab:selected

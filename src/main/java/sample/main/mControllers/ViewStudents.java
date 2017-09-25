@@ -119,6 +119,7 @@ public class ViewStudents implements Initializable, LoadInterface {
     private ImageView ImageLoading;
     private ObservableList<Student> students_list;
     private boolean isUsingSearch = false;
+    private boolean isGradeLevelStill_in_use=false;
 
 
     @Override
@@ -183,6 +184,44 @@ public class ViewStudents implements Initializable, LoadInterface {
 
 
         });
+        gradelevel.valueProperty().addListener((observable, oldValue, newValue) -> {
+            final String txtSearch = txtSearchOthers.getText().trim().toLowerCase();
+
+           if(!gradelevel.getValue().equals("Select")){
+               ImageLoading.setVisible(true);
+               FilteredList<Student> filter = new FilteredList<>(students_list, e -> true);
+               filter.setPredicate((Predicate<? super Student>) std -> {
+                   if (newValue == null || newValue.isEmpty()) {
+                       return true;
+                   }
+                   if (students_list.isEmpty()) {
+                       return true;
+                   }
+                   String i = txtSearch;
+
+                   if (std.get__name().toLowerCase().contains(i) && std.get__classGrade_level().equals(newValue)) {
+                       return true;
+                   } else if (std.get__registrationNumber().toLowerCase().contains(i)&& std.get__classGrade_level().equals(newValue)) {
+                       return true;
+                   } else if (std.get__town_city().toLowerCase().contains(i)&& std.get__classGrade_level().equals(newValue)) {
+                       return true;
+                   }
+
+                   return false;
+
+
+               });
+               SortedList<Student> sortedList = new SortedList<Student>(filter);
+               sortedList.comparatorProperty().bind(stdDataTable.comparatorProperty());
+               stdDataTable.setItems(sortedList);
+               ImageLoading.setVisible(false);
+               isGradeLevelStill_in_use =true;
+           }else{
+                isGradeLevelStill_in_use  = false;
+            }
+
+        });
+
     }
 
     private void initResources () {
@@ -206,7 +245,7 @@ public class ViewStudents implements Initializable, LoadInterface {
     private void searchForRecord () {
         FilteredList<Student> filter = new FilteredList<>(students_list, e -> true);
         txtSearchOthers.setOnKeyReleased((observ) -> {
-            System.out.print("999");
+            ImageLoading.setVisible(true);
             txtSearchOthers.textProperty().addListener((observable, oldValue, newValue) -> {
                 filter.setPredicate((Predicate<? super Student>) std -> {
                     if (newValue == null || newValue.isEmpty()) {
@@ -216,22 +255,38 @@ public class ViewStudents implements Initializable, LoadInterface {
                         return true;
                     }
                     String i = newValue.toLowerCase();
-
-                        if (std.get__name().toLowerCase().contains(i)) {
-                            return true;
-                        } else if (std.get__registrationNumber().toLowerCase().contains(i)) {
-
-                            return true;
-                        }
+                            if(isGradeLevelStill_in_use){
+                                if (std.get__name().toLowerCase().contains(i) ) {
+                                    return true;
+                                } else if (std.get__registrationNumber().toLowerCase().contains(i) && std.get__classGrade_level().equals(gradelevel.getValue())) {
+                                    return true;
+                                } else if (std.get__town_city().toLowerCase().contains(i)&& std.get__classGrade_level().equals(gradelevel.getValue())) {
+                                    return true;
+                                }else if (std.get__surname().toLowerCase().contains(i)&& std.get__classGrade_level().equals(gradelevel.getValue())) {
+                                    return true;
+                                }
+                            }else {
+                                if (std.get__name().toLowerCase().contains(i)) {
+                                    return true;
+                                } else if (std.get__registrationNumber().toLowerCase().contains(i)) {
+                                    return true;
+                                } else if (std.get__town_city().toLowerCase().contains(i)) {
+                                    return true;
+                                }else if (std.get__surname().toLowerCase().contains(i)) {
+                                    return true;
+                                }
+                            }
 
                     return false;
 
 
                 });
             });
+
             SortedList<Student> sortedList = new SortedList<Student>(filter);
             sortedList.comparatorProperty().bind(stdDataTable.comparatorProperty());
             stdDataTable.setItems(sortedList);
+            ImageLoading.setVisible(false);
         });
     }
 
@@ -288,6 +343,8 @@ public class ViewStudents implements Initializable, LoadInterface {
         } else {
             if (Shared.hasJustDeletedRecord) {
                 students_list = FXCollections.observableArrayList(primaryLevelStudentsCache);
+
+
                 stdDataTable.setItems(students_list);
                 ImageLoading.setVisible(false);
                 Shared.hasJustDeletedRecord = false;

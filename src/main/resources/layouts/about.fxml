@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="749.0" prefWidth="1298.0" style="-fx-background-color: white;" stylesheets="@../styles/menu.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.main.mControllers.ControllerAbout">
+    <children>
+        <Separator layoutY="73.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="8.0" prefWidth="1298.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+        <Text fill="#2b579a" layoutX="14.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About Application">
+            <font>
+                <Font name="Segoe UI Semilight" size="40.0" />
+            </font>
+        </Text>
+        <ImageView fx:id="ImageLoading" fitHeight="33.0" fitWidth="40.0" layoutX="370.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <image>
+                <Image url="@../../../../../../Documents/gitFx/ProjectManagement-master/AsignariProiecte/src/main/resources/img/menu/loading.GIF" />
+            </image>
+        </ImageView>
+        <ProgressBar fx:id="ProgressLoading" layoutY="73.0" prefHeight="3.0" prefWidth="1298.0" progress="0.0" />
+      <ScrollPane layoutX="20.0" layoutY="69.0" prefHeight="610.0" prefWidth="1186.0" style="-fx-background-color: #ffffff;">
+         <content>
+            <VBox prefHeight="595.0" prefWidth="1176.0" style="-fx-background-color: #ffffff;">
+               <children>
+                  <Label minHeight="-Infinity" prefHeight="90.0" prefWidth="1224.0" text="Private School Management is a desktop application designed to assist schools to better control their resourses and student information. This system can be used in both Primary schools and Secondary schools." wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Features  this edition has :" underline="true">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="40.0" top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="50.0" layoutY="20.0" text="Save Student Information">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="90.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label layoutX="100.0" layoutY="57.0" text="View Student Information">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="90.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label layoutX="100.0" layoutY="84.0" text="Edit Student Information">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="90.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label layoutX="100.0" layoutY="111.0" text="Create Fees Structures">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="90.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label layoutX="100.0" layoutY="138.0" text="Edit Fees Structures">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="90.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label layoutX="100.0" layoutY="165.0" text="Save Student Fees Payments">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="90.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label layoutX="100.0" layoutY="192.0" text="Check For Version Updates">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="90.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="40.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <Separator prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Label prefHeight="34.0" prefWidth="1262.0" text="Developed By ZimCybers ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink fx:id="linkSite" text="http://www.zimcybers.co.zw">
+                     <VBox.margin>
+                        <Insets bottom="15.0" top="15.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Hyperlink>
+                  <Label prefHeight="34.0" prefWidth="1262.0" text="Main developer : Kajiva Kinsley ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="34.0" prefWidth="1262.0" text="Contact details : kajivakinsley@gmail.com , +263 737 531 075">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="10.0" prefHeight="68.0" prefWidth="1224.0" text="Developed since 2017 - September" wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="10.0" layoutY="293.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <JFXButton fx:id="btnbuy" buttonType="RAISED" prefHeight="30.0" prefWidth="286.0" style="-fx-background-color: #00C0EF;" text="Buy Full Version with more Features" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnDonate" buttonType="RAISED" prefHeight="30.0" prefWidth="109.0" style="-fx-background-color: #00A65A;" text="Donate" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="14.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="MONEY" size="18.0" />
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="35.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnUpdateCheck" buttonType="RAISED" prefHeight="30.0" prefWidth="149.0" style="-fx-background-color: #F39C12;" text="Check for Updates" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="15.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+    </children>
+</AnchorPane>

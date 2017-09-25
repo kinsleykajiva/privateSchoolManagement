@@ -148,6 +148,13 @@
     </profiles>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.ini4j/ini4j -->
+        <dependency>
+            <groupId>org.ini4j</groupId>
+            <artifactId>ini4j</artifactId>
+            <version>0.5.4</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.mindrot/jbcrypt -->
         <dependency>
             <groupId>org.mindrot</groupId>
@@ -168,11 +175,11 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.jrebirth.af/sample -->
-        <dependency>
-            <groupId>org.jrebirth.af</groupId>
-            <artifactId>sample</artifactId>
-            <version>8.5.0</version>
-        </dependency>
+       <!--  <dependency>
+           <groupId>org.jrebirth.af</groupId>
+           <artifactId>sample</artifactId>
+           <version>8.5.0</version>
+       </dependency> -->
 
 
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-csv -->
@@ -262,11 +269,11 @@
 
 
         <!-- https://mvnrepository.com/artifact/com.netopyr.reduxfx/reduxfx-fontawesomefx -->
-        <dependency>
-            <groupId>com.netopyr.reduxfx</groupId>
-            <artifactId>reduxfx-fontawesomefx</artifactId>
-            <version>0.4.1</version>
-        </dependency>
+       <!--  <dependency>
+           <groupId>com.netopyr.reduxfx</groupId>
+           <artifactId>reduxfx-fontawesomefx</artifactId>
+           <version>0.4.1</version>
+       </dependency> -->
 
         <!-- https://mvnrepository.com/artifact/net.sf.proguard/proguard -->
         <dependency>

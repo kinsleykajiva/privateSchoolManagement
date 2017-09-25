@@ -11,33 +11,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.ini4j:ini4j:0.5.4" level="project" />
     <orderEntry type="library" name="Maven: org.mindrot:jbcrypt:0.4" level="project" />
     <orderEntry type="library" name="Maven: org.controlsfx:controlsfx:8.40.13" level="project" />
     <orderEntry type="library" name="Maven: org.jfxtras:jfxtras-common:8.0-r5" level="project" />
-    <orderEntry type="library" name="Maven: org.jrebirth.af:sample:8.5.0" level="project" />
-    <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.0.13" level="project" />
-    <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.0.13" level="project" />
-    <orderEntry type="library" name="Maven: org.jrebirth.af:core:8.5.0" level="project" />
-    <orderEntry type="library" name="Maven: org.jrebirth.af:api:8.5.0" level="project" />
-    <orderEntry type="module-library">
-      <library name="Maven: javax.jnlp:jnlp-api:8.0">
-        <CLASSES>
-          <root url="jar://C:/Program Files/Java/jdk1.8.0_144/jre/lib/javaws.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Maven: javax.jnlp:deploy:8.0">
-        <CLASSES>
-          <root url="jar://C:/Program Files/Java/jdk1.8.0_144/jre/lib/deploy.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="library" name="Maven: org.jrebirth.af:preloader:8.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-csv:1.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-math3:3.6.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.14" level="project" />
@@ -67,22 +44,6 @@
     <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" level="project" />
     <orderEntry type="library" name="Maven: de.jensd:fontawesomefx:8.9" level="project" />
     <orderEntry type="library" name="Maven: net.sf.jasperreports:jasperreports-fonts:6.0.0" level="project" />
-    <orderEntry type="library" name="Maven: com.netopyr.reduxfx:reduxfx-fontawesomefx:0.4.1" level="project" />
-    <orderEntry type="library" name="Maven: com.netopyr.reduxfx:reduxfx-view:0.4.1" level="project" />
-    <orderEntry type="library" name="Maven: io.vavr:vavr:0.9.0" level="project" />
-    <orderEntry type="library" name="Maven: io.vavr:vavr-match:0.9.0" level="project" />
-    <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.0" level="project" />
-    <orderEntry type="library" name="Maven: io.reactivex.rxjava2:rxjava:2.1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.github.ben-manes.caffeine:caffeine:2.5.3" level="project" />
-    <orderEntry type="library" name="Maven: de.jensd:fontawesomefx-commons:8.15" level="project" />
-    <orderEntry type="library" name="Maven: de.jensd:fontawesomefx-emojione:2.2.7-2" level="project" />
-    <orderEntry type="library" name="Maven: de.jensd:fontawesomefx-fontawesome:4.7.0-5" level="project" />
-    <orderEntry type="library" name="Maven: de.jensd:fontawesomefx-icons525:3.0.0-4" level="project" />
-    <orderEntry type="library" name="Maven: de.jensd:fontawesomefx-materialdesignfont:1.7.22-4" level="project" />
-    <orderEntry type="library" name="Maven: de.jensd:fontawesomefx-materialicons:2.2.0-5" level="project" />
-    <orderEntry type="library" name="Maven: de.jensd:fontawesomefx-materialstackicons:2.1-5" level="project" />
-    <orderEntry type="library" name="Maven: de.jensd:fontawesomefx-octicons:4.3.0-5" level="project" />
-    <orderEntry type="library" name="Maven: de.jensd:fontawesomefx-weathericons:2.0.10-5" level="project" />
     <orderEntry type="library" name="Maven: net.sf.proguard:proguard:4.4" level="project" />
     <orderEntry type="library" name="Maven: org.xerial:sqlite-jdbc:3.20.0" level="project" />
     <orderEntry type="library" name="Maven: com.squareup.okio:okio:1.13.0" level="project" />

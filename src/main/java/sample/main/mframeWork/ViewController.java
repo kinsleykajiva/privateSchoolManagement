@@ -37,7 +37,6 @@ public enum ViewController {
             return LAY_OUT + "add_student.fxml";
         }
     },
-
     FEES_VIEW{
         @Override
         public String getTitle () {
@@ -112,6 +111,26 @@ public enum ViewController {
         @Override
         public String getFxmlFile () {
             return LAY_OUT + "editStudent.fxml";
+        }
+    },SETTINGS{
+        @Override
+        public String getTitle () {
+            return "Settings";
+        }
+
+        @Override
+        public String getFxmlFile () {
+            return LAY_OUT + "settings.fxml";
+        }
+    },ABOUT{
+        @Override
+        public String getTitle () {
+            return "About";
+        }
+
+        @Override
+        public String getFxmlFile () {
+            return LAY_OUT + "about.fxml";
         }
     };
 

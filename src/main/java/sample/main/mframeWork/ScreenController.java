@@ -38,6 +38,16 @@ public class ScreenController {
                     StageManager.setPaneFragment(FXMLLoader.load(ScreenController.class.getResource(ViewController.EDIT_STUDENTS.getFxmlFile())));
                     viewController = screen;
                 } catch (IOException e) {e.printStackTrace();} break;
+            case ABOUT:
+                try {
+                    StageManager.setPaneFragment(FXMLLoader.load(ScreenController.class.getResource(ViewController.ABOUT.getFxmlFile())));
+                    viewController = screen;
+                } catch (IOException e) {e.printStackTrace();} break;
+            case SETTINGS:
+                try {
+                    StageManager.setPaneFragment(FXMLLoader.load(ScreenController.class.getResource(ViewController.SETTINGS.getFxmlFile())));
+                    viewController = screen;
+                } catch (IOException e) {e.printStackTrace();} break;
             case FEES_VIEW:
                 try {
                     StageManager.setPaneFragment(FXMLLoader.load(ScreenController.class.getResource(ViewController.FEES_VIEW.getFxmlFile())));

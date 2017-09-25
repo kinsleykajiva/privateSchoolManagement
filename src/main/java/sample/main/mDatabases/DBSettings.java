@@ -110,11 +110,11 @@ public final class DBSettings {
             if (resultSet.next() ) {
                 String y_= resultSet.getString(COL_SETTINGS_SETING);
                 o=  new ArrayList<>(Arrays.asList(y_.split(DELIMITOR)));
-                Collections.sort(o, (s1, s2) -> {
+                /*Collections.sort(o, (s1, s2) -> {
                     Integer val1 = Integer.parseInt(s1);
                     Integer val2 = Integer.parseInt(s2);
                     return val1.compareTo(val2);
-                });
+                });*/
             }
         } catch (SQLException e) {
             e.printStackTrace();

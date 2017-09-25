@@ -45,6 +45,11 @@ public class DefaultController implements Initializable {
     @Override
     public void initialize (URL location, ResourceBundle resources) {
         initialize();
+        final int shadowSize = 50;
+        PaneFragment.setStyle(
+                "-fx-background-color: rgba(255, 255, 255, 0.5);" +
+                        "-fx-background-insets: " + shadowSize + ";"
+        );
     }
     public void initialize() {
         StageManager.setPane(PaneFragment);
@@ -106,13 +111,13 @@ public class DefaultController implements Initializable {
         width=0.1;
         height=0.1;
 
-        ListMenu.getItems().addAll("Add Student","View Students","Fees","About");
+        ListMenu.getItems().addAll("Home","Add Student","View Students","Fees","Settings","About");
         ListMenu.setOnMouseEntered(e->getStage().getScene().setCursor(Cursor.HAND));
         ListMenu.setOnMouseExited(e->getStage().getScene().setCursor(Cursor.DEFAULT));
 
         ButtonMaximize1.getStyleClass().add("decoration-button-restore");
         ButtonResize.setVisible(false);
-        ListMenu.getSelectionModel().select(0);
+        ListMenu.getSelectionModel().select(1);
         ListMenu.requestFocus();
         try {
             modeListMenu(null);
@@ -125,25 +130,28 @@ public class DefaultController implements Initializable {
     public void modeListMenu(MouseEvent event) throws IOException {
         switch(ListMenu.getSelectionModel().getSelectedIndex()){
             case 0:
-                ScreenController.setScreen(ViewController.FEES_VIEW);
+                ScreenController.setScreen(ViewController.DEFAULT_VIEW);
                 break;
             case 1:
-                ScreenController.setScreen(ViewController.VIEW_STUDENTS);
-                break;
-            case 2:
                 ScreenController.setScreen(ViewController.ADD_STUDENT);
                 break;
-           /* case 2:
-                ScreenController.setScreen(ScreenController.Screen.TEAM_PROJECTS);
+            case 2:
+                ScreenController.setScreen(ViewController.VIEW_STUDENTS);
                 break;
             case 3:
-                ScreenController.setScreen(ScreenController.Screen.ADMINISTRATION);
+                ScreenController.setScreen(ViewController.FEES_VIEW);
                 break;
+
             case 4:
-                ScreenController.setScreen(ScreenController.Screen.ABOUT);
-                break;*/
-            default:
+                ScreenController.setScreen(ViewController.SETTINGS);
                 break;
+            case 5:
+                ScreenController.setScreen(ViewController.ABOUT);
+                break;
+            case 6:
+                ScreenController.setScreen(ViewController.FEES_VIEW);
+                break;
+            default: break;
         }
     }
     @FXML

@@ -42,6 +42,7 @@ public class StageManager {
         }
 
     }
+
     public static void setRoot(Parent root) {StageManager.stage.getScene().setRoot(root);}
     public static void setPane(AnchorPane pane) {StageManager.pane=pane;}
     public static void setPaneFragment(Parent root) {

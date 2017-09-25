@@ -28,8 +28,7 @@ import static sample.main.mframeWork.StageManager.getStage;
 public final class PrimaryLevelStudent extends Student{
 
 
-    private String __classGrade_level;
-    private String __class_name;
+
     private LoadInterface loadInterface;
 
     /**Student registration process*/
@@ -47,10 +46,8 @@ public final class PrimaryLevelStudent extends Student{
        set__country(country);
        set__sex(sex);
        setAccountNumber(AccountNumber);
-    //    loadInterface
-
-       __classGrade_level = grade_level;
-       __class_name = className;
+       set__classGrade_level(grade_level);
+       set__class_name(className);
 
     }
 
@@ -117,19 +114,5 @@ public final class PrimaryLevelStudent extends Student{
         return action;
     }
 
-    public String get__classGrade_level () {
-        return __classGrade_level;
-    }
 
-    public String get__class_name () {
-        return __class_name;
-    }
-
-    public void set__classGrade_level (String __classGrade_level) {
-        this.__classGrade_level = __classGrade_level;
-    }
-
-    public void set__class_name (String __class_name) {
-        this.__class_name = __class_name;
-    }
 }
